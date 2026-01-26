@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_01_26_154606) do
+ActiveRecord::Schema[7.1].define(version: 2026_01_26_170000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,32 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_26_154606) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comparison_products", force: :cascade do |t|
+    t.string "clothing_tim"
+    t.string "clothing_material"
+    t.string "clothing_colour"
+    t.string "clothing_size"
+    t.string "clothing_brand"
+    t.float "clothing_price"
+    t.string "external_link"
+    t.text "product_description"
+    t.string "item_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "brand_id", null: false
+    t.index ["brand_id"], name: "index_comparison_products_on_brand_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.bigint "search_id", null: false
+    t.bigint "comparison_product_id", null: false
+    t.text "similarities", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comparison_product_id"], name: "index_matches_on_comparison_product_id"
+    t.index ["search_id"], name: "index_matches_on_search_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -44,21 +70,6 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_26_154606) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
-  
-  add_foreign_key "searches", "users"
-  
-   create_table "comparison_products", force: :cascade do |t|
-    t.string "clothing_item"
-    t.string "external_link"
-    t.text "product_description"
-    t.string "item_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "brand_id", null: false
-    t.index ["brand_id"], name: "index_comparison_products_on_brand_id"
-   end
-  
-  add_foreign_key "comparison_products", "brands"
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -71,4 +82,23 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_26_154606) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  create_table "wishlist_items", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "match_id", null: false
+    t.bigint "comparison_product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comparison_product_id"], name: "index_wishlist_items_on_comparison_product_id"
+    t.index ["match_id"], name: "index_wishlist_items_on_match_id"
+    t.index ["user_id"], name: "index_wishlist_items_on_user_id"
+  end
+
+  add_foreign_key "comparison_products", "brands"
+  add_foreign_key "matches", "comparison_products"
+  add_foreign_key "matches", "searches"
+  add_foreign_key "searches", "users"
+  add_foreign_key "wishlist_items", "comparison_products"
+  add_foreign_key "wishlist_items", "matches"
+  add_foreign_key "wishlist_items", "users"
 end

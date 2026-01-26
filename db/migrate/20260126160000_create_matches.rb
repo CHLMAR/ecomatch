@@ -8,7 +8,5 @@ class CreateMatches < ActiveRecord::Migration[7.1]
       t.timestamps null: false
     end
 
-    add_index :matches, :search_id
-    add_index :matches, :comparison_product_id
   end
 end
