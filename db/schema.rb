@@ -10,9 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_01_26_101640) do
+ActiveRecord::Schema[7.1].define(version: 2026_01_26_154606) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.float "planet_rating"
+    t.float "people_rating"
+    t.float "animals_rating"
+    t.float "overall_rating"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comparison_products", force: :cascade do |t|
+    t.string "clothing_tim"
+    t.string "clothing_material"
+    t.string "clothing_colour"
+    t.string "clothing_size"
+    t.string "clothing_brand"
+    t.float "clothing_price"
+    t.string "external_link"
+    t.text "product_description"
+    t.string "item_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "brand_id", null: false
+    t.index ["brand_id"], name: "index_comparison_products_on_brand_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +53,5 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_26_101640) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comparison_products", "brands"
 end
