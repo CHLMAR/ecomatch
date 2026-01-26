@@ -9,4 +9,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :searches, only: [:new, :create, :edit, :update, :show] do
+    resources :matches, only: [:index, :show] do
+      post 'save', to: 'wishlist_items#create', on: :member
+    end
+  end
+
+  resources :users, only: [:show, :edit, :update] do
+    resources :wishlist_items, only: [:index, :show, :destroy]
+  end
 end
