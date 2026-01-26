@@ -25,13 +25,30 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_26_154606) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "comparison_products", force: :cascade do |t|
-    t.string "clothing_tim"
+  create_table "searches", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "uploaded_image"
+    t.string "uploaded_link"
+    t.string "system_prompt"
+    t.string "clothing_item"
     t.string "clothing_material"
     t.string "clothing_colour"
     t.string "clothing_size"
     t.string "clothing_brand"
     t.float "clothing_price"
+    t.string "item_image"
+    t.string "item_name"
+    t.text "item_description"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_searches_on_user_id"
+  end
+  
+  add_foreign_key "searches", "users"
+  
+   create_table "comparison_products", force: :cascade do |t|
+    t.string "clothing_item"
     t.string "external_link"
     t.text "product_description"
     t.string "item_image"
@@ -39,7 +56,9 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_26_154606) do
     t.datetime "updated_at", null: false
     t.bigint "brand_id", null: false
     t.index ["brand_id"], name: "index_comparison_products_on_brand_id"
-  end
+   end
+  
+  add_foreign_key "comparison_products", "brands"
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,6 +71,4 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_26_154606) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_foreign_key "comparison_products", "brands"
 end
