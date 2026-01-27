@@ -1,0 +1,63 @@
+<h1>This is the product details page </h1>
+
+<div class="match-card-lg">
+  <% product = @match.comparison_product %>
+  <% brand = product.brand %>
+
+    <%= image_tag(
+          product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
+          alt: product.clothing_item,
+          class: "card-match-image-lg"
+        ) %>
+    <div class="product-info-lg">
+      <h3><%= product.clothing_item %></h3>
+      <p class="brand-name-lg"><%= brand.name %></p>
+
+      <div class="ratings-list">
+        <div class="rating-lg">
+          <p class="rating-score-lg"><%= brand.planet_rating %></p>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <div class="rating-lg">
+          <p class="rating-score-lg"><%= brand.people_rating %></p>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <div class="rating-lg">
+          <p class="rating-score-lg"><%= brand.animal_rating %></p>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+
+    <p class="product-description"><%= product.product_description %></p>
+    <p class="product-price-lg"><%= product.clothing_price %></p>
+    <%= link_to "View more", product.external_link, class: "btn-2", target: "_blank" %>
+  </div>
+</div>
+
+<div class="brand-info">
+  <h4><%= brand.name %></h4>
+  <p class="brand-description-full">
+    <%= brand.description %>
+  </p>
+</div>
+
+<div class="similar-products">
+  <h3>Similar Products</h3>
+  <div class="similar-products-list">
+
+    <% @matches.each do |match| %>
+      <% product = match.comparison_product %>
+      <% brand = product.brand %>
+
+      <div class="similar-product-item">
+        <%= render "shared/match_card",
+              search: @search,
+              match: match,
+              product: product,
+              brand: brand %>
+      </div>
+    <% end %>
+  </div>
+</div>
