@@ -8,7 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-user = User.last
+user = User.new(
+  email: "eco@match.com",
+  password: "test123",
+)
 
 user.save!
 puts "Created user: #{user.email} with password: #{user.password}"

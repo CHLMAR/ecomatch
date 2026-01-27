@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_27_111401) do
   end
 
   create_table "comparison_products", force: :cascade do |t|
-    t.string "clothing_tim"
+    t.string "clothing_item"
     t.string "clothing_material"
     t.string "clothing_colour"
     t.string "clothing_size"
