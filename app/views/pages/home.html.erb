@@ -1,4 +1,25 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-fluid w-50">
+  <%= simple_form_for Search.new, url: searches_path, html: { multipart: true, class: "mt-4" } do |f| %>
+    <div class="mb-3">
+      <%= f.input :uploaded_image, as: :file, label: "Upload an image",
+          input_html: { class: "form-control", accept: "image/*" } %>
+    </div>
 
-<%= render 'shared/match_card' %>
+    <div class="d-flex align-items-center my-3">
+      <hr class="flex-grow-1">
+      <span class="mx-3 text-muted">OR</span>
+      <hr class="flex-grow-1">
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :uploaded_link, label: "Paste a website link",
+          input_html: { class: "form-control", placeholder: "https://example.com/product" } %>
+    </div>
+
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= render 'shared/match_card' %>
+</div>

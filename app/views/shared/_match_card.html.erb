@@ -1,18 +1,40 @@
-<div class="card-match">
-  <%= image_tag "sweater.jpg", alt: "Sweater" %>
-  <div class="card-match-infos">
-    <div>
-      <div class="brand">
-        <p class="brand-name">H&M</p>
-        <div class="rating">
-          <p class="rating-score">4.7</p>
-          <i class="fa-solid fa-star"></i>
+<%= link_to search_match_path(search, match), class: "card-link" do %>
+  <div class="card-match">
+
+    <%= image_tag(
+          product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
+          alt: product.clothing_item
+        ) %>
+
+    <div class="card-match-infos">
+        <div class="brand">
+          <p class="brand-name"><%= brand.name %> </p>
+
+          <div class="rating">
+            <p class="rating-score"><%= brand.overall_rating %></p>
+            <i class="fa-solid fa-star"></i>
+          </div>
         </div>
-      </div>
 
-      <h2>Orange sweater</h2>
+        <h2><%= product.clothing_item %></h2>
+
+        <p class="card-match-pricing">
+          <%= product.clothing_price %>
+        </p>
     </div>
-    <p class="card-match-pricing">€99.99</p>
 
+    <% if local_assigns[:search] && user_signed_in? %>
+      <div class="wishlist-button">
+        <% if saved_to_wishlist?(match) %>
+          <%= button_to save_search_match_path(search, match), method: :post, class: "btn-wishlist saved", disabled: true, title: "Already in wishlist" do %>
+            <i class="fa-solid fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= button_to save_search_match_path(search, match), method: :post, class: "btn-wishlist", title: "Save to wishlist" do %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-</div>
+<% end %>

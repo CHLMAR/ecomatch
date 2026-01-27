@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h2>You've got <%= @matches.count %> matches</h2>
+  <div class="matches-list">
+
+    <% @matches.each do |match| %>
+      <% product = match.comparison_product %>
+      <% brand = product.brand %>
+
+      <div class="match-item">
+        <%= render "shared/match_card",
+              search: @search,
+              match: match,
+              product: product,
+              brand: brand %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

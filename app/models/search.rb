@@ -8,12 +8,16 @@ class Search < ApplicationRecord
   has_one_attached :uploaded_image
 
   validate :image_or_link_present
+  validates :system_prompt, :clothing_item, :clothing_material,
+            :clothing_colour, :clothing_size, :clothing_brand, presence: true
 
   private
 
   def image_or_link_present
-    unless uploaded_image.attached? || uploaded_link.present?
-      errors.add(:base, "Please upload an image or provide a link")
+    if uploaded_image.blank? && uploaded_link.blank?
+      errors.add(:base, "Must provide either an image or an image link")
+    elsif uploaded_image.present? && uploaded_link.present?
+      errors.add(:base, "Must provide either an image or an image link, not both")
     end
   end
 end
