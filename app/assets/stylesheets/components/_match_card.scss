@@ -1,3 +1,7 @@
+.card-link {
+  text-decoration: none;
+}
+
 .card-match {
   overflow: hidden;
   background: white;
@@ -53,7 +57,6 @@
   font-size: 16px;
 }
 
-
 .rating {
   display: flex;
   font-size: 11px;
@@ -70,6 +73,7 @@
   }
 }
 
+/* Wishlist Button Styles */
 .wishlist-button {
   position: absolute;
   top: 12px;

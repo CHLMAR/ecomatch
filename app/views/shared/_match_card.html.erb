@@ -1,20 +1,26 @@
-<% if local_assigns[:match] %>
+<%= link_to search_match_path(search, match), class: "card-link" do %>
   <div class="card-match">
-    <%= image_tag match.comparison_product.item_image || "sweater.jpg", alt: match.comparison_product.clothing_item %>
+
+    <%= image_tag(
+          product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
+          alt: product.clothing_item
+        ) %>
+
     <div class="card-match-infos">
-      <div>
         <div class="brand">
-          <p class="brand-name"><%= match.comparison_product.brand.name %></p>
+          <p class="brand-name"><%= brand.name %> </p>
+
           <div class="rating">
-            <p class="rating-score"><%= match.comparison_product.brand.overall_rating %></p>
+            <p class="rating-score"><%= brand.overall_rating %></p>
             <i class="fa-solid fa-star"></i>
           </div>
         </div>
 
-        <h2><%= match.comparison_product.clothing_item %></h2>
-      </div>
-      <p class="card-match-pricing">€<%= match.comparison_product.clothing_price %></p>
+        <h2><%= product.clothing_item %></h2>
 
+        <p class="card-match-pricing">
+          <%= product.clothing_price %>
+        </p>
     </div>
 
     <% if local_assigns[:search] && user_signed_in? %>
