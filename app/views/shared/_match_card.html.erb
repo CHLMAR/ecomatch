@@ -1,18 +1,28 @@
-<div class="card-match">
-  <%= image_tag "sweater.jpg", alt: "Sweater" %>
-  <div class="card-match-infos">
-    <div>
-      <div class="brand">
-        <p class="brand-name">H&M</p>
-        <div class="rating">
-          <p class="rating-score">4.7</p>
-          <i class="fa-solid fa-star"></i>
-        </div>
-      </div>
 
-      <h2>Orange sweater</h2>
+<%= link_to search_match_path(search, match), class: "card-link" do %>
+  <div class="card-match">
+
+    <%= image_tag(
+          product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
+          alt: product.item_name
+        ) %>
+
+    <div class="card-match-infos">
+        <div class="brand">
+          <p class="brand-name"><%= brand.name %> </p>
+
+          <div class="rating">
+            <p class="rating-score"><%= brand.rating %></p>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+
+        <h2><%= product.item_name %></h2>
+
+        <p class="card-match-pricing">
+          <%= product.clothing_price %>
+        </p>
     </div>
-    <p class="card-match-pricing">€99.99</p>
 
   </div>
-</div>
+<% end %>
