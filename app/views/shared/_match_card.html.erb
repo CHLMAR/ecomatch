@@ -1,4 +1,3 @@
-
 <%= link_to search_match_path(search, match), class: "card-link" do %>
   <div class="card-match">
 
@@ -24,7 +23,7 @@
         </p>
     </div>
 
-     <% if local_assigns[:search] && user_signed_in? %>
+    <% if local_assigns[:search] && user_signed_in? %>
       <div class="wishlist-button">
         <% if saved_to_wishlist?(match) %>
           <%= button_to save_search_match_path(search, match), method: :post, class: "btn-wishlist saved", disabled: true, title: "Already in wishlist" do %>
@@ -37,6 +36,5 @@
         <% end %>
       </div>
     <% end %>
-
   </div>
 <% end %>
