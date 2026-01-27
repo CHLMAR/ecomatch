@@ -4,7 +4,7 @@
 
     <%= image_tag(
           product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
-          alt: product.item_name
+          alt: product.clothing_item
         ) %>
 
     <div class="card-match-infos">
@@ -12,12 +12,12 @@
           <p class="brand-name"><%= brand.name %> </p>
 
           <div class="rating">
-            <p class="rating-score"><%= brand.rating %></p>
+            <p class="rating-score"><%= brand.overall_rating %></p>
             <i class="fa-solid fa-star"></i>
           </div>
         </div>
 
-        <h2><%= product.item_name %></h2>
+        <h2><%= product.clothing_item %></h2>
 
         <p class="card-match-pricing">
           <%= product.clothing_price %>
