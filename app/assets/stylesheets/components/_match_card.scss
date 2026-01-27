@@ -1,0 +1,71 @@
+.card-match {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(161, 161, 161, 0.2);
+  width: 200px;
+  border-radius: 6px;
+}
+
+.card-match > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-match h2 {
+  font-size: 16px;
+  margin-top: 2px;
+  font-weight: 900;
+  width: 100%;
+}
+
+.card-match p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.brand {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 12px
+}
+
+.card-match {
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding: 16px;
+}
+
+.brand-name {
+  font-weight: 3004;
+}
+
+.card-match-infos{
+  display: flex;
+  flex-direction: column;
+}
+
+.card-match-pricing {
+  padding-top: 0;
+  font-size: 16px;
+}
+
+
+.rating {
+  display: flex;
+  font-size: 11px;
+
+  .fa-star {
+    display: flex;
+    font-size: 11px;
+    align-items: center;
+  }
+
+  .rating-score {
+    font-weight: bold;
+    margin-right: 4px;
+  }
+}
