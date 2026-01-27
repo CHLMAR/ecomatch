@@ -10,25 +10,43 @@
         ) %>
     <div class="col-sm">
       <h3><%= product.clothing_item %></h3>
+
       <div class="rating-category">
         <p>Planet</p>
         <div class="rating-item">
+          <% 4.times do %>
+            <i class="fa-solid fa-earth-americas"></i>
+          <% end %>
+          <% (5 - 4).times do %>
+            <i class="fa-solid fa-earth-americas" style="color: #c8c8c8;"></i>
+          <% end %>
           <p class="rating-score-lg"><%= brand.planet_rating %></p>
-          <i class="fa-solid fa-star"></i>
         </div>
       </div>
+
       <div class="rating-category">
         <p>People</p>
         <div class="rating-item">
+          <% 4.times do %>
+            <i class="fa-solid fa-face-smile"></i>
+          <% end %>
+          <% (5 - 4).times do %>
+            <i class="fa-solid fa-face-smile" style="color: #c8c8c8;"></i>
+          <% end %>
           <p class="rating-score-lg"><%= brand.people_rating %></p>
-          <i class="fa-solid fa-star"></i>
         </div>
       </div>
+
       <div class="rating-category">
         <p>Animals</p>
         <div class="rating-item">
+          <% 4.times do %>
+            <i class="fa-solid fa-paw"></i>
+          <% end %>
+          <% (5 - 4).times do %>
+            <i class="fa-solid fa-paw" style="color: #c8c8c8;"></i>
+          <% end %>
           <p class="rating-score-lg"><%= brand.animals_rating %></p>
-          <i class="fa-solid fa-star"></i>
         </div>
       </div>
 
@@ -37,7 +55,15 @@
       </p>
       <p class="product-price-lg"><%= product.clothing_price %></p>
       <%= link_to "View more", product.external_link, class: "btn-2", target: "_blank" %>
+
     </div>
+  </div>
+
+  <div class="brand-info">
+    <h4><%= brand.name %></h4>
+    <p class="brand-description-full">
+      <%= brand.description %>
+    </p>
   </div>
 
 
