@@ -10,9 +10,19 @@ class WishlistItemsController < ApplicationController
     )
 
     if @wishlist_item.save
-      redirect_to search_matches_path(@search), notice: "Product saved to wishlist!"
+      redirect_back(fallback_location: search_matches_path(@search), notice: "Product saved to wishlist!")
     else
-      redirect_to search_matches_path(@search), alert: @wishlist_item.errors.full_messages.first || "Could not save to wishlist."
+      redirect_back(fallback_location: search_matches_path(@search), alert: @wishlist_item.errors.full_messages.first || "Could not save to wishlist.")
+    end
+  end
+
+  def destroy
+    @wishlist_item = current_user.wishlist_items.find_by(match_id: @match.id)
+    
+    if @wishlist_item&.destroy
+      redirect_back(fallback_location: search_matches_path(@search), notice: "Product removed from wishlist!")
+    else
+      redirect_back(fallback_location: search_matches_path(@search), alert: "Could not remove from wishlist.")
     end
   end
 
