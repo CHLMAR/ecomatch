@@ -1,25 +1,32 @@
-<h1>New Search</h1>
+<div data-controller="form-loader"> <!-- the JS element in the javascripti folder -->
+  <!-- Full page loading overlay with animated text -->
+  <div data-form-loader-target="overlay" class="loader-overlay">
+    <span class="loader">Entering the realm of sustainable fashion...</span>
+  </div>
 
-<div class="container-fluid w-50">
-  <%= simple_form_for @search, url: searches_path, html: { multipart: true, class: "mt-4" } do |f| %>
-    <div class="mb-3">
-      <%= f.input :uploaded_image, as: :file, label: "Upload an image",
-          input_html: { class: "form-control", accept: "image/*" } %>
-    </div>
+  <h1>New Search</h1>
 
-    <div class="d-flex align-items-center my-3">
-      <hr class="flex-grow-1">
-      <span class="mx-3 text-muted">OR</span>
-      <hr class="flex-grow-1">
-    </div>
+  <div class="container-fluid w-50">
+    <%= simple_form_for @search, url: searches_path, html: { multipart: true, class: "mt-4", data: { form_loader_target: "form" } } do |f| %>
+      <div class="mb-3">
+        <%= f.input :uploaded_image, as: :file, label: "Upload an image",
+            input_html: { class: "form-control", accept: "image/*" } %>
+      </div>
 
-    <div class="mb-3">
-      <%= f.input :uploaded_link, label: "Paste a website link",
-          input_html: { class: "form-control", placeholder: "https://example.com/product" } %>
-    </div>
+      <div class="d-flex align-items-center my-3">
+        <hr class="flex-grow-1">
+        <span class="mx-3 text-muted">OR</span>
+        <hr class="flex-grow-1">
+      </div>
 
-    <%= f.submit "Search", class: "btn btn-primary" %>
-  <% end %>
+      <div class="mb-3">
+        <%= f.input :uploaded_link, label: "Paste a website link",
+            input_html: { class: "form-control", placeholder: "https://example.com/product" } %>
+      </div>
+
+      <%= f.submit "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 <%#= !!!!!!!!!!!!TEST!!!!!!!!!!!!!%>
