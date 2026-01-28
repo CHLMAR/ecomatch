@@ -15,7 +15,7 @@ class SearchesController < ApplicationController
       @chat = RubyLLM.chat(model: "gpt-4o")
 
       @response = if @search.uploaded_image.attached?
-        @chat.ask("Analyze this clothing item.", with: { image: url_for(@search.uploaded_image) })
+        @chat.ask("Analyze this clothing item.", with: { image: @search.uploaded_image.url })
       else
         @chat.ask("Analyze the clothing item at: #{@search.uploaded_link}")
       end
