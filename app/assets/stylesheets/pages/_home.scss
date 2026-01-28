@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+.banner-home {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+
+  background: #57C785;
+  background: linear-gradient(270deg, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.banner-search {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 1rem;
+
+  .flex-fill {
+    flex-basis: 0;
+  }
+}
+
+.home-content-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
