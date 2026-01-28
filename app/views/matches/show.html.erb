@@ -1,63 +1,85 @@
-<h1>This is the product details page </h1>
-
-<div class="match-card-lg">
-  <% product = @match.comparison_product %>
-  <% brand = product.brand %>
-
+<div class="container">
+  <h1>Product details</h1>
+  <div class="row">
+    <% product = @match.comparison_product %>
+    <% brand = product.brand %>
     <%= image_tag(
           product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
           alt: product.clothing_item,
-          class: "card-match-image-lg"
+          class: "col-sm"
         ) %>
-    <div class="product-info-lg">
+    <div class="col-sm">
       <h3><%= product.clothing_item %></h3>
-      <p class="brand-name-lg"><%= brand.name %></p>
 
-      <div class="ratings-list">
-        <div class="rating-lg">
+      <div class="rating-category">
+        <p>Planet</p>
+        <div class="rating-item">
+          <% 4.times do %>
+            <i class="fa-solid fa-earth-americas"></i>
+          <% end %>
+          <% (5 - 4).times do %>
+            <i class="fa-solid fa-earth-americas" style="color: #c8c8c8;"></i>
+          <% end %>
           <p class="rating-score-lg"><%= brand.planet_rating %></p>
-          <i class="fa-solid fa-star"></i>
         </div>
+      </div>
 
-        <div class="rating-lg">
+      <div class="rating-category">
+        <p>People</p>
+        <div class="rating-item">
+          <% 4.times do %>
+            <i class="fa-solid fa-face-smile"></i>
+          <% end %>
+          <% (5 - 4).times do %>
+            <i class="fa-solid fa-face-smile" style="color: #c8c8c8;"></i>
+          <% end %>
           <p class="rating-score-lg"><%= brand.people_rating %></p>
-          <i class="fa-solid fa-star"></i>
-        </div>
-
-        <div class="rating-lg">
-          <p class="rating-score-lg"><%= brand.animal_rating %></p>
-          <i class="fa-solid fa-star"></i>
         </div>
       </div>
 
-    <p class="product-description"><%= product.product_description %></p>
-    <p class="product-price-lg"><%= product.clothing_price %></p>
-    <%= link_to "View more", product.external_link, class: "btn-2", target: "_blank" %>
+      <div class="rating-category">
+        <p>Animals</p>
+        <div class="rating-item">
+          <% 4.times do %>
+            <i class="fa-solid fa-paw"></i>
+          <% end %>
+          <% (5 - 4).times do %>
+            <i class="fa-solid fa-paw" style="color: #c8c8c8;"></i>
+          <% end %>
+          <p class="rating-score-lg"><%= brand.animals_rating %></p>
+        </div>
+      </div>
+
+      <p class="product-description">
+        <%= product.product_description %>
+      </p>
+      <p class="product-price-lg"><%= product.clothing_price %></p>
+      <%= link_to "View more", product.external_link, class: "btn-2", target: "_blank" %>
+
+    </div>
   </div>
-</div>
 
-<div class="brand-info">
-  <h4><%= brand.name %></h4>
-  <p class="brand-description-full">
-    <%= brand.description %>
-  </p>
-</div>
+  <div class="brand-info">
+    <h4><%= brand.name %></h4>
+    <p class="brand-description-full">
+      <%= brand.description %>
+    </p>
+  </div>
 
-<div class="similar-products">
-  <h3>Similar Products</h3>
-  <div class="similar-products-list">
 
-    <% @matches.each do |match| %>
-      <% product = match.comparison_product %>
-      <% brand = product.brand %>
+  <div class="similar-products">
+    <h3>Similar Products</h3>
 
-      <div class="similar-product-item">
-        <%= render "shared/match_card",
-              search: @search,
-              match: match,
-              product: product,
-              brand: brand %>
-      </div>
-    <% end %>
+    <div class="similar-products-list">
+      <% @matches.each do |match| %>
+        <div class="similar-product-item">
+          <%= render "shared/match_card",
+                search: @search,
+                match: match,
+                product: product,
+                brand: brand %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

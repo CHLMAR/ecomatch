@@ -7,6 +7,7 @@ class MatchesController < ApplicationController
 
   def show
     @match = @search.matches.includes(comparison_product: :brand).find(params[:id])
+    @matches = @search.matches.includes(comparison_product: :brand)
   end
 
   private
