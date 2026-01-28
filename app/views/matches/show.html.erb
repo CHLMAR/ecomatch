@@ -1,71 +1,84 @@
 <div class="container">
   <h1>Product details</h1>
-  <div class="row">
-    <% product = @match.comparison_product %>
-    <% brand = product.brand %>
-    <%= image_tag(
-          product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
-          alt: product.clothing_item,
-          class: "col-sm"
-        ) %>
-    <div class="col-sm">
-      <h3><%= product.clothing_item %></h3>
+  <div class="row card-product-lg g-0 align-items-stretch">
+    <div class="col-sm-4">
+      <% product = @match.comparison_product %>
+      <% brand = product.brand %>
+      <%= image_tag(
+        product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
+        alt: product.clothing_item
+      ) %>
+    </div>
 
-      <div class="rating-category">
-        <p>Planet</p>
-        <div class="rating-item">
-          <% 4.times do %>
-            <i class="fa-solid fa-earth-americas"></i>
-          <% end %>
-          <% (5 - 4).times do %>
-            <i class="fa-solid fa-earth-americas" style="color: #c8c8c8;"></i>
-          <% end %>
-          <p class="rating-score-lg"><%= brand.planet_rating %></p>
-        </div>
-      </div>
-
-      <div class="rating-category">
-        <p>People</p>
-        <div class="rating-item">
-          <% 4.times do %>
-            <i class="fa-solid fa-face-smile"></i>
-          <% end %>
-          <% (5 - 4).times do %>
-            <i class="fa-solid fa-face-smile" style="color: #c8c8c8;"></i>
-          <% end %>
-          <p class="rating-score-lg"><%= brand.people_rating %></p>
-        </div>
-      </div>
-
-      <div class="rating-category">
-        <p>Animals</p>
-        <div class="rating-item">
-          <% 4.times do %>
-            <i class="fa-solid fa-paw"></i>
-          <% end %>
-          <% (5 - 4).times do %>
-            <i class="fa-solid fa-paw" style="color: #c8c8c8;"></i>
-          <% end %>
-          <p class="rating-score-lg"><%= brand.animals_rating %></p>
-        </div>
-      </div>
-
+    <div class="col-sm-8 product-card-show">
+      <h2><%= product.clothing_item %></h2>
       <p class="product-description">
         <%= product.product_description %>
       </p>
-      <p class="product-price-lg"><%= product.clothing_price %></p>
-      <%= link_to "View more", product.external_link, class: "btn-2", target: "_blank" %>
 
+      <p class="product-price-lg"><%= product.clothing_price %></p>
+      <%= link_to product.external_link, class: "btn-2", target: "_blank" do %>
+        View details
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      <% end %>
+
+      <div class="brand-intro">
+        <div class="overall-rating">
+          <h5><%= brand.name %></h5>
+          <p class="brand-description-full">
+            <%= brand.description %>
+          </p>
+        </div>
+
+        <div class="overall-rating-container">
+          <div class="score">
+            <div class="rating-vs">
+              <h2><%= brand.overall_rating %></h2>
+              <p class="total-rating"> / 5</p>
+            </div>
+
+            <p>Sustainability score</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="secondary-ratings">
+        <div class="rating-category">
+          <p class="rating-title">People</p>
+          <div class="rating-item">
+            <% brand.people_rating.times do %>
+              <i class="fa-solid fa-face-smile rating-icon"></i>
+            <% end %>
+            <% (5 - brand.people_rating).times do %>
+              <i class="fa-solid fa-face-smile rating-icon" style="color: #c8c8c8;"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="rating-category">
+          <p class="rating-title">Animals</p>
+          <div class="rating-item">
+            <% brand.animals_rating.times do %>
+              <i class="fa-solid fa-paw rating-icon"></i>
+            <% end %>
+            <% (5- brand.animals_rating).times do %>
+              <i class="fa-solid fa-paw rating-icon" style="color: #c8c8c8;"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="rating-category">
+          <p class="rating-title">Planet</p>
+          <div class="rating-item">
+            <% brand.planet_rating.times do %>
+              <i class="fa-solid fa-earth-americas rating-icon"></i>
+            <% end %>
+            <% (5 - brand.planet_rating).times do %>
+              <i class="fa-solid fa-earth-americas rating-icon" style="color: #c8c8c8;"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="brand-info">
-    <h4><%= brand.name %></h4>
-    <p class="brand-description-full">
-      <%= brand.description %>
-    </p>
-  </div>
-
 
   <div class="similar-products">
     <h3>Similar Products</h3>
