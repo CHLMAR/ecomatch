@@ -5,24 +5,24 @@
   </div>
   <div class="banner-search">
     <% if current_user %>
-    <%= simple_form_for Search.new, url: searches_path, html: { multipart: true } do |f| %>
-      <div class="d-flex align-items-end gap-3">
-        <div class="flex-fill">
-          <label class="form-label">Upload an image</label>
-          <%= f.input_field :uploaded_image, as: :file, class: "form-control", accept: "image/*" %>
-        </div>
-        <div class="d-flex align-items-end mb-3">
-          <h3>OR</h3>
-        </div>
-        <div class="flex-fill">
-          <label class="form-label">Paste a website link</label>
-          <div class="input-group">
-            <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product" %>
-            <%= f.submit "Search", class: "btn btn-primary" %>
+      <%= simple_form_for Search.new, url: searches_path, html: { multipart: true } do |f| %>
+        <div class="d-flex align-items-end gap-3">
+          <div class="flex-fill">
+            <label class="form-label">Upload an image</label>
+            <%= f.input_field :uploaded_image, as: :file, class: "form-control", accept: "image/*" %>
+          </div>
+          <div class="d-flex align-items-end mb-3">
+            <h3>OR</h3>
+          </div>
+          <div class="flex-fill">
+            <label class="form-label">Paste a website link</label>
+            <div class="input-group">
+              <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product" %>
+              <%= f.submit "Search", class: "btn btn-primary" %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     <% else %>
       <%= simple_form_for Search.new, url: searches_path, html: { multipart: true } do |f| %>
       <div class="d-flex align-items-end gap-3">
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <p class="text-center mt-3">Please sign up or <a href="<%= new_user_registration_path %>">sign up</a> or <a href="<%= new_user_session_path %>">log in</a> to use the search feature.</p>
+      <p class="text-center mt-3">Please <a href="<%= new_user_registration_path %>">sign up</a> or <a href="<%= new_user_session_path %>">log in</a> to use the search feature.</p>
     <% end %>
   <% end %>
   </div>
