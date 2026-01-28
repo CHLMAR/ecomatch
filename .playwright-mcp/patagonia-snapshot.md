@@ -1,0 +1,1828 @@
+- generic [ref=e1]:
+  - button "Skip to main content" [ref=e2] [cursor=pointer]
+  - main [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e7]:
+        - generic [ref=e10]:
+          - navigation "Secondary Navigation" [ref=e11]:
+            - generic [ref=e12]:
+              - button "Activism" [ref=e13] [cursor=pointer]
+              - button "Activism Menu":
+                - img
+            - generic [ref=e14]:
+              - button "Stories" [ref=e15] [cursor=pointer]
+              - button "Stories Menu":
+                - img
+            - generic [ref=e16]:
+              - button "Worn Wear" [ref=e17] [cursor=pointer]
+              - button "Worn Wear Menu":
+                - img
+          - button "Read Our Work in Progress Report | Free Shipping on Orders Over $99 | Earth Is Now Our Only Shareholder" [ref=e19] [cursor=pointer]:
+            - generic [ref=e20]:
+              - generic [ref=e21]: Read Our Work in Progress Report
+              - img [ref=e22]
+            - generic [ref=e24]:
+              - generic [ref=e25]: Free Shipping on Orders Over $99
+              - img [ref=e26]
+            - generic [ref=e28]:
+              - generic [ref=e29]: Earth Is Now Our Only Shareholder
+              - img [ref=e30]
+          - link "Find a Store" [ref=e33] [cursor=pointer]:
+            - /url: https://www.patagonia.com/store-locator/
+        - generic [ref=e36]:
+          - link "Patagonia Home Page" [ref=e38] [cursor=pointer]:
+            - /url: https://www.patagonia.com/home/
+            - img [ref=e39]
+          - navigation "Primary Navigation" [ref=e41]:
+            - list [ref=e42]:
+              - listitem [ref=e43]:
+                - button "Featured" [ref=e44]
+                - button "Featured Menu":
+                  - img
+              - listitem [ref=e45]:
+                - link "Men's" [ref=e46] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/shop/mens
+                - button "Men's Menu":
+                  - img
+              - listitem [ref=e47]:
+                - link "Women's" [ref=e48] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/shop/womens
+                - button "Women's Menu":
+                  - img
+              - listitem [ref=e49]:
+                - link "Kids'" [ref=e50] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/shop/kids-baby
+                - button "Kids' Menu":
+                  - img
+              - listitem [ref=e51]:
+                - link "Packs & Gear" [ref=e52] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/shop/gear
+                - button "Packs & Gear Menu":
+                  - img
+              - listitem [ref=e53]:
+                - button "Sports" [ref=e54]
+                - button "Sports Menu":
+                  - img
+          - generic [ref=e55]:
+            - button "Search" [ref=e56] [cursor=pointer]:
+              - figure [ref=e57]:
+                - img [ref=e58]
+            - link "Wishlist" [ref=e60] [cursor=pointer]:
+              - /url: https://www.patagonia.com/wishlist/
+              - figure [ref=e61]:
+                - img [ref=e62]
+            - link "Log in" [ref=e64] [cursor=pointer]:
+              - /url: https://www.patagonia.com/account/login/?rurl=15&q=jacket
+              - figure [ref=e65]:
+                - img [ref=e66]
+            - link "Cart" [ref=e68] [cursor=pointer]:
+              - /url: https://www.patagonia.com/cart/
+              - figure [ref=e69]:
+                - img [ref=e70]
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e75]:
+            - button "Search" [ref=e76] [cursor=pointer]:
+              - figure [ref=e77]:
+                - img [ref=e78]
+            - search [ref=e80]:
+              - searchbox "Search (keywords,etc)" [ref=e81]: jacket
+              - button "Clear search" [ref=e82] [cursor=pointer]:
+                - img [ref=e83]
+                - generic [ref=e86]: Clear search
+          - heading "Results for “jacket”" [level=4] [ref=e88]
+          - generic [ref=e89]:
+            - generic [ref=e90]: Products & Gear
+            - generic [ref=e92]: Articles & Stories
+        - generic [ref=e96]:
+          - generic [ref=e102]:
+            - generic [ref=e104]:
+              - generic [ref=e105]:
+                - heading "In-Store Pickup" [level=6] [ref=e106]
+                - paragraph [ref=e107]:
+                  - button "Select Store" [ref=e108] [cursor=pointer]
+              - list [ref=e109]:
+                - listitem [ref=e110]:
+                  - switch:
+                    - figure
+                    - figure:
+                      - img
+                    - figure:
+                      - img
+            - button "Size" [ref=e112] [cursor=pointer]:
+              - heading "Size" [level=6] [ref=e113]
+              - button [ref=e114]:
+                - img [ref=e115]
+              - figure [ref=e117]
+            - button "Warmth Index" [ref=e119] [cursor=pointer]:
+              - heading "Warmth Index" [level=6] [ref=e120]
+              - button [ref=e121]:
+                - img [ref=e122]
+              - figure [ref=e124]
+            - button "Features & Processes" [ref=e126] [cursor=pointer]:
+              - heading "Features & Processes" [level=6] [ref=e127]
+              - button [ref=e128]:
+                - img [ref=e129]
+              - figure [ref=e131]
+            - button "Fit" [ref=e133] [cursor=pointer]:
+              - heading "Fit" [level=6] [ref=e134]
+              - button [ref=e135]:
+                - img [ref=e136]
+              - figure [ref=e138]
+            - button "Color" [ref=e140] [cursor=pointer]:
+              - heading "Color" [level=6] [ref=e141]
+              - button [ref=e142]:
+                - img [ref=e143]
+              - figure [ref=e145]
+            - button "Materials & Fabric" [ref=e147] [cursor=pointer]:
+              - heading "Materials & Fabric" [level=6] [ref=e148]
+              - button [ref=e149]:
+                - img [ref=e150]
+              - figure [ref=e152]
+            - button "Sport" [ref=e154] [cursor=pointer]:
+              - heading "Sport" [level=6] [ref=e155]
+              - button [ref=e156]:
+                - img [ref=e157]
+              - figure [ref=e159]
+            - button "Product Family" [ref=e161] [cursor=pointer]:
+              - heading "Product Family" [level=6] [ref=e162]
+              - button [ref=e163]:
+                - img [ref=e164]
+              - figure [ref=e166]
+          - tabpanel [ref=e168]:
+            - generic [ref=e169]:
+              - alert [ref=e171]: Showing 347 results
+              - combobox "Sort By" [ref=e174] [cursor=pointer]:
+                - option "Sort By" [selected]
+                - option "Price Low to High"
+                - option "Price High to Low"
+                - option "Best Seller"
+                - option "Newest"
+                - option "Top Rated"
+              - generic [ref=e176]:
+                - generic [ref=e178]: Search Results
+                - button "Filter" [ref=e181] [cursor=pointer]:
+                  - generic [ref=e182]: Filter
+                  - figure [ref=e183]:
+                    - img [ref=e184]
+            - generic [ref=e190]:
+              - generic [ref=e195]:
+                - generic [ref=e196]:
+                  - generic [ref=e197]:
+                    - link "M's Better Sweater® Jacket - New Navy (NENA) (25528)" [ref=e199] [cursor=pointer]:
+                      - /url: /product/mens-better-sweater-fleece-jacket/25528.html?dwvar_25528_color=NENA
+                      - generic [ref=e202]:
+                        - img "M's Better Sweater® Jacket - New Navy (NENA) (25528)"
+                    - link "M's Better Sweater® Jacket - New Navy (NENA) (25528)" [ref=e204] [cursor=pointer]:
+                      - /url: /product/mens-better-sweater-fleece-jacket/25528.html?dwvar_25528_color=NENA
+                      - generic [ref=e206]:
+                        - img "M's Better Sweater® Jacket - New Navy (NENA) (25528)"
+                  - button "Quick Add" [ref=e208] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e210]:
+                  - list [ref=e213]:
+                    - listitem [ref=e214]:
+                      - button "New Navy (NENA)" [ref=e215] [cursor=pointer]:
+                        - img [ref=e216]
+                    - listitem [ref=e218]:
+                      - button "Black (BLK)" [ref=e219] [cursor=pointer]
+                    - listitem [ref=e220]:
+                      - button "Stonewash (STH)" [ref=e221] [cursor=pointer]
+                    - listitem [ref=e222]:
+                      - button "Seabird Grey (SBDY)" [ref=e223] [cursor=pointer]
+                    - listitem [ref=e224]:
+                      - 'button "Scales: Old Growth Green (SODG)" [ref=e225] [cursor=pointer]'
+                    - listitem [ref=e226]:
+                      - link "+3" [ref=e227] [cursor=pointer]:
+                        - /url: /product/mens-better-sweater-fleece-jacket/25528.html
+                        - generic [ref=e228]: "+3"
+                  - link "M's Better Sweater® Jacket $159 (1121 Reviews )" [ref=e230] [cursor=pointer]:
+                    - /url: /product/mens-better-sweater-fleece-jacket/25528.html
+                    - paragraph [ref=e231]: M's Better Sweater® Jacket
+                    - generic [ref=e236]: $159
+                    - generic [ref=e237]:
+                      - figure [ref=e238]:
+                        - generic [ref=e271]: "Rating: 4.4 / 5"
+                      - generic [ref=e272]:
+                        - text: (1121
+                        - generic [ref=e273]: Reviews
+                        - text: )
+              - generic [ref=e278]:
+                - generic [ref=e279]:
+                  - generic [ref=e280]:
+                    - link "M's Nano Puff® Jacket - Clement Blue (CLMB) (84213)" [ref=e282] [cursor=pointer]:
+                      - /url: /product/mens-nano-puff-insulated-jacket/84213.html?dwvar_84213_color=CLMB
+                      - generic [ref=e285]:
+                        - img "M's Nano Puff® Jacket - Clement Blue (CLMB) (84213)"
+                    - link "M's Nano Puff® Jacket - Clement Blue (CLMB) (84213)" [ref=e287] [cursor=pointer]:
+                      - /url: /product/mens-nano-puff-insulated-jacket/84213.html?dwvar_84213_color=CLMB
+                      - generic [ref=e289]:
+                        - img "M's Nano Puff® Jacket - Clement Blue (CLMB) (84213)"
+                  - button "Quick Add" [ref=e295] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e296]:
+                  - generic [ref=e297]:
+                    - list [ref=e300]:
+                      - listitem [ref=e301]:
+                        - button "Clement Blue (CLMB)" [ref=e302] [cursor=pointer]:
+                          - img [ref=e303]
+                      - listitem [ref=e305]:
+                        - button "Marlow Brown (MRLB)" [ref=e306] [cursor=pointer]
+                      - listitem [ref=e307]:
+                        - button "Smolder Blue (SMDB)" [ref=e308] [cursor=pointer]
+                      - listitem [ref=e309]:
+                        - button "Dried Vanilla (DVL)" [ref=e310] [cursor=pointer]
+                      - listitem [ref=e311]:
+                        - button "Forge Grey (FGE)" [ref=e312] [cursor=pointer]
+                      - listitem [ref=e313]:
+                        - link "+4" [ref=e314] [cursor=pointer]:
+                          - /url: /product/mens-nano-puff-insulated-jacket/84213.html
+                          - generic [ref=e315]: "+4"
+                    - link "M's Nano Puff® Jacket $229 (1931 Reviews )" [ref=e317] [cursor=pointer]:
+                      - /url: /product/mens-nano-puff-insulated-jacket/84213.html
+                      - paragraph [ref=e318]: M's Nano Puff® Jacket
+                      - generic [ref=e323]: $229
+                      - generic [ref=e324]:
+                        - figure [ref=e325]:
+                          - generic [ref=e358]: "Rating: 4.6 / 5"
+                        - generic [ref=e359]:
+                          - text: (1931
+                          - generic [ref=e360]: Reviews
+                          - text: )
+                  - generic [ref=e361]:
+                    - generic [ref=e362]: windproof
+                    - generic [ref=e363]: packable
+                    - generic [ref=e364]: water resistant
+              - generic [ref=e369]:
+                - generic [ref=e370]:
+                  - generic [ref=e371]:
+                    - link "W's Better Sweater® Jacket - Permafrost Purple (PMFP) (25543)" [ref=e373] [cursor=pointer]:
+                      - /url: /product/womens-better-sweater-fleece-jacket/25543.html?dwvar_25543_color=PMFP
+                      - generic [ref=e376]:
+                        - img "W's Better Sweater® Jacket - Permafrost Purple (PMFP) (25543)"
+                    - link "W's Better Sweater® Jacket - Permafrost Purple (PMFP) (25543)" [ref=e378] [cursor=pointer]:
+                      - /url: /product/womens-better-sweater-fleece-jacket/25543.html?dwvar_25543_color=PMFP
+                      - generic [ref=e380]:
+                        - img "W's Better Sweater® Jacket - Permafrost Purple (PMFP) (25543)"
+                  - button "Quick Add" [ref=e382] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e384]:
+                  - list [ref=e387]:
+                    - listitem [ref=e388]:
+                      - button "Permafrost Purple (PMFP)" [ref=e389] [cursor=pointer]:
+                        - img [ref=e390]
+                    - listitem [ref=e392]:
+                      - button "Black (BLK)" [ref=e393] [cursor=pointer]
+                    - listitem [ref=e394]:
+                      - button "New Navy (NENA)" [ref=e395] [cursor=pointer]
+                    - listitem [ref=e396]:
+                      - button "Birch White (BCW)" [ref=e397] [cursor=pointer]
+                    - listitem [ref=e398]:
+                      - button "River Rock Green (RVGN)" [ref=e399] [cursor=pointer]
+                    - listitem [ref=e400]:
+                      - link "+3" [ref=e401] [cursor=pointer]:
+                        - /url: /product/womens-better-sweater-fleece-jacket/25543.html
+                        - generic [ref=e402]: "+3"
+                  - link "W's Better Sweater® Jacket $159 (1009 Reviews )" [ref=e404] [cursor=pointer]:
+                    - /url: /product/womens-better-sweater-fleece-jacket/25543.html
+                    - paragraph [ref=e405]: W's Better Sweater® Jacket
+                    - generic [ref=e410]: $159
+                    - generic [ref=e411]:
+                      - figure [ref=e412]:
+                        - generic [ref=e445]: "Rating: 4.4 / 5"
+                      - generic [ref=e446]:
+                        - text: (1009
+                        - generic [ref=e447]: Reviews
+                        - text: )
+              - generic [ref=e452]:
+                - generic [ref=e453]:
+                  - generic [ref=e454]:
+                    - link "M's Torrentshell 3L Rain Jacket - Old Growth Green (OLGG) (85241)" [ref=e456] [cursor=pointer]:
+                      - /url: /product/mens-torrentshell-3-layer-rain-jacket/85241.html?dwvar_85241_color=OLGG
+                      - generic [ref=e459]:
+                        - img "M's Torrentshell 3L Rain Jacket - Old Growth Green (OLGG) (85241)"
+                    - link "M's Torrentshell 3L Rain Jacket - Old Growth Green (OLGG) (85241)" [ref=e461] [cursor=pointer]:
+                      - /url: /product/mens-torrentshell-3-layer-rain-jacket/85241.html?dwvar_85241_color=OLGG
+                      - generic [ref=e463]:
+                        - img "M's Torrentshell 3L Rain Jacket - Old Growth Green (OLGG) (85241)"
+                  - button "Quick Add" [ref=e465] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e466]:
+                  - generic [ref=e467]:
+                    - list [ref=e470]:
+                      - listitem [ref=e471]:
+                        - button "Old Growth Green (OLGG)" [ref=e472] [cursor=pointer]:
+                          - img [ref=e473]
+                      - listitem [ref=e475]:
+                        - button "Smolder Blue (SMDB)" [ref=e476] [cursor=pointer]
+                      - listitem [ref=e477]:
+                        - button "Black (BLK)" [ref=e478] [cursor=pointer]
+                      - listitem [ref=e479]:
+                        - button "Noble Grey (NGRY)" [ref=e480] [cursor=pointer]
+                      - listitem [ref=e481]:
+                        - button "Clement Blue (CLMB)" [ref=e482] [cursor=pointer]
+                      - listitem [ref=e483]:
+                        - link "+3" [ref=e484] [cursor=pointer]:
+                          - /url: /product/mens-torrentshell-3-layer-rain-jacket/85241.html
+                          - generic [ref=e485]: "+3"
+                    - link "M's Torrentshell 3L Rain Jacket $179 (356 Reviews )" [ref=e487] [cursor=pointer]:
+                      - /url: /product/mens-torrentshell-3-layer-rain-jacket/85241.html
+                      - paragraph [ref=e488]: M's Torrentshell 3L Rain Jacket
+                      - generic [ref=e493]: $179
+                      - generic [ref=e494]:
+                        - figure [ref=e495]:
+                          - generic [ref=e528]: "Rating: 4.4 / 5"
+                        - generic [ref=e529]:
+                          - text: (356
+                          - generic [ref=e530]: Reviews
+                          - text: )
+                  - generic [ref=e531]:
+                    - generic [ref=e532]: waterproof
+                    - generic [ref=e533]: windproof
+                    - generic [ref=e534]: packable
+              - generic [ref=e539]:
+                - generic [ref=e540]:
+                  - generic [ref=e541]:
+                    - link "M's Retro Pile Jacket - New Navy w/Sunken Blue (NNSU) (22801)" [ref=e543] [cursor=pointer]:
+                      - /url: /product/mens-retro-pile-fleece-jacket/22801.html?dwvar_22801_color=NNSU
+                      - generic [ref=e546]:
+                        - img "M's Retro Pile Jacket - New Navy w/Sunken Blue (NNSU) (22801)"
+                    - link "M's Retro Pile Jacket - New Navy w/Sunken Blue (NNSU) (22801)" [ref=e548] [cursor=pointer]:
+                      - /url: /product/mens-retro-pile-fleece-jacket/22801.html?dwvar_22801_color=NNSU
+                      - generic [ref=e550]:
+                        - img "M's Retro Pile Jacket - New Navy w/Sunken Blue (NNSU) (22801)"
+                  - button "Quick Add" [ref=e552] [cursor=pointer]
+                - generic [ref=e554]:
+                  - list [ref=e557]:
+                    - listitem [ref=e558]:
+                      - button "New Navy w/Sunken Blue (NNSU)" [ref=e559] [cursor=pointer]:
+                        - img [ref=e560]
+                    - listitem [ref=e562]:
+                      - button "Pelican (PLCN)" [ref=e563] [cursor=pointer]
+                    - listitem [ref=e564]:
+                      - button "Pelican w/Smolder Blue (PNSM)" [ref=e565] [cursor=pointer]
+                    - listitem [ref=e566]:
+                      - button "Old Growth Green (OLGG)" [ref=e567] [cursor=pointer]
+                    - listitem [ref=e568]:
+                      - button "Dried Vanilla (DVL)" [ref=e569] [cursor=pointer]
+                    - listitem [ref=e570]:
+                      - link "+1" [ref=e571] [cursor=pointer]:
+                        - /url: /product/mens-retro-pile-fleece-jacket/22801.html
+                        - generic [ref=e572]: "+1"
+                  - link "M's Retro Pile Jacket $149 (404 Reviews )" [ref=e574] [cursor=pointer]:
+                    - /url: /product/mens-retro-pile-fleece-jacket/22801.html
+                    - paragraph [ref=e575]: M's Retro Pile Jacket
+                    - generic [ref=e580]: $149
+                    - generic [ref=e581]:
+                      - figure [ref=e582]:
+                        - generic [ref=e615]: "Rating: 4.3 / 5"
+                      - generic [ref=e616]:
+                        - text: (404
+                        - generic [ref=e617]: Reviews
+                        - text: )
+              - generic [ref=e622]:
+                - generic [ref=e623]:
+                  - generic [ref=e624]:
+                    - link "M's Classic Retro-X® Jacket - Dried Vanilla (DVL) (23057)" [ref=e626] [cursor=pointer]:
+                      - /url: /product/mens-classic-retro-x-fleece-jacket/23057.html?dwvar_23057_color=DVL
+                      - generic [ref=e629]:
+                        - img "M's Classic Retro-X® Jacket - Dried Vanilla (DVL) (23057)"
+                    - link "M's Classic Retro-X® Jacket - Dried Vanilla (DVL) (23057)" [ref=e631] [cursor=pointer]:
+                      - /url: /product/mens-classic-retro-x-fleece-jacket/23057.html?dwvar_23057_color=DVL
+                      - generic [ref=e633]:
+                        - img "M's Classic Retro-X® Jacket - Dried Vanilla (DVL) (23057)"
+                  - button "Quick Add" [ref=e635] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e636]:
+                  - generic [ref=e637]:
+                    - list [ref=e640]:
+                      - listitem [ref=e641]:
+                        - button "Dried Vanilla (DVL)" [ref=e642] [cursor=pointer]:
+                          - img [ref=e643]
+                      - listitem [ref=e645]:
+                        - button "Dark Natural w/Basin Green (DNBA)" [ref=e646] [cursor=pointer]
+                      - listitem [ref=e647]:
+                        - button "Clement Blue (CLMB)" [ref=e648] [cursor=pointer]
+                      - listitem [ref=e649]:
+                        - button "Cascade Green (CASG)" [ref=e650] [cursor=pointer]
+                      - listitem [ref=e651]:
+                        - 'button "Rainfall Quilt: Ink Black (RQIN)" [ref=e652] [cursor=pointer]'
+                      - listitem [ref=e653]:
+                        - link "+1" [ref=e654] [cursor=pointer]:
+                          - /url: /product/mens-classic-retro-x-fleece-jacket/23057.html
+                          - generic [ref=e655]: "+1"
+                    - link "M's Classic Retro-X® Jacket $249 (33 Reviews )" [ref=e657] [cursor=pointer]:
+                      - /url: /product/mens-classic-retro-x-fleece-jacket/23057.html
+                      - paragraph [ref=e658]: M's Classic Retro-X® Jacket
+                      - generic [ref=e663]: $249
+                      - generic [ref=e664]:
+                        - figure [ref=e665]:
+                          - generic [ref=e698]: "Rating: 4.5 / 5"
+                        - generic [ref=e699]:
+                          - text: (33
+                          - generic [ref=e700]: Reviews
+                          - text: )
+                  - generic [ref=e702]: windproof
+              - generic [ref=e707]:
+                - generic [ref=e708]:
+                  - generic [ref=e709]:
+                    - link "M's Iron Forge® Ranch Jacket - Dark Ash (DKAS) (27805)" [ref=e711] [cursor=pointer]:
+                      - /url: /product/mens-iron-forge-hemp-canvas-ranch-jacket/27805.html?dwvar_27805_color=DKAS
+                      - generic [ref=e714]:
+                        - img "M's Iron Forge® Ranch Jacket - Dark Ash (DKAS) (27805)"
+                    - link "M's Iron Forge® Ranch Jacket - Dark Ash (DKAS) (27805)" [ref=e716] [cursor=pointer]:
+                      - /url: /product/mens-iron-forge-hemp-canvas-ranch-jacket/27805.html?dwvar_27805_color=DKAS
+                      - generic [ref=e718]:
+                        - img "M's Iron Forge® Ranch Jacket - Dark Ash (DKAS) (27805)"
+                  - button "Quick Add" [ref=e720] [cursor=pointer]
+                - generic: Exclusive
+                - generic [ref=e722]:
+                  - list [ref=e725]:
+                    - listitem [ref=e726]:
+                      - button "Dark Ash (DKAS)" [ref=e727] [cursor=pointer]:
+                        - img [ref=e728]
+                    - listitem [ref=e730]:
+                      - button "Coriander Brown (COI)" [ref=e731] [cursor=pointer]
+                  - link "M's Iron Forge® Ranch Jacket $189 (624 Reviews )" [ref=e733] [cursor=pointer]:
+                    - /url: /product/mens-iron-forge-hemp-canvas-ranch-jacket/27805.html
+                    - paragraph [ref=e734]: M's Iron Forge® Ranch Jacket
+                    - generic [ref=e739]: $189
+                    - generic [ref=e740]:
+                      - figure [ref=e741]:
+                        - generic [ref=e774]: "Rating: 4.7 / 5"
+                      - generic [ref=e775]:
+                        - text: (624
+                        - generic [ref=e776]: Reviews
+                        - text: )
+              - generic [ref=e781]:
+                - generic [ref=e782]:
+                  - generic [ref=e783]:
+                    - link "W's Light Gust Jacket - Sunken Blue (SNBE) (20561)" [ref=e785] [cursor=pointer]:
+                      - /url: /product/womens-light-gust-insulated-jacket/20561.html?dwvar_20561_color=SNBE
+                      - generic [ref=e788]:
+                        - img "W's Light Gust Jacket - Sunken Blue (SNBE) (20561)"
+                    - link "W's Light Gust Jacket - Sunken Blue (SNBE) (20561)" [ref=e790] [cursor=pointer]:
+                      - /url: /product/womens-light-gust-insulated-jacket/20561.html?dwvar_20561_color=SNBE
+                      - generic [ref=e792]:
+                        - img "W's Light Gust Jacket - Sunken Blue (SNBE) (20561)"
+                  - button "Quick Add" [ref=e794] [cursor=pointer]
+                - generic [ref=e795]:
+                  - generic [ref=e796]:
+                    - list [ref=e799]:
+                      - listitem [ref=e800]:
+                        - button "Sunken Blue (SNBE)" [ref=e801] [cursor=pointer]:
+                          - img [ref=e802]
+                      - listitem [ref=e804]:
+                        - button "Seabird Grey (SBDY)" [ref=e805] [cursor=pointer]
+                      - listitem [ref=e806]:
+                        - button "Black (BLK)" [ref=e807] [cursor=pointer]
+                      - listitem [ref=e808]:
+                        - button "Permafrost Purple (PMFP)" [ref=e809] [cursor=pointer]
+                      - listitem [ref=e810]:
+                        - link "W's Light Gust Jacket" [ref=e811] [cursor=pointer]:
+                          - /url: /product/womens-light-gust-insulated-jacket/20561.html
+                    - link "W's Light Gust Jacket $239 (10 Reviews )" [ref=e813] [cursor=pointer]:
+                      - /url: /product/womens-light-gust-insulated-jacket/20561.html
+                      - paragraph [ref=e814]: W's Light Gust Jacket
+                      - generic [ref=e819]: $239
+                      - generic [ref=e820]:
+                        - figure [ref=e821]:
+                          - generic [ref=e854]: "Rating: 5.0 / 5"
+                        - generic [ref=e855]:
+                          - text: (10
+                          - generic [ref=e856]: Reviews
+                          - text: )
+                  - generic [ref=e857]:
+                    - generic [ref=e858]: water resistant
+                    - generic [ref=e859]: stretch
+              - generic [ref=e864]:
+                - generic [ref=e865]:
+                  - generic [ref=e866]:
+                    - link "W's Nano Puff® Jacket - Dark Ruby (DAK) (84218)" [ref=e868] [cursor=pointer]:
+                      - /url: /product/womens-nano-puff-insulated-jacket/84218.html?dwvar_84218_color=DAK
+                      - generic [ref=e871]:
+                        - img "W's Nano Puff® Jacket - Dark Ruby (DAK) (84218)"
+                    - link "W's Nano Puff® Jacket - Dark Ruby (DAK) (84218)" [ref=e873] [cursor=pointer]:
+                      - /url: /product/womens-nano-puff-insulated-jacket/84218.html?dwvar_84218_color=DAK
+                      - generic [ref=e875]:
+                        - img "W's Nano Puff® Jacket - Dark Ruby (DAK) (84218)"
+                  - button "Quick Add" [ref=e877] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e878]:
+                  - generic [ref=e879]:
+                    - list [ref=e882]:
+                      - listitem [ref=e883]:
+                        - button "Dark Ruby (DAK)" [ref=e884] [cursor=pointer]:
+                          - img [ref=e885]
+                      - listitem [ref=e887]:
+                        - button "Current Blue (CUBL)" [ref=e888] [cursor=pointer]
+                      - listitem [ref=e889]:
+                        - button "Birch White (BCW)" [ref=e890] [cursor=pointer]
+                      - listitem [ref=e891]:
+                        - button "Smolder Blue (SMDB)" [ref=e892] [cursor=pointer]
+                      - listitem [ref=e893]:
+                        - button "Black (BLK)" [ref=e894] [cursor=pointer]
+                      - listitem [ref=e895]:
+                        - link "+4" [ref=e896] [cursor=pointer]:
+                          - /url: /product/womens-nano-puff-insulated-jacket/84218.html
+                          - generic [ref=e897]: "+4"
+                    - link "W's Nano Puff® Jacket $229 (1906 Reviews )" [ref=e899] [cursor=pointer]:
+                      - /url: /product/womens-nano-puff-insulated-jacket/84218.html
+                      - paragraph [ref=e900]: W's Nano Puff® Jacket
+                      - generic [ref=e905]: $229
+                      - generic [ref=e906]:
+                        - figure [ref=e907]:
+                          - generic [ref=e940]: "Rating: 4.6 / 5"
+                        - generic [ref=e941]:
+                          - text: (1906
+                          - generic [ref=e942]: Reviews
+                          - text: )
+                  - generic [ref=e943]:
+                    - generic [ref=e944]: windproof
+                    - generic [ref=e945]: packable
+                    - generic [ref=e946]: water resistant
+              - generic [ref=e951]:
+                - generic [ref=e952]:
+                  - generic [ref=e953]:
+                    - link "M's Houdini® Jacket - Pond Green (PNDG) (24142)" [ref=e955] [cursor=pointer]:
+                      - /url: /product/mens-houdini-windbreaker-jacket/24142.html?dwvar_24142_color=PNDG
+                      - generic [ref=e958]:
+                        - img "M's Houdini® Jacket - Pond Green (PNDG) (24142)"
+                    - link "M's Houdini® Jacket - Pond Green (PNDG) (24142)" [ref=e960] [cursor=pointer]:
+                      - /url: /product/mens-houdini-windbreaker-jacket/24142.html?dwvar_24142_color=PNDG
+                      - generic [ref=e962]:
+                        - img "M's Houdini® Jacket - Pond Green (PNDG) (24142)"
+                  - button "Quick Add" [ref=e964] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e965]:
+                  - generic [ref=e966]:
+                    - list [ref=e969]:
+                      - listitem [ref=e970]:
+                        - button "Pond Green (PNDG)" [ref=e971] [cursor=pointer]:
+                          - img [ref=e972]
+                      - listitem [ref=e974]:
+                        - button "Pumice (PUM)" [ref=e975] [cursor=pointer]
+                      - listitem [ref=e976]:
+                        - 'button "Sea Run: Robin Brown (SRRO)" [ref=e977] [cursor=pointer]'
+                      - listitem [ref=e978]:
+                        - button "Amanita Red (AMRE)" [ref=e979] [cursor=pointer]
+                      - listitem [ref=e980]:
+                        - button "Clement Blue (CLMB)" [ref=e981] [cursor=pointer]
+                      - listitem [ref=e982]:
+                        - link "+2" [ref=e983] [cursor=pointer]:
+                          - /url: /product/mens-houdini-windbreaker-jacket/24142.html
+                          - generic [ref=e984]: "+2"
+                    - link "M's Houdini® Jacket $109 (506 Reviews )" [ref=e986] [cursor=pointer]:
+                      - /url: /product/mens-houdini-windbreaker-jacket/24142.html
+                      - paragraph [ref=e987]: M's Houdini® Jacket
+                      - generic [ref=e992]: $109
+                      - generic [ref=e993]:
+                        - figure [ref=e994]:
+                          - generic [ref=e1027]: "Rating: 4.5 / 5"
+                        - generic [ref=e1028]:
+                          - text: (506
+                          - generic [ref=e1029]: Reviews
+                          - text: )
+                  - generic [ref=e1030]:
+                    - generic [ref=e1031]: windproof
+                    - generic [ref=e1032]: quick drying
+                    - generic [ref=e1033]: packable
+              - generic [ref=e1038]:
+                - generic [ref=e1039]:
+                  - generic [ref=e1040]:
+                    - link "M's R1® Air Jacket - Pelican (PLCN) (40275)" [ref=e1042] [cursor=pointer]:
+                      - /url: /product/mens-r1-air-fleece-midlayer-jacket/40275.html?dwvar_40275_color=PLCN
+                      - generic [ref=e1045]:
+                        - img "M's R1® Air Jacket - Pelican (PLCN) (40275)"
+                    - link "M's R1® Air Jacket - Pelican (PLCN) (40275)" [ref=e1047] [cursor=pointer]:
+                      - /url: /product/mens-r1-air-fleece-midlayer-jacket/40275.html?dwvar_40275_color=PLCN
+                      - generic [ref=e1049]:
+                        - img "M's R1® Air Jacket - Pelican (PLCN) (40275)"
+                  - button "Quick Add" [ref=e1051] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e1052]:
+                  - generic [ref=e1053]:
+                    - list [ref=e1056]:
+                      - listitem [ref=e1057]:
+                        - button "Pelican (PLCN)" [ref=e1058] [cursor=pointer]:
+                          - img [ref=e1059]
+                      - listitem [ref=e1061]:
+                        - button "Dried Vanilla (DVL)" [ref=e1062] [cursor=pointer]
+                      - listitem [ref=e1063]:
+                        - button "Black (BLK)" [ref=e1064] [cursor=pointer]
+                      - listitem [ref=e1065]:
+                        - button "Smolder Blue (SMDB)" [ref=e1066] [cursor=pointer]
+                      - listitem [ref=e1067]:
+                        - button "Old Growth Green (OLGG)" [ref=e1068] [cursor=pointer]
+                    - link "M's R1® Air Jacket $159 (36 Reviews )" [ref=e1070] [cursor=pointer]:
+                      - /url: /product/mens-r1-air-fleece-midlayer-jacket/40275.html
+                      - paragraph [ref=e1071]: M's R1® Air Jacket
+                      - generic [ref=e1076]: $159
+                      - generic [ref=e1077]:
+                        - figure [ref=e1078]:
+                          - generic [ref=e1111]: "Rating: 4.7 / 5"
+                        - generic [ref=e1112]:
+                          - text: (36
+                          - generic [ref=e1113]: Reviews
+                          - text: )
+                  - generic [ref=e1114]:
+                    - generic [ref=e1115]: breathable
+                    - generic [ref=e1116]: quick drying
+                    - generic [ref=e1117]: moisture wicking
+              - generic [ref=e1122]:
+                - generic [ref=e1123]:
+                  - generic [ref=e1124]:
+                    - link "W's Torrentshell 3L Rain Jacket - Current Blue (CUBL) (85246)" [ref=e1126] [cursor=pointer]:
+                      - /url: /product/womens-torrentshell-3-layer-rain-jacket/85246.html?dwvar_85246_color=CUBL
+                      - generic [ref=e1129]:
+                        - img "W's Torrentshell 3L Rain Jacket - Current Blue (CUBL) (85246)"
+                    - link "W's Torrentshell 3L Rain Jacket - Current Blue (CUBL) (85246)" [ref=e1131] [cursor=pointer]:
+                      - /url: /product/womens-torrentshell-3-layer-rain-jacket/85246.html?dwvar_85246_color=CUBL
+                      - generic [ref=e1133]:
+                        - img "W's Torrentshell 3L Rain Jacket - Current Blue (CUBL) (85246)"
+                  - button "Quick Add" [ref=e1135] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e1136]:
+                  - generic [ref=e1137]:
+                    - list [ref=e1140]:
+                      - listitem [ref=e1141]:
+                        - button "Current Blue (CUBL)" [ref=e1142] [cursor=pointer]:
+                          - img [ref=e1143]
+                      - listitem [ref=e1145]:
+                        - button "Black (BLK)" [ref=e1146] [cursor=pointer]
+                      - listitem [ref=e1147]:
+                        - button "Wool White (WLWT)" [ref=e1148] [cursor=pointer]
+                      - listitem [ref=e1149]:
+                        - button "Smolder Blue (SMDB)" [ref=e1150] [cursor=pointer]
+                      - listitem [ref=e1151]:
+                        - button "Ellwood Green (ELGR)" [ref=e1152] [cursor=pointer]
+                      - listitem [ref=e1153]:
+                        - link "+3" [ref=e1154] [cursor=pointer]:
+                          - /url: /product/womens-torrentshell-3-layer-rain-jacket/85246.html
+                          - generic [ref=e1155]: "+3"
+                    - link "W's Torrentshell 3L Rain Jacket $179 (236 Reviews )" [ref=e1157] [cursor=pointer]:
+                      - /url: /product/womens-torrentshell-3-layer-rain-jacket/85246.html
+                      - paragraph [ref=e1158]: W's Torrentshell 3L Rain Jacket
+                      - generic [ref=e1163]: $179
+                      - generic [ref=e1164]:
+                        - figure [ref=e1165]:
+                          - generic [ref=e1198]: "Rating: 4.4 / 5"
+                        - generic [ref=e1199]:
+                          - text: (236
+                          - generic [ref=e1200]: Reviews
+                          - text: )
+                  - generic [ref=e1201]:
+                    - generic [ref=e1202]: waterproof
+                    - generic [ref=e1203]: windproof
+                    - generic [ref=e1204]: packable
+              - generic [ref=e1209]:
+                - generic [ref=e1210]:
+                  - generic [ref=e1211]:
+                    - link "Kids' Nano Puff® Brick Quilt Jacket - Clement Blue (CLMB) (68001)" [ref=e1213] [cursor=pointer]:
+                      - /url: /product/kids-nano-puff-brick-quilt-insulated-jacket/68001.html?dwvar_68001_color=CLMB
+                      - generic [ref=e1216]:
+                        - img "Kids' Nano Puff® Brick Quilt Jacket - Clement Blue (CLMB) (68001)"
+                    - link "Kids' Nano Puff® Brick Quilt Jacket - Clement Blue (CLMB) (68001)" [ref=e1218] [cursor=pointer]:
+                      - /url: /product/kids-nano-puff-brick-quilt-insulated-jacket/68001.html?dwvar_68001_color=CLMB
+                      - generic [ref=e1220]:
+                        - img "Kids' Nano Puff® Brick Quilt Jacket - Clement Blue (CLMB) (68001)"
+                  - button "Quick Add" [ref=e1222] [cursor=pointer]
+                - generic [ref=e1223]:
+                  - generic [ref=e1224]:
+                    - list [ref=e1227]:
+                      - listitem [ref=e1228]:
+                        - button "Clement Blue (CLMB)" [ref=e1229] [cursor=pointer]:
+                          - img [ref=e1230]
+                      - listitem [ref=e1232]:
+                        - button "Black (BLK)" [ref=e1233] [cursor=pointer]
+                      - listitem [ref=e1234]:
+                        - button "Forge Grey w/Noble Grey (FYGR)" [ref=e1235] [cursor=pointer]
+                      - listitem [ref=e1236]:
+                        - button "Uplift Blue (ULBE)" [ref=e1237] [cursor=pointer]
+                      - listitem [ref=e1238]:
+                        - button "Sizzle Red (SZRD)" [ref=e1239] [cursor=pointer]
+                      - listitem [ref=e1240]:
+                        - link "+3" [ref=e1241] [cursor=pointer]:
+                          - /url: /product/kids-nano-puff-brick-quilt-insulated-jacket/68001.html
+                          - generic [ref=e1242]: "+3"
+                    - link "Kids' Nano Puff® Brick Quilt Jacket $119 (105 Reviews )" [ref=e1244] [cursor=pointer]:
+                      - /url: /product/kids-nano-puff-brick-quilt-insulated-jacket/68001.html
+                      - paragraph [ref=e1245]: Kids' Nano Puff® Brick Quilt Jacket
+                      - generic [ref=e1250]: $119
+                      - generic [ref=e1251]:
+                        - figure [ref=e1252]:
+                          - generic [ref=e1285]: "Rating: 4.7 / 5"
+                        - generic [ref=e1286]:
+                          - text: (105
+                          - generic [ref=e1287]: Reviews
+                          - text: )
+                  - generic [ref=e1288]:
+                    - generic [ref=e1289]: windproof
+                    - generic [ref=e1290]: packable
+                    - generic [ref=e1291]: water resistant
+              - generic [ref=e1296]:
+                - generic [ref=e1297]:
+                  - generic [ref=e1298]:
+                    - link "Baby Micro D® Snap-T® Jacket - Talon Gold (TNGO) (60155)" [ref=e1300] [cursor=pointer]:
+                      - /url: /product/baby-micro-d-snap-t-fleece-jacket/60155.html?dwvar_60155_color=TNGO
+                      - generic [ref=e1303]:
+                        - img "Baby Micro D® Snap-T® Jacket - Talon Gold (TNGO) (60155)"
+                    - link "Baby Micro D® Snap-T® Jacket - Talon Gold (TNGO) (60155)" [ref=e1305] [cursor=pointer]:
+                      - /url: /product/baby-micro-d-snap-t-fleece-jacket/60155.html?dwvar_60155_color=TNGO
+                      - generic [ref=e1307]:
+                        - img "Baby Micro D® Snap-T® Jacket - Talon Gold (TNGO) (60155)"
+                  - button "Quick Add" [ref=e1309] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e1310]:
+                  - generic [ref=e1311]:
+                    - list [ref=e1314]:
+                      - listitem [ref=e1315]:
+                        - button "Talon Gold (TNGO)" [ref=e1316] [cursor=pointer]:
+                          - img [ref=e1317]
+                      - listitem [ref=e1319]:
+                        - button "New Navy w/Madder Red (NVMR)" [ref=e1320] [cursor=pointer]
+                      - listitem [ref=e1321]:
+                        - button "Virtually Blue (VRTB)" [ref=e1322] [cursor=pointer]
+                      - listitem [ref=e1323]:
+                        - button "Moment Pink (MNTP)" [ref=e1324] [cursor=pointer]
+                      - listitem [ref=e1325]:
+                        - button "Clement Blue (CLMB)" [ref=e1326] [cursor=pointer]
+                      - listitem [ref=e1327]:
+                        - link "+4" [ref=e1328] [cursor=pointer]:
+                          - /url: /product/baby-micro-d-snap-t-fleece-jacket/60155.html
+                          - generic [ref=e1329]: "+4"
+                    - link "Baby Micro D® Snap-T® Jacket $69 (210 Reviews )" [ref=e1331] [cursor=pointer]:
+                      - /url: /product/baby-micro-d-snap-t-fleece-jacket/60155.html
+                      - paragraph [ref=e1332]: Baby Micro D® Snap-T® Jacket
+                      - generic [ref=e1337]: $69
+                      - generic [ref=e1338]:
+                        - figure [ref=e1339]:
+                          - generic [ref=e1372]: "Rating: 4.7 / 5"
+                        - generic [ref=e1373]:
+                          - text: (210
+                          - generic [ref=e1374]: Reviews
+                          - text: )
+                  - generic [ref=e1376]: quick drying
+              - generic [ref=e1381]:
+                - generic [ref=e1382]:
+                  - generic [ref=e1383]:
+                    - link "W's Houdini® Jacket - Cascade Green (CASG) (24147)" [ref=e1385] [cursor=pointer]:
+                      - /url: /product/womens-houdini-windbreaker-jacket/24147.html?dwvar_24147_color=CASG
+                      - generic [ref=e1388]:
+                        - img "W's Houdini® Jacket - Cascade Green (CASG) (24147)"
+                    - link "W's Houdini® Jacket - Cascade Green (CASG) (24147)" [ref=e1390] [cursor=pointer]:
+                      - /url: /product/womens-houdini-windbreaker-jacket/24147.html?dwvar_24147_color=CASG
+                      - generic [ref=e1392]:
+                        - img "W's Houdini® Jacket - Cascade Green (CASG) (24147)"
+                  - button "Quick Add" [ref=e1394] [cursor=pointer]
+                - generic [ref=e1395]:
+                  - generic [ref=e1396]:
+                    - list [ref=e1399]:
+                      - listitem [ref=e1400]:
+                        - button "Cascade Green (CASG)" [ref=e1401] [cursor=pointer]:
+                          - img [ref=e1402]
+                      - listitem [ref=e1404]:
+                        - button "Current Blue (CUBL)" [ref=e1405] [cursor=pointer]
+                      - listitem [ref=e1406]:
+                        - button "Salt Grey (SGRY)" [ref=e1407] [cursor=pointer]
+                      - listitem [ref=e1408]:
+                        - 'button "Sea Run: Potters Red (SRPO)" [ref=e1409] [cursor=pointer]'
+                      - listitem [ref=e1410]:
+                        - button "Brisk Purple (BKPL)" [ref=e1411] [cursor=pointer]
+                      - listitem [ref=e1412]:
+                        - link "+2" [ref=e1413] [cursor=pointer]:
+                          - /url: /product/womens-houdini-windbreaker-jacket/24147.html
+                          - generic [ref=e1414]: "+2"
+                    - link "W's Houdini® Jacket $109 (484 Reviews )" [ref=e1416] [cursor=pointer]:
+                      - /url: /product/womens-houdini-windbreaker-jacket/24147.html
+                      - paragraph [ref=e1417]: W's Houdini® Jacket
+                      - generic [ref=e1422]: $109
+                      - generic [ref=e1423]:
+                        - figure [ref=e1424]:
+                          - generic [ref=e1457]: "Rating: 4.5 / 5"
+                        - generic [ref=e1458]:
+                          - text: (484
+                          - generic [ref=e1459]: Reviews
+                          - text: )
+                  - generic [ref=e1460]:
+                    - generic [ref=e1461]: windproof
+                    - generic [ref=e1462]: quick drying
+                    - generic [ref=e1463]: packable
+              - generic [ref=e1468]:
+                - generic [ref=e1469]:
+                  - generic [ref=e1470]:
+                    - link "M's Windshadow Jacket - Basin Green (BSNG) (26490)" [ref=e1472] [cursor=pointer]:
+                      - /url: /product/mens-windshadow-waterproof-jacket/26490.html?dwvar_26490_color=BSNG
+                      - generic [ref=e1475]:
+                        - img "M's Windshadow Jacket - Basin Green (BSNG) (26490)"
+                    - link "M's Windshadow Jacket - Basin Green (BSNG) (26490)" [ref=e1477] [cursor=pointer]:
+                      - /url: /product/mens-windshadow-waterproof-jacket/26490.html?dwvar_26490_color=BSNG
+                      - generic [ref=e1479]:
+                        - img "M's Windshadow Jacket - Basin Green (BSNG) (26490)"
+                  - button "Quick Add" [ref=e1481] [cursor=pointer]
+                - generic [ref=e1482]:
+                  - generic [ref=e1483]:
+                    - list [ref=e1486]:
+                      - listitem [ref=e1487]:
+                        - button "Basin Green (BSNG)" [ref=e1488] [cursor=pointer]:
+                          - img [ref=e1489]
+                      - listitem [ref=e1491]:
+                        - button "Forge Grey (FGE)" [ref=e1492] [cursor=pointer]
+                      - listitem [ref=e1493]:
+                        - button "Smolder Blue (SMDB)" [ref=e1494] [cursor=pointer]
+                      - listitem [ref=e1495]:
+                        - button "Deer Brown (DRBN)" [ref=e1496] [cursor=pointer]
+                      - listitem [ref=e1497]:
+                        - link "M's Windshadow Jacket" [ref=e1498] [cursor=pointer]:
+                          - /url: /product/mens-windshadow-waterproof-jacket/26490.html
+                    - link "M's Windshadow Jacket $349 (25 Reviews )" [ref=e1500] [cursor=pointer]:
+                      - /url: /product/mens-windshadow-waterproof-jacket/26490.html
+                      - paragraph [ref=e1501]: M's Windshadow Jacket
+                      - generic [ref=e1506]: $349
+                      - generic [ref=e1507]:
+                        - figure [ref=e1508]:
+                          - generic [ref=e1541]: "Rating: 4.2 / 5"
+                        - generic [ref=e1542]:
+                          - text: (25
+                          - generic [ref=e1543]: Reviews
+                          - text: )
+                  - generic [ref=e1544]:
+                    - generic [ref=e1545]: waterproof
+                    - generic [ref=e1546]: windproof
+              - generic [ref=e1551]:
+                - generic [ref=e1552]:
+                  - generic [ref=e1553]:
+                    - link "W's Classic Retro-X® Jacket - Natural (NAT) (23075)" [ref=e1555] [cursor=pointer]:
+                      - /url: /product/womens-classic-retro-x-fleece-jacket/23075.html?dwvar_23075_color=NAT
+                      - generic [ref=e1558]:
+                        - img "W's Classic Retro-X® Jacket - Natural (NAT) (23075)"
+                    - link "W's Classic Retro-X® Jacket - Natural (NAT) (23075)" [ref=e1560] [cursor=pointer]:
+                      - /url: /product/womens-classic-retro-x-fleece-jacket/23075.html?dwvar_23075_color=NAT
+                      - generic [ref=e1562]:
+                        - img "W's Classic Retro-X® Jacket - Natural (NAT) (23075)"
+                  - button "Quick Add" [ref=e1564] [cursor=pointer]
+                - generic: Best Seller
+                - generic [ref=e1565]:
+                  - generic [ref=e1566]:
+                    - list [ref=e1569]:
+                      - listitem [ref=e1570]:
+                        - button "Natural (NAT)" [ref=e1571] [cursor=pointer]:
+                          - img [ref=e1572]
+                      - listitem [ref=e1574]:
+                        - button "Deer Brown (DRBN)" [ref=e1575] [cursor=pointer]
+                      - listitem [ref=e1576]:
+                        - button "Cascade Green (CASG)" [ref=e1577] [cursor=pointer]
+                      - listitem [ref=e1578]:
+                        - button "Sunken Blue (SNBE)" [ref=e1579] [cursor=pointer]
+                      - listitem [ref=e1580]:
+                        - link "W's Classic Retro-X® Jacket" [ref=e1581] [cursor=pointer]:
+                          - /url: /product/womens-classic-retro-x-fleece-jacket/23075.html
+                    - link "W's Classic Retro-X® Jacket $249 (47 Reviews )" [ref=e1583] [cursor=pointer]:
+                      - /url: /product/womens-classic-retro-x-fleece-jacket/23075.html
+                      - paragraph [ref=e1584]: W's Classic Retro-X® Jacket
+                      - generic [ref=e1589]: $249
+                      - generic [ref=e1590]:
+                        - figure [ref=e1591]:
+                          - generic [ref=e1624]: "Rating: 4.3 / 5"
+                        - generic [ref=e1625]:
+                          - text: (47
+                          - generic [ref=e1626]: Reviews
+                          - text: )
+                  - generic [ref=e1628]: windproof
+              - generic [ref=e1633]:
+                - generic [ref=e1634]:
+                  - generic [ref=e1635]:
+                    - link "M's Triolet Jacket - Clement Blue (CLMB) (83403)" [ref=e1637] [cursor=pointer]:
+                      - /url: /product/mens-triolet-alpine-jacket/83403.html?dwvar_83403_color=CLMB
+                      - generic [ref=e1640]:
+                        - img "M's Triolet Jacket - Clement Blue (CLMB) (83403)"
+                    - link "M's Triolet Jacket - Clement Blue (CLMB) (83403)" [ref=e1642] [cursor=pointer]:
+                      - /url: /product/mens-triolet-alpine-jacket/83403.html?dwvar_83403_color=CLMB
+                      - generic [ref=e1644]:
+                        - img "M's Triolet Jacket - Clement Blue (CLMB) (83403)"
+                  - button "Quick Add" [ref=e1646] [cursor=pointer]
+                - generic [ref=e1647]:
+                  - generic [ref=e1648]:
+                    - list [ref=e1651]:
+                      - listitem [ref=e1652]:
+                        - button "Clement Blue (CLMB)" [ref=e1653] [cursor=pointer]:
+                          - img [ref=e1654]
+                      - listitem [ref=e1656]:
+                        - button "Black (BLK)" [ref=e1657] [cursor=pointer]
+                      - listitem [ref=e1658]:
+                        - button "Forge Grey w/P6 Blue (FGYP)" [ref=e1659] [cursor=pointer]
+                      - listitem [ref=e1660]:
+                        - button "Cascade Green (CASG)" [ref=e1661] [cursor=pointer]
+                      - listitem [ref=e1662]:
+                        - link "M's Triolet Jacket" [ref=e1663] [cursor=pointer]:
+                          - /url: /product/mens-triolet-alpine-jacket/83403.html
+                    - link "M's Triolet Jacket $449 (65 Reviews )" [ref=e1665] [cursor=pointer]:
+                      - /url: /product/mens-triolet-alpine-jacket/83403.html
+                      - paragraph [ref=e1666]: M's Triolet Jacket
+                      - generic [ref=e1671]: $449
+                      - generic [ref=e1672]:
+                        - figure [ref=e1673]:
+                          - generic [ref=e1706]: "Rating: 4.7 / 5"
+                        - generic [ref=e1707]:
+                          - text: (65
+                          - generic [ref=e1708]: Reviews
+                          - text: )
+                  - generic [ref=e1709]:
+                    - generic [ref=e1710]: GORE-TEX
+                    - generic [ref=e1711]: waterproof
+                    - generic [ref=e1712]: RECCO®
+              - generic [ref=e1717]:
+                - generic [ref=e1718]:
+                  - generic [ref=e1719]:
+                    - link "W's R1® Air Jacket - Wool White (WLWT) (40280)" [ref=e1721] [cursor=pointer]:
+                      - /url: /product/womens-r1-air-fleece-midlayer-jacket/40280.html?dwvar_40280_color=WLWT
+                      - generic [ref=e1724]:
+                        - img "W's R1® Air Jacket - Wool White (WLWT) (40280)"
+                    - link "W's R1® Air Jacket - Wool White (WLWT) (40280)" [ref=e1726] [cursor=pointer]:
+                      - /url: /product/womens-r1-air-fleece-midlayer-jacket/40280.html?dwvar_40280_color=WLWT
+                      - generic [ref=e1728]:
+                        - img "W's R1® Air Jacket - Wool White (WLWT) (40280)"
+                  - button "Quick Add" [ref=e1730] [cursor=pointer]
+                - generic [ref=e1731]:
+                  - generic [ref=e1732]:
+                    - list [ref=e1735]:
+                      - listitem [ref=e1736]:
+                        - button "Wool White (WLWT)" [ref=e1737] [cursor=pointer]:
+                          - img [ref=e1738]
+                      - listitem [ref=e1740]:
+                        - button "Black (BLK)" [ref=e1741] [cursor=pointer]
+                      - listitem [ref=e1742]:
+                        - button "Potters Red (PTRE)" [ref=e1743] [cursor=pointer]
+                      - listitem [ref=e1744]:
+                        - button "Barnacle Blue (BNLB)" [ref=e1745] [cursor=pointer]
+                      - listitem [ref=e1746]:
+                        - button "Ellwood Green (ELGR)" [ref=e1747] [cursor=pointer]
+                    - link "W's R1® Air Jacket $159 (17 Reviews )" [ref=e1749] [cursor=pointer]:
+                      - /url: /product/womens-r1-air-fleece-midlayer-jacket/40280.html
+                      - paragraph [ref=e1750]: W's R1® Air Jacket
+                      - generic [ref=e1755]: $159
+                      - generic [ref=e1756]:
+                        - figure [ref=e1757]:
+                          - generic [ref=e1790]: "Rating: 4.6 / 5"
+                        - generic [ref=e1791]:
+                          - text: (17
+                          - generic [ref=e1792]: Reviews
+                          - text: )
+                  - generic [ref=e1793]:
+                    - generic [ref=e1794]: breathable
+                    - generic [ref=e1795]: quick drying
+                    - generic [ref=e1796]: moisture wicking
+              - generic [ref=e1801]:
+                - generic [ref=e1802]:
+                  - generic [ref=e1803]:
+                    - link "M's Windsweep Jacket - Ink Black (INBK) (20320)" [ref=e1805] [cursor=pointer]:
+                      - /url: /product/mens-windsweep-lightweight-windbreaker-jacket/20320.html?dwvar_20320_color=INBK
+                      - generic [ref=e1808]:
+                        - img "M's Windsweep Jacket - Ink Black (INBK) (20320)"
+                    - link "M's Windsweep Jacket - Ink Black (INBK) (20320)" [ref=e1810] [cursor=pointer]:
+                      - /url: /product/mens-windsweep-lightweight-windbreaker-jacket/20320.html?dwvar_20320_color=INBK
+                      - generic [ref=e1812]:
+                        - img "M's Windsweep Jacket - Ink Black (INBK) (20320)"
+                  - button "Quick Add" [ref=e1814] [cursor=pointer]
+                - generic [ref=e1815]:
+                  - generic [ref=e1816]:
+                    - list [ref=e1819]:
+                      - listitem [ref=e1820]:
+                        - button "Ink Black (INBK)" [ref=e1821] [cursor=pointer]:
+                          - img [ref=e1822]
+                      - listitem [ref=e1824]:
+                        - button "Thermal Blue (TMBL)" [ref=e1825] [cursor=pointer]
+                      - listitem [ref=e1826]:
+                        - button "Graze Green (GRZG)" [ref=e1827] [cursor=pointer]
+                    - link "M's Windsweep Jacket $199 (6 Reviews )" [ref=e1829] [cursor=pointer]:
+                      - /url: /product/mens-windsweep-lightweight-windbreaker-jacket/20320.html
+                      - paragraph [ref=e1830]: M's Windsweep Jacket
+                      - generic [ref=e1835]: $199
+                      - generic [ref=e1836]:
+                        - figure [ref=e1837]:
+                          - generic [ref=e1869]: "Rating: 3.5 / 5"
+                        - generic [ref=e1870]:
+                          - text: (6
+                          - generic [ref=e1871]: Reviews
+                          - text: )
+                  - generic [ref=e1873]: water resistant
+              - generic [ref=e1878]:
+                - generic [ref=e1879]:
+                  - generic [ref=e1880]:
+                    - link "W's Classic Microdini Jacket - Permafrost Purple (PMFP) (23165)" [ref=e1882] [cursor=pointer]:
+                      - /url: /product/womens-classic-microdini-fleece-jacket/23165.html?dwvar_23165_color=PMFP
+                      - generic [ref=e1885]:
+                        - img "W's Classic Microdini Jacket - Permafrost Purple (PMFP) (23165)"
+                    - link "W's Classic Microdini Jacket - Permafrost Purple (PMFP) (23165)" [ref=e1887] [cursor=pointer]:
+                      - /url: /product/womens-classic-microdini-fleece-jacket/23165.html?dwvar_23165_color=PMFP
+                      - generic [ref=e1889]:
+                        - img "W's Classic Microdini Jacket - Permafrost Purple (PMFP) (23165)"
+                  - button "Quick Add" [ref=e1891] [cursor=pointer]
+                - generic [ref=e1893]:
+                  - list [ref=e1896]:
+                    - listitem [ref=e1897]:
+                      - button "Permafrost Purple (PMFP)" [ref=e1898] [cursor=pointer]:
+                        - img [ref=e1899]
+                    - listitem [ref=e1901]:
+                      - button "Black (BLK)" [ref=e1902] [cursor=pointer]
+                    - listitem [ref=e1903]:
+                      - button "Birch White (BCW)" [ref=e1904] [cursor=pointer]
+                    - listitem [ref=e1905]:
+                      - button "Dark Ruby (DAK)" [ref=e1906] [cursor=pointer]
+                    - listitem [ref=e1907]:
+                      - button "Marlow Brown (MRLB)" [ref=e1908] [cursor=pointer]
+                    - listitem [ref=e1909]:
+                      - link "+1" [ref=e1910] [cursor=pointer]:
+                        - /url: /product/womens-classic-microdini-fleece-jacket/23165.html
+                        - generic [ref=e1911]: "+1"
+                  - link "W's Classic Microdini Jacket $119 (83 Reviews )" [ref=e1913] [cursor=pointer]:
+                    - /url: /product/womens-classic-microdini-fleece-jacket/23165.html
+                    - paragraph [ref=e1914]: W's Classic Microdini Jacket
+                    - generic [ref=e1919]: $119
+                    - generic [ref=e1920]:
+                      - figure [ref=e1921]:
+                        - generic [ref=e1954]: "Rating: 4.2 / 5"
+                      - generic [ref=e1955]:
+                        - text: (83
+                        - generic [ref=e1956]: Reviews
+                        - text: )
+              - generic [ref=e1961]:
+                - generic [ref=e1962]:
+                  - generic [ref=e1963]:
+                    - link "W's Retro Pile Jacket - River Rock Green (RVGN) (22795)" [ref=e1965] [cursor=pointer]:
+                      - /url: /product/womens-retro-pile-fleece-jacket/22795.html?dwvar_22795_color=RVGN
+                      - generic [ref=e1968]:
+                        - img "W's Retro Pile Jacket - River Rock Green (RVGN) (22795)"
+                    - link "W's Retro Pile Jacket - River Rock Green (RVGN) (22795)" [ref=e1970] [cursor=pointer]:
+                      - /url: /product/womens-retro-pile-fleece-jacket/22795.html?dwvar_22795_color=RVGN
+                      - generic [ref=e1972]:
+                        - img "W's Retro Pile Jacket - River Rock Green (RVGN) (22795)"
+                  - button "Quick Add" [ref=e1974] [cursor=pointer]
+                - generic [ref=e1976]:
+                  - list [ref=e1979]:
+                    - listitem [ref=e1980]:
+                      - button "River Rock Green (RVGN)" [ref=e1981] [cursor=pointer]:
+                        - img [ref=e1982]
+                    - listitem [ref=e1984]:
+                      - button "Natural (NAT)" [ref=e1985] [cursor=pointer]
+                    - listitem [ref=e1986]:
+                      - button "Sunken Blue (SNBE)" [ref=e1987] [cursor=pointer]
+                  - link "W's Retro Pile Jacket $149 (239 Reviews )" [ref=e1989] [cursor=pointer]:
+                    - /url: /product/womens-retro-pile-fleece-jacket/22795.html
+                    - paragraph [ref=e1990]: W's Retro Pile Jacket
+                    - generic [ref=e1995]: $149
+                    - generic [ref=e1996]:
+                      - figure [ref=e1997]:
+                        - generic [ref=e2030]: "Rating: 4.2 / 5"
+                      - generic [ref=e2031]:
+                        - text: (239
+                        - generic [ref=e2032]: Reviews
+                        - text: )
+              - generic [ref=e2037]:
+                - generic [ref=e2038]:
+                  - generic [ref=e2039]:
+                    - link "W's R1® Thermal Jacket - Current Blue (CUBL) (40585)" [ref=e2041] [cursor=pointer]:
+                      - /url: /product/womens-r1-thermal-fleece-jacket/40585.html?dwvar_40585_color=CUBL
+                      - generic [ref=e2044]:
+                        - img "W's R1® Thermal Jacket - Current Blue (CUBL) (40585)"
+                    - link "W's R1® Thermal Jacket - Current Blue (CUBL) (40585)" [ref=e2046] [cursor=pointer]:
+                      - /url: /product/womens-r1-thermal-fleece-jacket/40585.html?dwvar_40585_color=CUBL
+                      - generic [ref=e2048]:
+                        - img "W's R1® Thermal Jacket - Current Blue (CUBL) (40585)"
+                  - button "Quick Add" [ref=e2050] [cursor=pointer]
+                - generic [ref=e2051]:
+                  - generic [ref=e2052]:
+                    - list [ref=e2055]:
+                      - listitem [ref=e2056]:
+                        - button "Current Blue (CUBL)" [ref=e2057] [cursor=pointer]:
+                          - img [ref=e2058]
+                      - listitem [ref=e2060]:
+                        - button "Black (BLK)" [ref=e2061] [cursor=pointer]
+                      - listitem [ref=e2062]:
+                        - button "Smolder Blue (SMDB)" [ref=e2063] [cursor=pointer]
+                      - listitem [ref=e2064]:
+                        - button "Dark Ruby (DAK)" [ref=e2065] [cursor=pointer]
+                      - listitem [ref=e2066]:
+                        - link "W's R1® Thermal Jacket" [ref=e2067] [cursor=pointer]:
+                          - /url: /product/womens-r1-thermal-fleece-jacket/40585.html
+                    - link "W's R1® Thermal Jacket $199 (16 Reviews )" [ref=e2069] [cursor=pointer]:
+                      - /url: /product/womens-r1-thermal-fleece-jacket/40585.html
+                      - paragraph [ref=e2070]: W's R1® Thermal Jacket
+                      - generic [ref=e2075]: $199
+                      - generic [ref=e2076]:
+                        - figure [ref=e2077]:
+                          - generic [ref=e2110]: "Rating: 4.8 / 5"
+                        - generic [ref=e2111]:
+                          - text: (16
+                          - generic [ref=e2112]: Reviews
+                          - text: )
+                  - generic [ref=e2113]:
+                    - generic [ref=e2114]: breathable
+                    - generic [ref=e2115]: quick drying
+                    - generic [ref=e2116]: stretch
+              - generic [ref=e2121]:
+                - generic [ref=e2122]:
+                  - generic [ref=e2123]:
+                    - link "M's Wind Shield Jacket - Marlow Brown (MRLB) (24093)" [ref=e2125] [cursor=pointer]:
+                      - /url: /product/mens-wind-shield-windbreaker-jacket/24093.html?dwvar_24093_color=MRLB
+                      - generic [ref=e2128]:
+                        - img "M's Wind Shield Jacket - Marlow Brown (MRLB) (24093)"
+                    - link "M's Wind Shield Jacket - Marlow Brown (MRLB) (24093)" [ref=e2130] [cursor=pointer]:
+                      - /url: /product/mens-wind-shield-windbreaker-jacket/24093.html?dwvar_24093_color=MRLB
+                      - generic [ref=e2132]:
+                        - img "M's Wind Shield Jacket - Marlow Brown (MRLB) (24093)"
+                  - button "Quick Add" [ref=e2134] [cursor=pointer]
+                - generic [ref=e2135]:
+                  - generic [ref=e2136]:
+                    - list [ref=e2139]:
+                      - listitem [ref=e2140]:
+                        - button "Marlow Brown (MRLB)" [ref=e2141] [cursor=pointer]:
+                          - img [ref=e2142]
+                      - listitem [ref=e2144]:
+                        - button "Smolder Blue (SMDB)" [ref=e2145] [cursor=pointer]
+                      - listitem [ref=e2146]:
+                        - button "Black (BLK)" [ref=e2147] [cursor=pointer]
+                    - link "M's Wind Shield Jacket $199 (15 Reviews )" [ref=e2149] [cursor=pointer]:
+                      - /url: /product/mens-wind-shield-windbreaker-jacket/24093.html
+                      - paragraph [ref=e2150]: M's Wind Shield Jacket
+                      - generic [ref=e2155]: $199
+                      - generic [ref=e2156]:
+                        - figure [ref=e2157]:
+                          - generic [ref=e2190]: "Rating: 4.6 / 5"
+                        - generic [ref=e2191]:
+                          - text: (15
+                          - generic [ref=e2192]: Reviews
+                          - text: )
+                  - generic [ref=e2193]:
+                    - generic [ref=e2194]: windproof
+                    - generic [ref=e2195]: breathable
+                    - generic [ref=e2196]: water resistant
+              - generic [ref=e2201]:
+                - generic [ref=e2202]:
+                  - generic [ref=e2203]:
+                    - link "M's Storm Shift Jacket - Cascade Green (CASG) (31745)" [ref=e2205] [cursor=pointer]:
+                      - /url: /product/mens-storm-shift-ski-snowboard-jacket/31745.html?dwvar_31745_color=CASG
+                      - generic [ref=e2208]:
+                        - img "M's Storm Shift Jacket - Cascade Green (CASG) (31745)"
+                    - link "M's Storm Shift Jacket - Cascade Green (CASG) (31745)" [ref=e2210] [cursor=pointer]:
+                      - /url: /product/mens-storm-shift-ski-snowboard-jacket/31745.html?dwvar_31745_color=CASG
+                      - generic [ref=e2212]:
+                        - img "M's Storm Shift Jacket - Cascade Green (CASG) (31745)"
+                  - button "Quick Add" [ref=e2214] [cursor=pointer]
+                - generic [ref=e2215]:
+                  - generic [ref=e2216]:
+                    - list [ref=e2219]:
+                      - listitem [ref=e2220]:
+                        - button "Cascade Green (CASG)" [ref=e2221] [cursor=pointer]:
+                          - img [ref=e2222]
+                      - listitem [ref=e2224]:
+                        - button "Black w/Black (BOB)" [ref=e2225] [cursor=pointer]
+                      - listitem [ref=e2226]:
+                        - button "Clement Blue (CLMB)" [ref=e2227] [cursor=pointer]
+                    - link "M's Storm Shift Jacket $499 (34 Reviews )" [ref=e2229] [cursor=pointer]:
+                      - /url: /product/mens-storm-shift-ski-snowboard-jacket/31745.html
+                      - paragraph [ref=e2230]: M's Storm Shift Jacket
+                      - generic [ref=e2235]: $499
+                      - generic [ref=e2236]:
+                        - figure [ref=e2237]:
+                          - generic [ref=e2270]: "Rating: 4.5 / 5"
+                        - generic [ref=e2271]:
+                          - text: (34
+                          - generic [ref=e2272]: Reviews
+                          - text: )
+                  - generic [ref=e2273]:
+                    - generic [ref=e2274]: GORE-TEX
+                    - generic [ref=e2275]: waterproof
+                    - generic [ref=e2276]: RECCO®
+              - generic [ref=e2281]:
+                - generic [ref=e2282]:
+                  - generic [ref=e2283]:
+                    - link "M's R2® TechFace Jacket - Forge Grey (FGE) (83626)" [ref=e2285] [cursor=pointer]:
+                      - /url: /product/mens-r2-techface-midlayer-fleece-jacket/83626.html?dwvar_83626_color=FGE
+                      - generic [ref=e2288]:
+                        - img "M's R2® TechFace Jacket - Forge Grey (FGE) (83626)"
+                    - link "M's R2® TechFace Jacket - Forge Grey (FGE) (83626)" [ref=e2290] [cursor=pointer]:
+                      - /url: /product/mens-r2-techface-midlayer-fleece-jacket/83626.html?dwvar_83626_color=FGE
+                      - generic [ref=e2292]:
+                        - img "M's R2® TechFace Jacket - Forge Grey (FGE) (83626)"
+                  - button "Quick Add" [ref=e2294] [cursor=pointer]
+                - generic [ref=e2295]:
+                  - generic [ref=e2296]:
+                    - list [ref=e2299]:
+                      - listitem [ref=e2300]:
+                        - button "Forge Grey (FGE)" [ref=e2301] [cursor=pointer]:
+                          - img [ref=e2302]
+                      - listitem [ref=e2304]:
+                        - button "Black (BLK)" [ref=e2305] [cursor=pointer]
+                      - listitem [ref=e2306]:
+                        - button "Clement Blue (CLMB)" [ref=e2307] [cursor=pointer]
+                      - listitem [ref=e2308]:
+                        - button "Cascade Green (CASG)" [ref=e2309] [cursor=pointer]
+                      - listitem [ref=e2310]:
+                        - button "Marlow Brown (MRLB)" [ref=e2311] [cursor=pointer]
+                    - link "M's R2® TechFace Jacket $199 (79 Reviews )" [ref=e2313] [cursor=pointer]:
+                      - /url: /product/mens-r2-techface-midlayer-fleece-jacket/83626.html
+                      - paragraph [ref=e2314]: M's R2® TechFace Jacket
+                      - generic [ref=e2319]: $199
+                      - generic [ref=e2320]:
+                        - figure [ref=e2321]:
+                          - generic [ref=e2354]: "Rating: 4.6 / 5"
+                        - generic [ref=e2355]:
+                          - text: (79
+                          - generic [ref=e2356]: Reviews
+                          - text: )
+                  - generic [ref=e2357]:
+                    - generic [ref=e2358]: breathable
+                    - generic [ref=e2359]: water resistant
+                    - generic [ref=e2360]: stretch
+              - generic [ref=e2365]:
+                - generic [ref=e2366]:
+                  - generic [ref=e2367]:
+                    - link "W's Storm Shift Jacket - Oar Tan (ORTN) (31750)" [ref=e2369] [cursor=pointer]:
+                      - /url: /product/womens-storm-shift-ski-snowboard-jacket/31750.html?dwvar_31750_color=ORTN
+                      - generic [ref=e2372]:
+                        - img "W's Storm Shift Jacket - Oar Tan (ORTN) (31750)"
+                    - link "W's Storm Shift Jacket - Oar Tan (ORTN) (31750)" [ref=e2374] [cursor=pointer]:
+                      - /url: /product/womens-storm-shift-ski-snowboard-jacket/31750.html?dwvar_31750_color=ORTN
+                      - generic [ref=e2376]:
+                        - img "W's Storm Shift Jacket - Oar Tan (ORTN) (31750)"
+                  - button "Quick Add" [ref=e2378] [cursor=pointer]
+                - generic [ref=e2379]:
+                  - generic [ref=e2380]:
+                    - list [ref=e2383]:
+                      - listitem [ref=e2384]:
+                        - button "Oar Tan (ORTN)" [ref=e2385] [cursor=pointer]:
+                          - img [ref=e2386]
+                      - listitem [ref=e2388]:
+                        - button "Talon Gold (TNGO)" [ref=e2389] [cursor=pointer]
+                      - listitem [ref=e2390]:
+                        - button "Cascade Green (CASG)" [ref=e2391] [cursor=pointer]
+                      - listitem [ref=e2392]:
+                        - button "Barnacle Blue (BNLB)" [ref=e2393] [cursor=pointer]
+                      - listitem [ref=e2394]:
+                        - link "W's Storm Shift Jacket" [ref=e2395] [cursor=pointer]:
+                          - /url: /product/womens-storm-shift-ski-snowboard-jacket/31750.html
+                    - link "W's Storm Shift Jacket $499 (15 Reviews )" [ref=e2397] [cursor=pointer]:
+                      - /url: /product/womens-storm-shift-ski-snowboard-jacket/31750.html
+                      - paragraph [ref=e2398]: W's Storm Shift Jacket
+                      - generic [ref=e2403]: $499
+                      - generic [ref=e2404]:
+                        - figure [ref=e2405]:
+                          - generic [ref=e2438]: "Rating: 4.5 / 5"
+                        - generic [ref=e2439]:
+                          - text: (15
+                          - generic [ref=e2440]: Reviews
+                          - text: )
+                  - generic [ref=e2441]:
+                    - generic [ref=e2442]: GORE-TEX
+                    - generic [ref=e2443]: waterproof
+                    - generic [ref=e2444]: RECCO®
+              - generic [ref=e2449]:
+                - generic [ref=e2450]:
+                  - generic [ref=e2451]:
+                    - link "M's Stormstride Jacket - Black (BLK) (29971)" [ref=e2453] [cursor=pointer]:
+                      - /url: /product/mens-stormstride-ski-snowboard-shell-jacket/29971.html?dwvar_29971_color=BLK
+                      - generic [ref=e2456]:
+                        - img "M's Stormstride Jacket - Black (BLK) (29971)"
+                    - link "M's Stormstride Jacket - Black (BLK) (29971)" [ref=e2458] [cursor=pointer]:
+                      - /url: /product/mens-stormstride-ski-snowboard-shell-jacket/29971.html?dwvar_29971_color=BLK
+                      - generic [ref=e2460]:
+                        - img "M's Stormstride Jacket - Black (BLK) (29971)"
+                  - button "Quick Add" [ref=e2462] [cursor=pointer]
+                - generic [ref=e2463]:
+                  - generic [ref=e2464]:
+                    - list [ref=e2467]:
+                      - listitem [ref=e2468]:
+                        - button "Black (BLK)" [ref=e2469] [cursor=pointer]:
+                          - img [ref=e2470]
+                      - listitem [ref=e2472]:
+                        - button "Marlow Brown (MRLB)" [ref=e2473] [cursor=pointer]
+                      - listitem [ref=e2474]:
+                        - button "Cascade Green (CASG)" [ref=e2475] [cursor=pointer]
+                      - listitem [ref=e2476]:
+                        - button "Clement Blue (CLMB)" [ref=e2477] [cursor=pointer]
+                      - listitem [ref=e2478]:
+                        - link "M's Stormstride Jacket" [ref=e2479] [cursor=pointer]:
+                          - /url: /product/mens-stormstride-ski-snowboard-shell-jacket/29971.html
+                    - link "M's Stormstride Jacket $499 (10 Reviews )" [ref=e2481] [cursor=pointer]:
+                      - /url: /product/mens-stormstride-ski-snowboard-shell-jacket/29971.html
+                      - paragraph [ref=e2482]: M's Stormstride Jacket
+                      - generic [ref=e2487]: $499
+                      - generic [ref=e2488]:
+                        - figure [ref=e2489]:
+                          - generic [ref=e2522]: "Rating: 4.7 / 5"
+                        - generic [ref=e2523]:
+                          - text: (10
+                          - generic [ref=e2524]: Reviews
+                          - text: )
+                  - generic [ref=e2525]:
+                    - generic [ref=e2526]: waterproof
+                    - generic [ref=e2527]: windproof
+                    - generic [ref=e2528]: RECCO®
+              - generic [ref=e2533]:
+                - generic [ref=e2534]:
+                  - generic [ref=e2535]:
+                    - link "M's Micro Puff® Jacket - Cascade Green (CASG) (84066)" [ref=e2537] [cursor=pointer]:
+                      - /url: /product/mens-micro-puff-insulated-jacket/84066.html?dwvar_84066_color=CASG
+                      - generic [ref=e2540]:
+                        - img "M's Micro Puff® Jacket - Cascade Green (CASG) (84066)"
+                    - link "M's Micro Puff® Jacket - Cascade Green (CASG) (84066)" [ref=e2542] [cursor=pointer]:
+                      - /url: /product/mens-micro-puff-insulated-jacket/84066.html?dwvar_84066_color=CASG
+                      - generic [ref=e2544]:
+                        - img "M's Micro Puff® Jacket - Cascade Green (CASG) (84066)"
+                  - button "Quick Add" [ref=e2546] [cursor=pointer]
+                - generic [ref=e2547]:
+                  - generic [ref=e2548]:
+                    - list [ref=e2551]:
+                      - listitem [ref=e2552]:
+                        - button "Cascade Green (CASG)" [ref=e2553] [cursor=pointer]:
+                          - img [ref=e2554]
+                      - listitem [ref=e2556]:
+                        - button "Black (BLK)" [ref=e2557] [cursor=pointer]
+                      - listitem [ref=e2558]:
+                        - button "Clement Blue (CLMB)" [ref=e2559] [cursor=pointer]
+                      - listitem [ref=e2560]:
+                        - button "Dried Vanilla (DVL)" [ref=e2561] [cursor=pointer]
+                      - listitem [ref=e2562]:
+                        - link "M's Micro Puff® Jacket" [ref=e2563] [cursor=pointer]:
+                          - /url: /product/mens-micro-puff-insulated-jacket/84066.html
+                    - link "M's Micro Puff® Jacket $279 (78 Reviews )" [ref=e2565] [cursor=pointer]:
+                      - /url: /product/mens-micro-puff-insulated-jacket/84066.html
+                      - paragraph [ref=e2566]: M's Micro Puff® Jacket
+                      - generic [ref=e2571]: $279
+                      - generic [ref=e2572]:
+                        - figure [ref=e2573]:
+                          - generic [ref=e2606]: "Rating: 4.4 / 5"
+                        - generic [ref=e2607]:
+                          - text: (78
+                          - generic [ref=e2608]: Reviews
+                          - text: )
+                  - generic [ref=e2609]:
+                    - generic [ref=e2610]: windproof
+                    - generic [ref=e2611]: packable
+              - generic [ref=e2616]:
+                - generic [ref=e2617]:
+                  - generic [ref=e2618]:
+                    - link "W's Triolet Jacket - Black (BLK) (83408)" [ref=e2620] [cursor=pointer]:
+                      - /url: /product/womens-triolet-alpine-jacket/83408.html?dwvar_83408_color=BLK
+                      - generic [ref=e2623]:
+                        - img "W's Triolet Jacket - Black (BLK) (83408)"
+                    - link "W's Triolet Jacket - Black (BLK) (83408)" [ref=e2625] [cursor=pointer]:
+                      - /url: /product/womens-triolet-alpine-jacket/83408.html?dwvar_83408_color=BLK
+                      - generic [ref=e2627]:
+                        - img "W's Triolet Jacket - Black (BLK) (83408)"
+                  - button "Quick Add" [ref=e2629] [cursor=pointer]
+                - generic [ref=e2630]:
+                  - generic [ref=e2631]:
+                    - list [ref=e2634]:
+                      - listitem [ref=e2635]:
+                        - button "Black (BLK)" [ref=e2636] [cursor=pointer]:
+                          - img [ref=e2637]
+                      - listitem [ref=e2639]:
+                        - button "Current Blue (CUBL)" [ref=e2640] [cursor=pointer]
+                      - listitem [ref=e2641]:
+                        - button "Sizzle Red (SZRD)" [ref=e2642] [cursor=pointer]
+                      - listitem [ref=e2643]:
+                        - button "Cascade Green (CASG)" [ref=e2644] [cursor=pointer]
+                      - listitem [ref=e2645]:
+                        - link "W's Triolet Jacket" [ref=e2646] [cursor=pointer]:
+                          - /url: /product/womens-triolet-alpine-jacket/83408.html
+                    - link "W's Triolet Jacket $449 (31 Reviews )" [ref=e2648] [cursor=pointer]:
+                      - /url: /product/womens-triolet-alpine-jacket/83408.html
+                      - paragraph [ref=e2649]: W's Triolet Jacket
+                      - generic [ref=e2654]: $449
+                      - generic [ref=e2655]:
+                        - figure [ref=e2656]:
+                          - generic [ref=e2689]: "Rating: 4.4 / 5"
+                        - generic [ref=e2690]:
+                          - text: (31
+                          - generic [ref=e2691]: Reviews
+                          - text: )
+                  - generic [ref=e2692]:
+                    - generic [ref=e2693]: GORE-TEX
+                    - generic [ref=e2694]: waterproof
+                    - generic [ref=e2695]: RECCO®
+              - generic [ref=e2700]:
+                - generic [ref=e2701]:
+                  - generic [ref=e2702]:
+                    - link "M's R1® TechFace Jacket - Smolder Blue (SMDB) (83581)" [ref=e2704] [cursor=pointer]:
+                      - /url: /product/mens-r1-techface-midlayer-fleece-jacket/83581.html?dwvar_83581_color=SMDB
+                      - generic [ref=e2707]:
+                        - img "M's R1® TechFace Jacket - Smolder Blue (SMDB) (83581)"
+                    - link "M's R1® TechFace Jacket - Smolder Blue (SMDB) (83581)" [ref=e2709] [cursor=pointer]:
+                      - /url: /product/mens-r1-techface-midlayer-fleece-jacket/83581.html?dwvar_83581_color=SMDB
+                      - generic [ref=e2711]:
+                        - img "M's R1® TechFace Jacket - Smolder Blue (SMDB) (83581)"
+                  - button "Quick Add" [ref=e2713] [cursor=pointer]
+                - generic [ref=e2714]:
+                  - generic [ref=e2715]:
+                    - list [ref=e2718]:
+                      - listitem [ref=e2719]:
+                        - button "Smolder Blue (SMDB)" [ref=e2720] [cursor=pointer]:
+                          - img [ref=e2721]
+                      - listitem [ref=e2723]:
+                        - button "Black (BLK)" [ref=e2724] [cursor=pointer]
+                      - listitem [ref=e2725]:
+                        - button "Old Growth Green (OLGG)" [ref=e2726] [cursor=pointer]
+                    - link "M's R1® TechFace Jacket $189 (51 Reviews )" [ref=e2728] [cursor=pointer]:
+                      - /url: /product/mens-r1-techface-midlayer-fleece-jacket/83581.html
+                      - paragraph [ref=e2729]: M's R1® TechFace Jacket
+                      - generic [ref=e2734]: $189
+                      - generic [ref=e2735]:
+                        - figure [ref=e2736]:
+                          - generic [ref=e2769]: "Rating: 4.4 / 5"
+                        - generic [ref=e2770]:
+                          - text: (51
+                          - generic [ref=e2771]: Reviews
+                          - text: )
+                  - generic [ref=e2772]:
+                    - generic [ref=e2773]: breathable
+                    - generic [ref=e2774]: water resistant
+                    - generic [ref=e2775]: stretch
+              - generic [ref=e2780]:
+                - generic [ref=e2781]:
+                  - generic [ref=e2782]:
+                    - link "M's R1® Thermal Jacket - Cascade Green (CASG) (40580)" [ref=e2784] [cursor=pointer]:
+                      - /url: /product/mens-r1-thermal-fleece-jacket/40580.html?dwvar_40580_color=CASG
+                      - generic [ref=e2787]:
+                        - img "M's R1® Thermal Jacket - Cascade Green (CASG) (40580)"
+                    - link "M's R1® Thermal Jacket - Cascade Green (CASG) (40580)" [ref=e2789] [cursor=pointer]:
+                      - /url: /product/mens-r1-thermal-fleece-jacket/40580.html?dwvar_40580_color=CASG
+                      - generic [ref=e2791]:
+                        - img "M's R1® Thermal Jacket - Cascade Green (CASG) (40580)"
+                  - button "Quick Add" [ref=e2793] [cursor=pointer]
+                - generic [ref=e2794]:
+                  - generic [ref=e2795]:
+                    - list [ref=e2798]:
+                      - listitem [ref=e2799]:
+                        - button "Cascade Green (CASG)" [ref=e2800] [cursor=pointer]:
+                          - img [ref=e2801]
+                      - listitem [ref=e2803]:
+                        - button "Black (BLK)" [ref=e2804] [cursor=pointer]
+                      - listitem [ref=e2805]:
+                        - button "Marlow Brown (MRLB)" [ref=e2806] [cursor=pointer]
+                      - listitem [ref=e2807]:
+                        - button "Clement Blue (CLMB)" [ref=e2808] [cursor=pointer]
+                      - listitem [ref=e2809]:
+                        - link "M's R1® Thermal Jacket" [ref=e2810] [cursor=pointer]:
+                          - /url: /product/mens-r1-thermal-fleece-jacket/40580.html
+                    - link "M's R1® Thermal Jacket $199 (21 Reviews )" [ref=e2812] [cursor=pointer]:
+                      - /url: /product/mens-r1-thermal-fleece-jacket/40580.html
+                      - paragraph [ref=e2813]: M's R1® Thermal Jacket
+                      - generic [ref=e2818]: $199
+                      - generic [ref=e2819]:
+                        - figure [ref=e2820]:
+                          - generic [ref=e2852]: "Rating: 4.0 / 5"
+                        - generic [ref=e2853]:
+                          - text: (21
+                          - generic [ref=e2854]: Reviews
+                          - text: )
+                  - generic [ref=e2855]:
+                    - generic [ref=e2856]: breathable
+                    - generic [ref=e2857]: quick drying
+                    - generic [ref=e2858]: stretch
+              - generic [ref=e2863]:
+                - generic [ref=e2864]:
+                  - generic [ref=e2865]:
+                    - link "M's Isthmus Deck Jacket - Smolder Blue (SMDB) (27025)" [ref=e2867] [cursor=pointer]:
+                      - /url: /product/mens-isthmus-insulated-deck-jacket/27025.html?dwvar_27025_color=SMDB
+                      - generic [ref=e2870]:
+                        - img "M's Isthmus Deck Jacket - Smolder Blue (SMDB) (27025)"
+                    - link "M's Isthmus Deck Jacket - Smolder Blue (SMDB) (27025)" [ref=e2872] [cursor=pointer]:
+                      - /url: /product/mens-isthmus-insulated-deck-jacket/27025.html?dwvar_27025_color=SMDB
+                      - generic [ref=e2874]:
+                        - img "M's Isthmus Deck Jacket - Smolder Blue (SMDB) (27025)"
+                  - button "Quick Add" [ref=e2876] [cursor=pointer]
+                - generic [ref=e2877]:
+                  - generic [ref=e2878]:
+                    - list [ref=e2881]:
+                      - listitem [ref=e2882]:
+                        - button "Smolder Blue (SMDB)" [ref=e2883] [cursor=pointer]:
+                          - img [ref=e2884]
+                      - listitem [ref=e2886]:
+                        - button "Seabird Grey (SBDY)" [ref=e2887] [cursor=pointer]
+                      - listitem [ref=e2888]:
+                        - button "Basin Green (BSNG)" [ref=e2889] [cursor=pointer]
+                      - listitem [ref=e2890]:
+                        - button "Ink Black (INBK)" [ref=e2891] [cursor=pointer]
+                      - listitem [ref=e2892]:
+                        - link "M's Isthmus Deck Jacket" [ref=e2893] [cursor=pointer]:
+                          - /url: /product/mens-isthmus-insulated-deck-jacket/27025.html
+                    - link "M's Isthmus Deck Jacket $189 (8 Reviews )" [ref=e2895] [cursor=pointer]:
+                      - /url: /product/mens-isthmus-insulated-deck-jacket/27025.html
+                      - paragraph [ref=e2896]: M's Isthmus Deck Jacket
+                      - generic [ref=e2901]: $189
+                      - generic [ref=e2902]:
+                        - figure [ref=e2903]:
+                          - generic [ref=e2936]: "Rating: 4.6 / 5"
+                        - generic [ref=e2937]:
+                          - text: (8
+                          - generic [ref=e2938]: Reviews
+                          - text: )
+                  - generic [ref=e2939]:
+                    - generic [ref=e2940]: windproof
+                    - generic [ref=e2941]: water resistant
+              - generic [ref=e2946]:
+                - generic [ref=e2947]:
+                  - generic [ref=e2948]:
+                    - link "W's Synchilla® Jacket - Old Growth Green (OLGG) (22955)" [ref=e2950] [cursor=pointer]:
+                      - /url: /product/womens-synchilla-fleece-jacket/22955.html?dwvar_22955_color=OLGG
+                      - generic [ref=e2953]:
+                        - img "W's Synchilla® Jacket - Old Growth Green (OLGG) (22955)"
+                    - link "W's Synchilla® Jacket - Old Growth Green (OLGG) (22955)" [ref=e2955] [cursor=pointer]:
+                      - /url: /product/womens-synchilla-fleece-jacket/22955.html?dwvar_22955_color=OLGG
+                      - generic [ref=e2957]:
+                        - img "W's Synchilla® Jacket - Old Growth Green (OLGG) (22955)"
+                  - button "Quick Add" [ref=e2959] [cursor=pointer]
+                - generic [ref=e2960]:
+                  - generic [ref=e2961]:
+                    - list [ref=e2964]:
+                      - listitem [ref=e2965]:
+                        - button "Old Growth Green (OLGG)" [ref=e2966] [cursor=pointer]:
+                          - img [ref=e2967]
+                      - listitem [ref=e2969]:
+                        - button "Oatmeal Heather w/Seabird Grey (OLSD)" [ref=e2970] [cursor=pointer]
+                      - listitem [ref=e2971]:
+                        - button "Barnacle Blue (BNLB)" [ref=e2972] [cursor=pointer]
+                      - listitem [ref=e2973]:
+                        - button "Sunken Blue (SNBE)" [ref=e2974] [cursor=pointer]
+                      - listitem [ref=e2975]:
+                        - 'button "Soft Spirea: Dried Vanilla (STVA)" [ref=e2976] [cursor=pointer]'
+                    - link "W's Synchilla® Jacket $149 (106 Reviews )" [ref=e2978] [cursor=pointer]:
+                      - /url: /product/womens-synchilla-fleece-jacket/22955.html
+                      - paragraph [ref=e2979]: W's Synchilla® Jacket
+                      - generic [ref=e2984]: $149
+                      - generic [ref=e2985]:
+                        - figure [ref=e2986]:
+                          - generic [ref=e3018]: "Rating: 3.8 / 5"
+                        - generic [ref=e3019]:
+                          - text: (106
+                          - generic [ref=e3020]: Reviews
+                          - text: )
+                  - generic [ref=e3022]: quick drying
+              - generic [ref=e3027]:
+                - generic [ref=e3028]:
+                  - generic [ref=e3029]:
+                    - link "M's Reversible Shelled Microdini Jacket - New Navy (NENA) (26215)" [ref=e3031] [cursor=pointer]:
+                      - /url: /product/mens-reversible-shelled-microdini-fleece-jacket/26215.html?dwvar_26215_color=NENA
+                      - generic [ref=e3034]:
+                        - img "M's Reversible Shelled Microdini Jacket - New Navy (NENA) (26215)"
+                    - link "M's Reversible Shelled Microdini Jacket - New Navy (NENA) (26215)" [ref=e3036] [cursor=pointer]:
+                      - /url: /product/mens-reversible-shelled-microdini-fleece-jacket/26215.html?dwvar_26215_color=NENA
+                      - generic [ref=e3038]:
+                        - img "M's Reversible Shelled Microdini Jacket - New Navy (NENA) (26215)"
+                  - button "Quick Add" [ref=e3040] [cursor=pointer]
+                - generic [ref=e3041]:
+                  - generic [ref=e3042]:
+                    - list [ref=e3045]:
+                      - listitem [ref=e3046]:
+                        - button "New Navy (NENA)" [ref=e3047] [cursor=pointer]:
+                          - img [ref=e3048]
+                      - listitem [ref=e3050]:
+                        - button "Torrey Pine Green (TPGN)" [ref=e3051] [cursor=pointer]
+                      - listitem [ref=e3052]:
+                        - button "Black (BLK)" [ref=e3053] [cursor=pointer]
+                      - listitem [ref=e3054]:
+                        - button "Seabird Grey (SBDY)" [ref=e3055] [cursor=pointer]
+                      - listitem [ref=e3056]:
+                        - link "M's Reversible Shelled Microdini Jacket" [ref=e3057] [cursor=pointer]:
+                          - /url: /product/mens-reversible-shelled-microdini-fleece-jacket/26215.html
+                    - link "M's Reversible Shelled Microdini Jacket $199 (96 Reviews )" [ref=e3059] [cursor=pointer]:
+                      - /url: /product/mens-reversible-shelled-microdini-fleece-jacket/26215.html
+                      - paragraph [ref=e3060]: M's Reversible Shelled Microdini Jacket
+                      - generic [ref=e3065]: $199
+                      - generic [ref=e3066]:
+                        - figure [ref=e3067]:
+                          - generic [ref=e3100]: "Rating: 4.4 / 5"
+                        - generic [ref=e3101]:
+                          - text: (96
+                          - generic [ref=e3102]: Reviews
+                          - text: )
+                  - generic [ref=e3104]: reversible
+              - generic [ref=e3109]:
+                - generic [ref=e3110]:
+                  - generic [ref=e3111]:
+                    - link "W's Downdrift Jacket - Sizzle Red (SZRD) (20625)" [ref=e3113] [cursor=pointer]:
+                      - /url: /product/womens-downdrift-insulated-jacket/20625.html?dwvar_20625_color=SZRD
+                      - generic [ref=e3116]:
+                        - img "W's Downdrift Jacket - Sizzle Red (SZRD) (20625)"
+                    - link "W's Downdrift Jacket - Sizzle Red (SZRD) (20625)" [ref=e3118] [cursor=pointer]:
+                      - /url: /product/womens-downdrift-insulated-jacket/20625.html?dwvar_20625_color=SZRD
+                      - generic [ref=e3120]:
+                        - img "W's Downdrift Jacket - Sizzle Red (SZRD) (20625)"
+                  - button "Quick Add" [ref=e3122] [cursor=pointer]
+                - generic [ref=e3124]:
+                  - list [ref=e3127]:
+                    - listitem [ref=e3128]:
+                      - button "Sizzle Red (SZRD)" [ref=e3129] [cursor=pointer]:
+                        - img [ref=e3130]
+                    - listitem [ref=e3132]:
+                      - button "Black (BLK)" [ref=e3133] [cursor=pointer]
+                    - listitem [ref=e3134]:
+                      - button "Basin Green (BSNG)" [ref=e3135] [cursor=pointer]
+                    - listitem [ref=e3136]:
+                      - button "Sunken Blue (SNBE)" [ref=e3137] [cursor=pointer]
+                    - listitem [ref=e3138]:
+                      - button "Oar Tan w/Seabird Grey (OTSG)" [ref=e3139] [cursor=pointer]
+                  - link "W's Downdrift Jacket $329 (179 Reviews )" [ref=e3141] [cursor=pointer]:
+                    - /url: /product/womens-downdrift-insulated-jacket/20625.html
+                    - paragraph [ref=e3142]: W's Downdrift Jacket
+                    - generic [ref=e3147]: $329
+                    - generic [ref=e3148]:
+                      - figure [ref=e3149]:
+                        - generic [ref=e3182]: "Rating: 4.8 / 5"
+                      - generic [ref=e3183]:
+                        - text: (179
+                        - generic [ref=e3184]: Reviews
+                        - text: )
+              - button "Load More" [ref=e3188] [cursor=pointer]
+        - button "Back to Top" [ref=e3191] [cursor=pointer]:
+          - text: Back to Top
+          - img [ref=e3192]
+      - generic [ref=e3196]:
+        - generic [ref=e3197]:
+          - img "Patagonia Ironclad Guarantee Icon" [ref=e3198]
+          - paragraph [ref=e3199]: We guarantee everything we make.
+          - link "View Ironclad Guarantee" [ref=e3200] [cursor=pointer]:
+            - /url: https://help.patagonia.com/s/article/Ironclad-Guarantee
+            - strong [ref=e3201]: View Ironclad Guarantee
+        - generic [ref=e3202]:
+          - img "Patagonia Ironclad Guarantee Icon" [ref=e3203]
+          - paragraph [ref=e3204]: We take responsibility for our impact.
+          - link "Explore Our Footprint" [ref=e3205] [cursor=pointer]:
+            - /url: https://www.patagonia.com/progress-report/
+            - strong [ref=e3206]: Explore Our Footprint
+        - generic [ref=e3207]:
+          - img "Patagonia Ironclad Guarantee Icon" [ref=e3208]
+          - paragraph [ref=e3209]: We support grassroots activism.
+          - link "Visit Patagonia Action Works" [ref=e3210] [cursor=pointer]:
+            - /url: https://www.patagonia.com/actionworks/home/choose-location/
+            - strong [ref=e3211]: Visit Patagonia Action Works
+        - generic [ref=e3212]:
+          - img "Patagonia Ironclad Guarantee Icon" [ref=e3213]
+          - paragraph [ref=e3214]: We keep your gear going.
+          - link "Visit Worn Wear" [ref=e3215] [cursor=pointer]:
+            - /url: https://wornwear.patagonia.com/?utm_source=patww&_gl=1*1bxnpat*_ga*MTMzODcxNTI5MC4xNjk4MTczODUx*_ga_1SYPSJZYJ5*MTcxMjY4MTgwMS40MjguMS4xNzEyNjg2NTE3LjU4LjAuMA..
+            - strong [ref=e3216]: Visit Worn Wear
+        - generic [ref=e3217]:
+          - img "Patagonia Ironclad Guarantee Icon" [ref=e3218]
+          - paragraph [ref=e3219]: We give our profits to the planet.
+          - link "Read Our Commitment" [ref=e3220] [cursor=pointer]:
+            - /url: https://www.patagonia.com/ownership/?utm_source=em&utm_medium=email&utm_campaign=032924_waterproof_packs&utm_klaviyo_id=01GQMSEZBFS4EVN0XWT17JF1ZY&_kx=C6wWb5w05CnmwyrkOY1UzetDRt60iq6vAGrpv71GOr8.YgU9me
+            - strong [ref=e3221]: Read Our Commitment
+      - generic [ref=e3222]:
+        - list [ref=e3224]:
+          - listitem [ref=e3225]:
+            - generic [ref=e3226]:
+              - heading "Newsletter Signup" [level=2] [ref=e3227]
+              - paragraph [ref=e3228]: Sign up for exclusive offers, original stories, activism awareness, events and more.
+              - generic [ref=e3230]:
+                - generic [ref=e3232]:
+                  - textbox "Email Address" [ref=e3233]
+                  - generic: E-Mail *
+                - button "Sign Me Up" [ref=e3234] [cursor=pointer]
+                - generic [ref=e3235]:
+                  - text: "*Please view our"
+                  - link "Privacy Notice" [ref=e3236] [cursor=pointer]:
+                    - /url: /privacy-notice.html
+                  - text: and
+                  - link "Notice of Financial Incentive" [ref=e3237] [cursor=pointer]:
+                    - /url: /privacy-notice.html#button-4
+                  - text: for more information.
+          - listitem [ref=e3238]:
+            - generic [ref=e3240]:
+              - heading "Need Help?" [level=2] [ref=e3241]
+              - generic [ref=e3242]:
+                - link "Help Center" [ref=e3243] [cursor=pointer]:
+                  - /url: https://help.patagonia.com/s/
+                - link "Order Status" [ref=e3244] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/order-status/
+                - link "Size & Fit Guide" [ref=e3245] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/guides/size-fit/
+                - link "Returns & Exchanges" [ref=e3246] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/returns.html
+                - link "DIY Care & Repair" [ref=e3247] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/repairs/
+                - link "Trade In. Get Credit." [ref=e3248] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/trade-in/
+                - link "Login" [ref=e3249] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/account/login/
+                - link "Accessibility Statement" [ref=e3250] [cursor=pointer]:
+                  - /url: https://www.patagonia.com/web-accessibility.html
+              - paragraph [ref=e3251]:
+                - text: If you are using a screen reader and having difficulty please call us at
+                - link "1-800-638-6464" [ref=e3252] [cursor=pointer]:
+                  - /url: tel:+18006386464
+              - paragraph [ref=e3253]:
+                - button "Do Not Sell or Share My Data" [ref=e3254] [cursor=pointer]
+          - listitem [ref=e3255]:
+            - generic [ref=e3256]:
+              - heading "More Info" [level=2] [ref=e3257]
+              - generic [ref=e3258]:
+                - list [ref=e3259]:
+                  - listitem [ref=e3260]:
+                    - link "Patagonia Action Works™" [ref=e3261] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/actionworks/
+                  - listitem [ref=e3262]:
+                    - link "Patagonia Provisions®" [ref=e3263] [cursor=pointer]:
+                      - /url: https://www.patagoniaprovisions.com/?utm_source=patagonia.com&utm_medium=referral&utm_campaign=global_nav
+                  - listitem [ref=e3264]:
+                    - link "Worn Wear®" [ref=e3265] [cursor=pointer]:
+                      - /url: https://wornwear.patagonia.com/?utm_source=patww
+                  - listitem [ref=e3266]:
+                    - link "Our Acknowledgment" [ref=e3267] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/stories/planet/activism/our-acknowledgment/story-91580.html
+                  - listitem [ref=e3268]:
+                    - link "Progress Report" [ref=e3269] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/progress-report/
+                  - listitem [ref=e3270]:
+                    - link "Business Unusual" [ref=e3271] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/business-unusual/
+                  - listitem [ref=e3272]:
+                    - link "Climate Goals" [ref=e3273] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/climate-goals/
+                  - listitem [ref=e3274]:
+                    - link "1% For The Planet®" [ref=e3275] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/one-percent-for-the-planet.html
+                  - listitem [ref=e3276]:
+                    - link "How We Fund" [ref=e3277] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/how-we-fund/
+                  - listitem [ref=e3278]:
+                    - link "Gift Cards" [ref=e3279] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/shop/giftcards
+                  - listitem [ref=e3280]:
+                    - link "Find a Store" [ref=e3281] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/store-locator/
+                  - listitem [ref=e3282]:
+                    - link "Sitemap" [ref=e3283] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/sitemap/
+                - list [ref=e3284]:
+                  - listitem [ref=e3285]:
+                    - link "Patagonia Pro Program" [ref=e3286] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/pro-landing.html
+                  - listitem [ref=e3287]:
+                    - link "International Orders" [ref=e3288] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/international-orders.html
+                  - listitem [ref=e3289]:
+                    - link "Dealer Portal" [ref=e3290] [cursor=pointer]:
+                      - /url: https://dealer.patagonia.com/
+                  - listitem [ref=e3291]:
+                    - link "Group Sales" [ref=e3292] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/group-sales/
+                  - listitem [ref=e3293]:
+                    - link "Privacy Notice" [ref=e3294] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/privacy-notice.html
+                  - listitem [ref=e3295]:
+                    - link "Statement on Modern Slavery in Supply Chain" [ref=e3296] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/on/demandware.static/-/Library-Sites-PatagoniaShared/default/dw1f7d2bb9/slots/RMA/PAT_2025_LegalDocuments-ModernSlaveryAct-May.pdf
+                  - listitem [ref=e3297]:
+                    - link "Climate Risk Report" [ref=e3298] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/on/demandware.static/-/Library-Sites-PatagoniaShared/default/dwc1135e01/slots/RMA/PAT_FY25_ClimateRiskReport-122225-v2.pdf
+                  - listitem [ref=e3299]:
+                    - link "Terms of Use" [ref=e3300] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/terms-of-use.html
+                  - listitem [ref=e3301]:
+                    - link "Careers" [ref=e3302] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/jobs-at-patagonia/
+                  - listitem [ref=e3303]:
+                    - link "Press" [ref=e3304] [cursor=pointer]:
+                      - /url: http://www.patagoniaworks.com/
+                  - listitem [ref=e3305]:
+                    - link "UPF Recall" [ref=e3306] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/voluntary-recall-of-capilene-cool-daily-and-tropic-comfort-upf-products/
+                  - listitem [ref=e3307]:
+                    - link "Infant Product Recall" [ref=e3308] [cursor=pointer]:
+                      - /url: https://www.patagonia.com/product-safety-recall-of-infant-capilene-midweight-set/
+        - generic [ref=e3309]:
+          - generic [ref=e3310]: © 2026 Patagonia, Inc. All Rights Reserved.
+          - button "English" [ref=e3312] [cursor=pointer]:
+            - paragraph [ref=e3313]: English
+            - figure [ref=e3314]:
+              - img "English" [ref=e3315]
+      - dialog "Close It looks like you’re browsing from France. Would you like to switch to the local site? Stay in the US Go to France" [ref=e3316]:
+        - document:
+          - generic [ref=e3317]:
+            - button "Close" [ref=e3319] [cursor=pointer]:
+              - img [ref=e3320]
+            - generic [ref=e3322]:
+              - heading "It looks like you’re browsing from France. Would you like to switch to the local site?" [level=6] [ref=e3324]
+              - button "Stay in the US" [ref=e3325] [cursor=pointer]
+              - link "Go to France" [ref=e3326] [cursor=pointer]:
+                - /url: https://eu.patagonia.com/eu/locale/?locale=fr_FR&currency=EUR&queryString=utm_source%3Dwww.patagonia.com%26utm_medium%3Dreferral%26utm_campaign%3Dredirect_popup
+  - region "Your Data, Your Choice" [active] [ref=e3327]:
+    - alertdialog "Your Data, Your Choice" [ref=e3328]:
+      - generic [ref=e3329]:
+        - generic [ref=e3330]:
+          - generic:
+            - heading "Your Data, Your Choice" [level=2] [ref=e3331]
+            - paragraph [ref=e3333]:
+              - text: Some tracking technologies, such as cookies, are necessary for our site to function properly and are always on. By selecting “Allow All” you’re also consenting to the use of optional tracking technologies. To customize your options, click “Change Preferences.” Please read our
+              - link "Privacy Notice" [ref=e3334] [cursor=pointer]:
+                - /url: https://www.patagonia.com/privacy-notice.html
+              - text: for more details.
+        - generic [ref=e3336]:
+          - generic [ref=e3337]:
+            - button "Allow All" [ref=e3338] [cursor=pointer]
+            - button "Decline Optional" [ref=e3339] [cursor=pointer]
+          - button "Change Preferences" [ref=e3340] [cursor=pointer]
+        - button "Close" [ref=e3342] [cursor=pointer]
