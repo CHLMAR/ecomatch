@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :searches, only: [:new, :create, :edit, :update, :show] do
     resources :matches, only: [:index, :show] do
       post 'save', to: 'wishlist_items#create', on: :member
+      delete 'unsave', to: 'wishlist_items#destroy', on: :member
     end
   end
 
