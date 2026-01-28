@@ -26,17 +26,8 @@
     <% if local_assigns[:search] && user_signed_in? %>
       <div class="wishlist-button" onclick="event.stopPropagation();">
         <% if saved_to_wishlist?(match) %>
-          <% if local_assigns[:wishlist_item] %>
-            <%# Coming from wishlist page - use wishlist_items route with the user from the URL %>
-            <% user_id = local_assigns[:user_id] || current_user.id %>
-            <%= button_to user_wishlist_item_path(user_id, local_assigns[:wishlist_item]), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
-              <i class="fa-solid fa-heart"></i>
-            <% end %>
-          <% else %>
-            <%# Coming from matches page - use unsave route %>
-            <%= button_to unsave_search_match_path(search, match), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
-              <i class="fa-solid fa-heart"></i>
-            <% end %>
+          <%= button_to unsave_search_match_path(search, match), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
+            <i class="fa-solid fa-heart"></i>
           <% end %>
         <% else %>
           <%= button_to save_search_match_path(search, match), method: :post, class: "btn-wishlist", title: "Save to wishlist" do %>
