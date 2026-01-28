@@ -12,18 +12,23 @@ class SearchesController < ApplicationController
     @search.system_prompt = build_system_prompt(@search)
 
     if @search.save
-      @chat = RubyLLM.chat(model: "gpt-4o")
+      if @search.uploaded_image.attached?
+        # Use LLM for image analysis
+        @chat = RubyLLM.chat(model: "gpt-4o").with_instructions(@search.system_prompt)
+        @response = @chat.ask("Analyze this clothing item and return the JSON.", with: { image: @search.uploaded_image.url })
+        @raw_response = @response.content #!!!Just for testing, remove after
+        # Strip markdown code blocks if present (```json ... ```)
+        json_content = @response.content.gsub(/```json\s*/, '').gsub(/```\s*/, '').strip
+        parsed = JSON.parse(json_content) rescue nil
 
-      @response = if @search.uploaded_image.attached?
-        @chat.ask("Analyze this clothing item.", with: { image: @search.uploaded_image.url })
       else
-        @chat.ask("Analyze the clothing item at: #{@search.uploaded_link}")
+        # Use ScrapingBee for link analysis
+        parsed = ScrapingBeeApi.new.send_request(@search.uploaded_link)
+        @raw_response = parsed.to_json #!!!Just for testing, remove after
       end
-
-      @raw_response = @response.content #!!!Just for testing, remove after
-
-      # Parse JSON from response and update search + preventing crashes in case parsing is nil
-      if (parsed = JSON.parse(@response.content) rescue nil)
+      
+      # Update search with parsed data
+      if parsed
         @search.update(
           clothing_item: parsed["clothing_item"],
           clothing_material: parsed["clothing_material"],
@@ -43,44 +48,44 @@ class SearchesController < ApplicationController
   end
 
 
-def build_system_prompt(search)
-  input_type_text = if search.uploaded_image.attached?
-    "I am providing you with an image of a clothing item to analyze."
-  else
-    "I am providing you with a link to a product page: #{search.uploaded_link}.
-     Extract details from the page content and any visible product images."
+  def build_system_prompt(search)
+    input_type_text = if search.uploaded_image.attached?
+      "I am providing you with an image of a clothing item to analyze."
+    else
+      "I am providing you with a link to a product page: #{search.uploaded_link}.
+       Extract details from the page content and any visible product images."
+    end
+
+    <<~PROMPT
+      You are an expert fashion analyst helping identify clothing items and their more sustainable alternatives.
+
+      #{input_type_text}
+
+      Analyze the clothing item and extract the following details:
+      - clothing_item: the type of garment (e.g., t-shirt, jeans, dress, jacket)
+      - clothing_material: the fabric or material if identifiable (e.g., cotton, polyester, wool)
+      - clothing_colour: the primary color(s)
+      - clothing_brand: the brand name if visible or identifiable
+      - clothing_price: the price as a numeric value without currency symbol
+      - item_name: the product name if available
+      - item_description: a brief description of style, fit, and notable features
+      - item_image: the product image URL (only if analyzing a link)
+
+      Return ONLY valid JSON with this exact structure:
+      {
+        "clothing_item": "value or null",
+        "clothing_material": "value or null",
+        "clothing_colour": "value or null",
+        "clothing_brand": "value or null",
+        "clothing_price": "number or null",
+        "item_name": "value or null",
+        "item_description": "value or null",
+        "item_image": "url or null"
+      }
+
+      If any field cannot be determined, use null. Return ONLY the JSON, no additional text.
+    PROMPT
   end
-
- <<~PROMPT
-    You are an expert fashion analyst helping identify clothing items and their more sustainable alternatives.
-
-    #{input_type_text}
-
-    Analyze the clothing item and extract the following details:
-    - clothing_item: the type of garment (e.g., t-shirt, jeans, dress, jacket)
-    - clothing_material: the fabric or material if identifiable (e.g., cotton, polyester, wool)
-    - clothing_colour: the primary color(s)
-    - clothing_brand: the brand name if visible or identifiable
-    - clothing_price: the price as a numeric value without currency symbol
-    - item_name: the product name if available
-    - item_description: a brief description of style, fit, and notable features
-    - item_image: the product image URL (only if analyzing a link)
-
-    Return ONLY valid JSON with this exact structure:
-    {
-      "clothing_item": "value or null",
-      "clothing_material": "value or null",
-      "clothing_colour": "value or null",
-      "clothing_brand": "value or null",
-      "clothing_price": "number or null",
-      "item_name": "value or null",
-      "item_description": "value or null",
-      "item_image": "url or null"
-    }
-
-    If any field cannot be determined, use null. Return ONLY the JSON, no additional text.
-  PROMPT
-end
 
 
   def show
