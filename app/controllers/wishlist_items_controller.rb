@@ -1,7 +1,7 @@
 class WishlistItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_search, only: [:create]
-  before_action :set_match, only: [:create]
+  before_action :set_search, only: [:create, :destroy]
+  before_action :set_match, only: [:create, :destroy]
 
   def create
     @wishlist_item = current_user.wishlist_items.build(
