@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_01_27_111401) do
+ActiveRecord::Schema[7.1].define(version: 2026_01_28_101120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,10 +44,10 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_27_111401) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
-    t.float "planet_rating"
-    t.float "people_rating"
-    t.float "animals_rating"
-    t.float "overall_rating"
+    t.integer "planet_rating"
+    t.integer "people_rating"
+    t.integer "animals_rating"
+    t.integer "overall_rating"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,7 +57,6 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_27_111401) do
     t.string "clothing_item"
     t.string "clothing_material"
     t.string "clothing_colour"
-    t.string "clothing_size"
     t.string "clothing_brand"
     t.float "clothing_price"
     t.string "external_link"
@@ -87,7 +86,6 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_27_111401) do
     t.string "clothing_item"
     t.string "clothing_material"
     t.string "clothing_colour"
-    t.string "clothing_size"
     t.string "clothing_brand"
     t.float "clothing_price"
     t.string "item_image"

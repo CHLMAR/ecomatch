@@ -9,7 +9,7 @@ class Search < ApplicationRecord
 
   validate :image_or_link_present
   validates :system_prompt, :clothing_item, :clothing_material,
-            :clothing_colour, :clothing_size, :clothing_brand, presence: true
+            :clothing_colour, :clothing_brand, presence: true
 
   private
 
@@ -21,4 +21,3 @@ class Search < ApplicationRecord
     end
   end
 end
-
