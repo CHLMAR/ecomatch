@@ -7,6 +7,8 @@ class MatchesController < ApplicationController
     .by_clothing_colour(params[:clothing_colour])
     .by_clothing_material(params[:clothing_material])
     .by_overall_rating(params[:overall_rating])
+
+    @search = Search.find(params[:search_id])
   end
 
   def show

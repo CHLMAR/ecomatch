@@ -1,4 +1,7 @@
-<%= link_to search_match_path(search, match), class: "card-link" do %>
+<% card_url = local_assigns[:match] ? search_match_path(search, match) : product.external_link %>
+<% link_target = local_assigns[:match] ? nil : "_blank" %>
+
+<%= link_to card_url, class: "card-link", target: link_target do %>
   <div class="card-match">
 
     <%= image_tag(
@@ -16,16 +19,16 @@
           </div>
         </div>
 
-        <h2><%= product.clothing_item %></h2>
+        <h2><%= product.clothing_colour %> <%= product.clothing_item %></h2>
 
         <p class="card-match-pricing">
           <%= product.clothing_price %>
         </p>
     </div>
 
-    <% if local_assigns[:search] && user_signed_in? %>
+    <% if local_assigns[:match] && user_signed_in? %>
       <div class="wishlist-button" onclick="event.stopPropagation();">
-        <% if saved_to_wishlist?(match) %>
+        <% if saved_to_wishlist?(product) %>
           <%= button_to unsave_search_match_path(search, match), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
             <i class="fa-solid fa-heart"></i>
           <% end %>
