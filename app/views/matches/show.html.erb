@@ -5,12 +5,25 @@
       <% product = @match.comparison_product %>
       <% brand = product.brand %>
       <%= image_tag(
-        product.item_image.presence || "sweater.jpg",  # replace with placehoder image when there is no available image
+        product.item_image.presence || "placeholder_outfit.png",  # replace with placehoder image when there is no available image
         alt: product.clothing_item
       ) %>
     </div>
 
-    <div class="col-sm-8 product-card-show">
+    <div class="col-sm-8 product-card-show product-card-show--with-wishlist">
+      <% if user_signed_in? %>
+        <div class="wishlist-button wishlist-button--main-card">
+          <% if saved_to_wishlist?(@match) %>
+            <%= button_to unsave_search_match_path(@search, @match), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
+              <i class="fa-solid fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= button_to save_search_match_path(@search, @match), method: :post, class: "btn-wishlist", title: "Save to wishlist" do %>
+              <i class="fa-regular fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
       <h2><%= product.clothing_item %></h2>
       <p class="product-description">
         <%= product.product_description %>

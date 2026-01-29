@@ -39,6 +39,17 @@ a{
   padding-left: 52px;
   height: 100%;
   margin: 0;
+
+  &--with-wishlist {
+    position: relative;
+
+    .wishlist-button--main-card {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 10;
+    }
+  }
 }
 
 .product-description {
