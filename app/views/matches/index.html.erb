@@ -15,45 +15,48 @@
         </div>
 
       </div>
-
-  <h2>You've got <%= @comparison_products.count %> matches</h2>
-
-  <%= form_with url: search_matches_path(@search), method: :get, local: true, class: "filters mb-4" do %>
-    <div class="row g-3">
-      <div class="col-md-3">
-        <%= label_tag :clothing_item, "Clothing Item", class: "form-label" %>
-        <%= text_field_tag :clothing_item, params[:clothing_item], class: "form-control", placeholder: "e.g. T-shirt, Jacket" %>
-      </div>
-      <div class="col-md-3">
-        <%= label_tag :clothing_colour, "Colour", class: "form-label" %>
-        <%= text_field_tag :clothing_colour, params[:clothing_colour], class: "form-control", placeholder: "e.g. Blue, Red" %>
-      </div>
-      <div class="col-md-3">
-        <%= label_tag :clothing_material, "Material", class: "form-label" %>
-        <%= text_field_tag :clothing_material, params[:clothing_material], class: "form-control", placeholder: "e.g. Cotton, Wool" %>
-      </div>
-      <div class="col-md-3">
-        <%= label_tag :overall_rating, "Min Rating", class: "form-label" %>
-        <%= select_tag :overall_rating, options_for_select([["Any", ""], ["1+", 1], ["2+", 2], ["3+", 3], ["4+", 4], ["5", 5]], params[:overall_rating]), class: "form-select" %>
-      </div>
     </div>
-    <div class="mt-3">
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-      <%= link_to "Clear", search_matches_path(@search), class: "btn btn-outline-secondary" %>
-    </div>
-  <% end %>
 
+    <div class="col-lg-9 col-md-4">
+      <div class="results-section">
+      <h2>You've got <%= @comparison_products.count %> matches</h2>
 
-    <% @comparison_products.each do |product| %>
-      <% brand = product.brand %>
-      <div class="match-item">
-        <%= render "shared/match_card",
-              search: @search,
-              product: product,
-              brand: brand %>
-      </div>
+      <%= form_with url: search_matches_path(@search), method: :get, local: true, class: "filters mb-4" do %>
+        <div class="row g-3">
+          <div class="col-md-3">
+            <%= label_tag :clothing_item, "Clothing Item", class: "form-label" %>
+            <%= text_field_tag :clothing_item, params[:clothing_item], class: "form-control", placeholder: "e.g. T-shirt, Jacket" %>
+          </div>
+          <div class="col-md-3">
+            <%= label_tag :clothing_colour, "Colour", class: "form-label" %>
+            <%= text_field_tag :clothing_colour, params[:clothing_colour], class: "form-control", placeholder: "e.g. Blue, Red" %>
+          </div>
+          <div class="col-md-3">
+            <%= label_tag :clothing_material, "Material", class: "form-label" %>
+            <%= text_field_tag :clothing_material, params[:clothing_material], class: "form-control", placeholder: "e.g. Cotton, Wool" %>
+          </div>
+          <div class="col-md-3">
+            <%= label_tag :overall_rating, "Min Rating", class: "form-label" %>
+            <%= select_tag :overall_rating, options_for_select([["Any", ""], ["1+", 1], ["2+", 2], ["3+", 3], ["4+", 4], ["5", 5]], params[:overall_rating]), class: "form-select" %>
+          </div>
+        </div>
+        <div class="mt-3">
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= link_to "Clear", search_matches_path(@search), class: "btn btn-outline-secondary" %>
+        </div>
       <% end %>
-    
+
+        <% @comparison_products.each do |product| %>
+          <% brand = product.brand %>
+          <div class="match-item">
+            <%= render "shared/match_card",
+                  search: @search,
+                  product: product,
+                  brand: brand %>
+          </div>
+        <% end %>
+    </div>
+    </div>
 
     </div>
   </div>
