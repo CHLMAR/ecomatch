@@ -1,3 +1,7 @@
+.row {
+  min-height: 100vh;
+}
+
 h1 {
   padding: 30px 0;
 }
@@ -157,4 +161,26 @@ a{
   gap: 20px;
   width: 100%;
   margin: 30px 0;
+}
+
+
+/* sidebar styles */
+
+.uploaded-product-sidebar {
+  background-color: rgb(196, 196, 196);
+  padding: 40px 16px;
+}
+
+.results-section {
+  padding-left: 40px;
+  padding-top: 40px;
+}
+
+.uploaded-product {
+  width: 100%;
+  padding: 0 22px;
+
+  img {
+    width: 100%;
+  }
 }
