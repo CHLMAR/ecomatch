@@ -14,15 +14,299 @@ puts "User: #{user.email}"
 # Brands
 # =============================================================================
 
-# Zara (fast fashion example)
+# =============================================================================
+# Fast Fashion Brands (Good On You ratings scraped 2025-01-29)
+# =============================================================================
+
+# Zara (fast fashion)
 zara_brand = Brand.find_or_create_by!(name: "Zara") do |b|
-  b.description = "Global fast fashion retailer offering trendy clothing and accessories."
+  b.description = "Global fast fashion retailer owned by Inditex, offering trendy clothing and accessories."
+  b.planet_rating = 3
+  b.people_rating = 3
+  b.animals_rating = 2
+  b.overall_rating = 3
+end
+puts "Brand: #{zara_brand.name}"
+
+# SHEIN (ultra fast fashion - lowest rated)
+shein_brand = Brand.find_or_create_by!(name: "SHEIN") do |b|
+  b.description = "Ultra fast fashion e-commerce platform known for extremely low prices and rapidly changing styles."
+  b.planet_rating = 2
+  b.people_rating = 1
+  b.animals_rating = 1
+  b.overall_rating = 1
+end
+puts "Brand: #{shein_brand.name}"
+
+# TEMU (ultra fast fashion - lowest rated)
+temu_brand = Brand.find_or_create_by!(name: "TEMU") do |b|
+  b.description = "Ultra fast fashion marketplace with extremely low prices and aggressive marketing practices."
+  b.planet_rating = 1
+  b.people_rating = 1
+  b.animals_rating = 2
+  b.overall_rating = 1
+end
+puts "Brand: #{temu_brand.name}"
+
+# H&M (fast fashion)
+hm_brand = Brand.find_or_create_by!(name: "H&M") do |b|
+  b.description = "Swedish multinational fast fashion retailer known for affordable clothing."
+  b.planet_rating = 3
+  b.people_rating = 2
+  b.animals_rating = 3
+  b.overall_rating = 3
+end
+puts "Brand: #{hm_brand.name}"
+
+# Boohoo (fast fashion)
+boohoo_brand = Brand.find_or_create_by!(name: "Boohoo") do |b|
+  b.description = "UK-based online fast fashion retailer targeting young consumers."
+  b.planet_rating = 1
+  b.people_rating = 2
+  b.animals_rating = 3
+  b.overall_rating = 2
+end
+puts "Brand: #{boohoo_brand.name}"
+
+# Fashion Nova (fast fashion - lowest rated)
+fashion_nova_brand = Brand.find_or_create_by!(name: "Fashion Nova") do |b|
+  b.description = "American fast fashion retailer known for trendy styles and social media marketing."
+  b.planet_rating = 1
+  b.people_rating = 1
+  b.animals_rating = 1
+  b.overall_rating = 1
+end
+puts "Brand: #{fashion_nova_brand.name}"
+
+# Forever 21 (fast fashion - lowest rated)
+forever_21_brand = Brand.find_or_create_by!(name: "Forever 21") do |b|
+  b.description = "American fast fashion retailer targeting young consumers with trendy affordable clothing."
+  b.planet_rating = 1
+  b.people_rating = 1
+  b.animals_rating = 1
+  b.overall_rating = 1
+end
+puts "Brand: #{forever_21_brand.name}"
+
+# Uniqlo (better rated fast fashion)
+uniqlo_brand = Brand.find_or_create_by!(name: "Uniqlo") do |b|
+  b.description = "Japanese casual wear retailer known for basics and functional clothing."
+  b.planet_rating = 3
+  b.people_rating = 4
+  b.animals_rating = 3
+  b.overall_rating = 4
+end
+puts "Brand: #{uniqlo_brand.name}"
+
+# Mango (fast fashion)
+mango_brand = Brand.find_or_create_by!(name: "Mango") do |b|
+  b.description = "Spanish clothing retailer offering Mediterranean-inspired fashion."
+  b.planet_rating = 3
+  b.people_rating = 3
+  b.animals_rating = 2
+  b.overall_rating = 3
+end
+puts "Brand: #{mango_brand.name}"
+
+# ASOS (fast fashion)
+asos_brand = Brand.find_or_create_by!(name: "ASOS") do |b|
+  b.description = "British online fashion retailer selling multiple brands and own-label products."
+  b.planet_rating = 2
+  b.people_rating = 2
+  b.animals_rating = 2
+  b.overall_rating = 2
+end
+puts "Brand: #{asos_brand.name}"
+
+# Primark (fast fashion)
+primark_brand = Brand.find_or_create_by!(name: "Primark") do |b|
+  b.description = "Irish fast fashion retailer known for extremely low prices."
+  b.planet_rating = 3
+  b.people_rating = 3
+  b.animals_rating = 2
+  b.overall_rating = 3
+end
+puts "Brand: #{primark_brand.name}"
+
+# Topshop (fast fashion)
+topshop_brand = Brand.find_or_create_by!(name: "Topshop") do |b|
+  b.description = "British fashion retailer known for trendy clothing targeting young consumers."
   b.planet_rating = 2
   b.people_rating = 3
   b.animals_rating = 2
   b.overall_rating = 2
 end
-puts "Brand: #{zara_brand.name}"
+puts "Brand: #{topshop_brand.name}"
+
+# Missguided (fast fashion)
+missguided_brand = Brand.find_or_create_by!(name: "Missguided") do |b|
+  b.description = "UK online fast fashion retailer targeting young women."
+  b.planet_rating = 2
+  b.people_rating = 1
+  b.animals_rating = 4
+  b.overall_rating = 2
+end
+puts "Brand: #{missguided_brand.name}"
+
+# Nasty Gal (fast fashion)
+nasty_gal_brand = Brand.find_or_create_by!(name: "Nasty Gal") do |b|
+  b.description = "American fast fashion retailer known for edgy styles."
+  b.planet_rating = 2
+  b.people_rating = 2
+  b.animals_rating = 3
+  b.overall_rating = 2
+end
+puts "Brand: #{nasty_gal_brand.name}"
+
+# Cider (ultra fast fashion - lowest rated)
+cider_brand = Brand.find_or_create_by!(name: "Cider") do |b|
+  b.description = "Social-first fast fashion brand with crowdsourced designs."
+  b.planet_rating = 1
+  b.people_rating = 1
+  b.animals_rating = 3
+  b.overall_rating = 1
+end
+puts "Brand: #{cider_brand.name}"
+
+# Zaful (ultra fast fashion - lowest rated)
+zaful_brand = Brand.find_or_create_by!(name: "Zaful") do |b|
+  b.description = "Chinese online fast fashion retailer known for cheap clothing."
+  b.planet_rating = 1
+  b.people_rating = 1
+  b.animals_rating = 1
+  b.overall_rating = 1
+end
+puts "Brand: #{zaful_brand.name}"
+
+# Romwe (ultra fast fashion - lowest rated)
+romwe_brand = Brand.find_or_create_by!(name: "Romwe") do |b|
+  b.description = "Chinese fast fashion e-commerce platform owned by SHEIN."
+  b.planet_rating = 1
+  b.people_rating = 1
+  b.animals_rating = 2
+  b.overall_rating = 1
+end
+puts "Brand: #{romwe_brand.name}"
+
+# Urban Outfitters (fast fashion)
+urban_outfitters_brand = Brand.find_or_create_by!(name: "Urban Outfitters") do |b|
+  b.description = "American lifestyle retail corporation selling clothing and home goods."
+  b.planet_rating = 2
+  b.people_rating = 2
+  b.animals_rating = 2
+  b.overall_rating = 2
+end
+puts "Brand: #{urban_outfitters_brand.name}"
+
+# Anthropologie (fast fashion)
+anthropologie_brand = Brand.find_or_create_by!(name: "Anthropologie") do |b|
+  b.description = "American retailer selling clothing, accessories, and home decor with bohemian aesthetic."
+  b.planet_rating = 2
+  b.people_rating = 2
+  b.animals_rating = 3
+  b.overall_rating = 2
+end
+puts "Brand: #{anthropologie_brand.name}"
+
+# Brandy Melville (fast fashion - lowest rated)
+brandy_melville_brand = Brand.find_or_create_by!(name: "Brandy Melville") do |b|
+  b.description = "Italian fast fashion brand known for one-size-fits-most clothing."
+  b.planet_rating = 1
+  b.people_rating = 1
+  b.animals_rating = 1
+  b.overall_rating = 1
+end
+puts "Brand: #{brandy_melville_brand.name}"
+
+# Princess Polly (fast fashion)
+princess_polly_brand = Brand.find_or_create_by!(name: "Princess Polly") do |b|
+  b.description = "Australian online fashion retailer targeting young women."
+  b.planet_rating = 2
+  b.people_rating = 3
+  b.animals_rating = 2
+  b.overall_rating = 2
+end
+puts "Brand: #{princess_polly_brand.name}"
+
+# YesStyle (fast fashion - lowest rated)
+yesstyle_brand = Brand.find_or_create_by!(name: "YesStyle") do |b|
+  b.description = "Hong Kong-based online retailer selling Asian fashion and beauty products."
+  b.planet_rating = 1
+  b.people_rating = 1
+  b.animals_rating = 1
+  b.overall_rating = 1
+end
+puts "Brand: #{yesstyle_brand.name}"
+
+# Abercrombie & Fitch (fast fashion)
+abercrombie_brand = Brand.find_or_create_by!(name: "Abercrombie & Fitch") do |b|
+  b.description = "American lifestyle retailer known for casual luxury clothing."
+  b.planet_rating = 2
+  b.people_rating = 3
+  b.animals_rating = 3
+  b.overall_rating = 3
+end
+puts "Brand: #{abercrombie_brand.name}"
+
+# American Eagle (fast fashion)
+american_eagle_brand = Brand.find_or_create_by!(name: "American Eagle") do |b|
+  b.description = "American clothing and accessories retailer targeting young adults."
+  b.planet_rating = 3
+  b.people_rating = 2
+  b.animals_rating = 2
+  b.overall_rating = 2
+end
+puts "Brand: #{american_eagle_brand.name}"
+
+# Victoria's Secret (fast fashion)
+victorias_secret_brand = Brand.find_or_create_by!(name: "Victoria's Secret") do |b|
+  b.description = "American lingerie and beauty retailer."
+  b.planet_rating = 2
+  b.people_rating = 3
+  b.animals_rating = 3
+  b.overall_rating = 2
+end
+puts "Brand: #{victorias_secret_brand.name}"
+
+# GAP (fast fashion)
+gap_brand = Brand.find_or_create_by!(name: "GAP") do |b|
+  b.description = "American worldwide clothing and accessories retailer."
+  b.planet_rating = 3
+  b.people_rating = 3
+  b.animals_rating = 3
+  b.overall_rating = 3
+end
+puts "Brand: #{gap_brand.name}"
+
+# Nike (sportswear)
+nike_brand = Brand.find_or_create_by!(name: "Nike") do |b|
+  b.description = "American multinational corporation designing and selling athletic footwear and apparel."
+  b.planet_rating = 3
+  b.people_rating = 2
+  b.animals_rating = 2
+  b.overall_rating = 3
+end
+puts "Brand: #{nike_brand.name}"
+
+# Adidas (sportswear)
+adidas_brand = Brand.find_or_create_by!(name: "Adidas") do |b|
+  b.description = "German multinational corporation designing and manufacturing athletic and casual footwear and apparel."
+  b.planet_rating = 3
+  b.people_rating = 2
+  b.animals_rating = 2
+  b.overall_rating = 2
+end
+puts "Brand: #{adidas_brand.name}"
+
+# Bershka (fast fashion - Inditex brand)
+bershka_brand = Brand.find_or_create_by!(name: "Bershka") do |b|
+  b.description = "Spanish fast fashion retailer owned by Inditex, targeting young consumers."
+  b.planet_rating = 3
+  b.people_rating = 3
+  b.animals_rating = 2
+  b.overall_rating = 3
+end
+puts "Brand: #{bershka_brand.name}"
 
 patagonia_brand = Brand.find_or_create_by!(name: "Patagonia") do |b|
   b.description = "Sustainable fashion brand focused on eco-friendly materials and ethical production."
@@ -598,11 +882,10 @@ search = Search.find_or_create_by!(
   s.clothing_item = "T-shirt"
   s.clothing_material = "Polyamide"
   s.clothing_colour = "Black"
-  s.clothing_size = "M"
   s.clothing_brand = "Zara"
   s.clothing_price = 12.99
   s.item_image = "https://static.zara.net/photos///2023/V/0/1/p/3905/532/800/2/w/560/3905532800_2_1_1.jpg"
-  s.item_name = "Fine Strap Polyamide T-Shirt"
+  s.item_name = "T-Shirt"
   s.item_description = "Basic black T-shirt from Zara made of polyamide."
   s.url = "https://www.zara.com/fr/en/fine-strap-polyamide-t-shirt-p03905532.html"
 end
@@ -616,7 +899,7 @@ if ComparisonProduct.any? && !Match.exists?(search: search)
     similarities: "Both are black T-shirts suitable for casual wear"
   )
   puts "Match: created for search"
-  
+
   # Create wishlist item
   WishlistItem.find_or_create_by!(user: user, match: match) do |w|
     w.comparison_product = match.comparison_product
