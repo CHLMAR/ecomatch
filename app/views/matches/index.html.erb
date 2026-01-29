@@ -15,7 +15,8 @@
         </div>
 
       </div>
-
+    </div>
+    <div class="col-lg-9 col-md-8 matches-section">
   <h2>You've got <%= @comparison_products.count %> matches</h2>
 
   <%= form_with url: search_matches_path(@search), method: :get, local: true, class: "filters mb-4" do %>
@@ -34,7 +35,7 @@
       </div>
       <div class="col-md-3">
         <%= label_tag :overall_rating, "Min Rating", class: "form-label" %>
-        <%= select_tag :overall_rating, options_for_select([["Any", ""], ["1+", 1], ["2+", 2], ["3+", 3], ["4+", 4], ["5", 5]], params[:overall_rating]), class: "form-select" %>
+        <%= select_tag :overall_rating, options_for_select([["Any", ""], ["1+", 1..5], ["2+", 2..5], ["3+", 3..5], ["4+", 4..5 ], ["5", 5]], params[:overall_rating]), class: "form-select" %>
       </div>
     </div>
     <div class="mt-3">
@@ -43,7 +44,7 @@
     </div>
   <% end %>
 
-
+  <div class="matches-list">
     <% @comparison_products.each do |product| %>
       <% brand = product.brand %>
       <div class="match-item">
@@ -53,8 +54,9 @@
               brand: brand %>
       </div>
       <% end %>
-    
 
-    </div>
+
   </div>
+</div>
+</div>
 </div>
