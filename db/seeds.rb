@@ -335,15 +335,6 @@ kotn_brand = Brand.find_or_create_by!(name: "Kotn") do |b|
 end
 puts "Brand: #{kotn_brand.name}"
 
-ecowear_brand = Brand.find_or_create_by!(name: "EcoWear") do |b|
-  b.description = "Sustainable fashion brand focused on eco-friendly materials and ethical production."
-  b.planet_rating = 4
-  b.people_rating = 5
-  b.animals_rating = 4
-  b.overall_rating = 4
-end
-puts "Brand: #{ecowear_brand.name}"
-
 levi_s_brand = Brand.find_or_create_by!(name: "Levi's") do |b|
   b.description = "Iconic denim brand with sustainability initiatives including Water<Less technology and Better Cotton sourcing."
   b.planet_rating = 3
