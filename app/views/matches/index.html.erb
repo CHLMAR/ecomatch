@@ -1,4 +1,20 @@
 <div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 uploaded-product-sidebar">
+
+      <div class="uploaded-product">
+
+        <%= image_tag(
+              "placeholder_outfit.png",
+              alt: "image of a sweater"
+            ) %>
+
+        <div class="uploaded-product-info">
+          <p>Jeans</p>
+          <p>Forever 21</p>
+        </div>
+
+      </div>
 
   <h2>You've got <%= @comparison_products.count %> matches</h2>
 
@@ -27,7 +43,6 @@
     </div>
   <% end %>
 
-  <div class="matches-list">
 
     <% @comparison_products.each do |product| %>
       <% brand = product.brand %>
@@ -37,7 +52,9 @@
               product: product,
               brand: brand %>
       </div>
-    <% end %>
+      <% end %>
+    
 
+    </div>
   </div>
 </div>
