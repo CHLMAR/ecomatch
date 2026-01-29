@@ -1,6 +1,50 @@
 <div class="container">
 
   <h2>You've got <%= @matches.count %> matches</h2>
+  <div class="filters">
+
+    <div class="dropdown">
+      Colour:
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Select
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item active" href="#">All</a></li>
+        <% @matches.each do |match| %>
+          <li><a class="dropdown-item active" href="#"> <%= match.comparison_product.clothing_colour %></a></li>
+        <% end%>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      Material:
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Select
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item active" href="#">All</a></li>
+        <% @matches.each do |match| %>
+          <li><a class="dropdown-item active" href="#"> <%= match.comparison_product.clothing_material %></a></li>
+        <% end%>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      Clothing item:
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Select
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item active" href="#">All</a></li>
+        <% @matches.each do |match| %>
+          <li><a class="dropdown-item active" href="#"> <%= match.comparison_product.clothing_item %></a></li>
+        <% end%>
+      </ul>
+    </div>
+
+  </div>
+
+
   <div class="matches-list">
 
     <% @matches.each do |match| %>
