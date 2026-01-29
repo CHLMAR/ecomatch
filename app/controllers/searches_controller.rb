@@ -43,7 +43,7 @@ class SearchesController < ApplicationController
       redirect_to search_matches_path(@search), notice: "Search completed."
       # render :new #!!!for testing, remove after and change to the code above
     else
-      render :new, status: :unprocessable_entity
+      render 'pages/home', status: :unprocessable_entity, notice: "Error creating search."
     end
   end
 
