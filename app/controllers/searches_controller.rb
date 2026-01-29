@@ -26,7 +26,7 @@ class SearchesController < ApplicationController
         parsed = ScrapingBeeApi.new.send_request(@search.uploaded_link)
         @raw_response = parsed.to_json #!!!Just for testing, remove after
       end
-      
+
       # Update search with parsed data
       if parsed
         @search.update(
@@ -40,8 +40,8 @@ class SearchesController < ApplicationController
           item_image: parsed["item_image"]
         )
       end
-      # redirect_to search_path(@search), notice: "Search completed."
-      render :new #!!!for testing, remove after and change to the code above
+      redirect_to search_matches_path(@search), notice: "Search completed."
+      # render :new #!!!for testing, remove after and change to the code above
     else
       render :new, status: :unprocessable_entity
     end

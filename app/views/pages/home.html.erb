@@ -3,46 +3,51 @@
     <h1>Welcome to EcoMatch</h1>
     <p>Find sustainable and fashionable matches for the clothes you like.</p>
   </div>
-  <div class="banner-search">
+  <div class="banner-search" data-controller="form-loader">
+    <!-- Loading overlay -->
+    <div data-form-loader-target="overlay" class="loader-overlay">
+      <span class="loader">Entering the realm of sustainable fashion...</span>
+    </div>
+
     <% if current_user %>
-      <%= simple_form_for Search.new, url: searches_path, html: { multipart: true } do |f| %>
+      <%= simple_form_for Search.new, url: searches_path, html: { multipart: true, data: { form_loader_target: "form" } } do |f| %>
         <div class="d-flex align-items-end gap-3">
-          <div class="flex-fill">
+          <div style="flex: 1 1 0; min-width: 0;">
             <label class="form-label">Upload an image</label>
             <%= f.input_field :uploaded_image, as: :file, class: "form-control", accept: "image/*" %>
           </div>
           <div class="d-flex align-items-end mb-3">
             <h3>OR</h3>
           </div>
-          <div class="flex-fill">
+          <div style="flex: 1 1 0; min-width: 0;">
             <label class="form-label">Paste a website link</label>
-            <div class="input-group">
-              <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product" %>
-              <%= f.submit "Search", class: "btn btn-primary" %>
-            </div>
+            <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product" %>
           </div>
+        </div>
+        <div class="mt-3">
+          <%= f.submit "Search", class: "btn btn-primary w-100" %>
         </div>
       <% end %>
     <% else %>
       <%= simple_form_for Search.new, url: searches_path, html: { multipart: true } do |f| %>
-      <div class="d-flex align-items-end gap-3">
-        <div class="flex-fill">
-          <label class="form-label">Upload an image</label>
-          <%= f.input_field :uploaded_image, as: :file, class: "form-control", accept: "image/*", disabled: true %>
-        </div>
-        <div class="d-flex align-items-end mb-3">
-          <h3>OR</h3>
-        </div>
-        <div class="flex-fill">
-          <label class="form-label">Paste a website link</label>
-          <div class="input-group">
+        <div class="d-flex align-items-end gap-3">
+          <div style="flex: 1 1 0; min-width: 0;">
+            <label class="form-label">Upload an image</label>
+            <%= f.input_field :uploaded_image, as: :file, class: "form-control", accept: "image/*", disabled: true %>
+          </div>
+          <div class="d-flex align-items-end mb-3">
+            <h3>OR</h3>
+          </div>
+          <div style="flex: 1 1 0; min-width: 0;">
+            <label class="form-label">Paste a website link</label>
             <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product", disabled: true %>
-            <%= f.submit "Search", class: "btn btn-primary", disabled: true %>
           </div>
         </div>
-      </div>
-      <p class="text-center mt-3">Please <a href="<%= new_user_registration_path %>">sign up</a> or <a href="<%= new_user_session_path %>">log in</a> to use the search feature.</p>
-    <% end %>
+        <div class="mt-3">
+          <%= f.submit "Search", class: "btn btn-primary w-100", disabled: true %>
+        </div>
+        <p class="text-center mt-3">Please <a href="<%= new_user_registration_path %>">sign up</a> or <a href="<%= new_user_session_path %>">log in</a> to use the search feature.</p>
+      <% end %>
   <% end %>
   </div>
 </div>

@@ -359,7 +359,7 @@ mud_jeans_brand = Brand.find_or_create_by!(name: "MUD Jeans") do |b|
   b.people_rating = 4
   b.animals_rating = 4
   b.overall_rating = 4
-end
+end 
 puts "Brand: #{mud_jeans_brand.name}"
 
 lululemon_brand = Brand.find_or_create_by!(name: "Lululemon") do |b|
