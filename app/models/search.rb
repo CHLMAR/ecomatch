@@ -8,8 +8,6 @@ class Search < ApplicationRecord
   has_one_attached :uploaded_image
 
   validate :image_or_link_present
-  validates :system_prompt, :clothing_item, :clothing_material,
-            :clothing_colour, :clothing_size, :clothing_brand, presence: true
 
   private
 
@@ -21,4 +19,3 @@ class Search < ApplicationRecord
     end
   end
 end
-

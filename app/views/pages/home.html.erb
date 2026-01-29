@@ -1,25 +1,63 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div class="container-fluid w-50">
-  <%= simple_form_for Search.new, url: searches_path, html: { multipart: true, class: "mt-4" } do |f| %>
-    <div class="mb-3">
-      <%= f.input :uploaded_image, as: :file, label: "Upload an image",
-          input_html: { class: "form-control", accept: "image/*" } %>
-    </div>
-
-    <div class="d-flex align-items-center my-3">
-      <hr class="flex-grow-1">
-      <span class="mx-3 text-muted">OR</span>
-      <hr class="flex-grow-1">
-    </div>
-
-    <div class="mb-3">
-      <%= f.input :uploaded_link, label: "Paste a website link",
-          input_html: { class: "form-control", placeholder: "https://example.com/product" } %>
-    </div>
-
-    <%= f.submit "Search", class: "btn btn-primary" %>
+<div class="banner-home">
+  <div class="banner-content text-center">
+    <h1>Welcome to EcoMatch</h1>
+    <p>Find sustainable and fashionable matches for the clothes you like.</p>
+  </div>
+  <div class="banner-search">
+    <% if current_user %>
+      <%= simple_form_for Search.new, url: searches_path, html: { multipart: true } do |f| %>
+        <div class="d-flex align-items-end gap-3">
+          <div class="flex-fill">
+            <label class="form-label">Upload an image</label>
+            <%= f.input_field :uploaded_image, as: :file, class: "form-control", accept: "image/*" %>
+          </div>
+          <div class="d-flex align-items-end mb-3">
+            <h3>OR</h3>
+          </div>
+          <div class="flex-fill">
+            <label class="form-label">Paste a website link</label>
+            <div class="input-group">
+              <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product" %>
+              <%= f.submit "Search", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= simple_form_for Search.new, url: searches_path, html: { multipart: true } do |f| %>
+      <div class="d-flex align-items-end gap-3">
+        <div class="flex-fill">
+          <label class="form-label">Upload an image</label>
+          <%= f.input_field :uploaded_image, as: :file, class: "form-control", accept: "image/*", disabled: true %>
+        </div>
+        <div class="d-flex align-items-end mb-3">
+          <h3>OR</h3>
+        </div>
+        <div class="flex-fill">
+          <label class="form-label">Paste a website link</label>
+          <div class="input-group">
+            <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product", disabled: true %>
+            <%= f.submit "Search", class: "btn btn-primary", disabled: true %>
+          </div>
+        </div>
+      </div>
+      <p class="text-center mt-3">Please <a href="<%= new_user_registration_path %>">sign up</a> or <a href="<%= new_user_session_path %>">log in</a> to use the search feature.</p>
+    <% end %>
   <% end %>
-
+  </div>
 </div>
-
+<div class="home-content-container">
+      <div class="col-md-6 text-center mb-5">
+        <h2>About EcoMatch</h2>
+        <p>EcoMatch is dedicated to helping you find sustainable fashion options that match your style. Our advanced image recognition technology allows you to upload a photo or paste a link to find eco-friendly alternatives.</p>
+      </div>
+      <div class="col-md-6">
+        <h2>How It Works</h2>
+        <ol>
+          <li>Upload an image of a clothing item or paste a product link.</li>
+          <li>Our system analyzes the input and searches for similar sustainable products.</li>
+          <li>Browse the results and discover eco-friendly fashion choices!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
