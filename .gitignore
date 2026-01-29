@@ -40,3 +40,13 @@
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+
+# Node.js (for Playwright)
+node_modules/
+package-lock.json
+
+# Playwright MCP screenshots
+.playwright-mcp/
+
+# Debug files
+*_debug*.html

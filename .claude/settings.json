@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(source .env)",
+      "Bash(export SCRAPINGBEE_API_KEY:*)",
+      "Bash(ruby:*)"
+    ]
+  }
+}
