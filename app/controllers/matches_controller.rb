@@ -2,7 +2,11 @@ class MatchesController < ApplicationController
   before_action :set_search
 
   def index
-    @matches = @search.matches.includes(comparison_product: :brand)
+    @comparison_products = ComparisonProduct.includes(:brand)
+    .by_clothing_item(params[:clothing_item])
+    .by_clothing_colour(params[:clothing_colour])
+    .by_clothing_material(params[:clothing_material])
+    .by_overall_rating(params[:overall_rating])
   end
 
   def show
