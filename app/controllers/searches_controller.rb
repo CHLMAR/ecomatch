@@ -29,16 +29,28 @@ class SearchesController < ApplicationController
 
       # Update search with parsed data
       if parsed
-        @search.update(
+        update_attrs = {
           clothing_item: parsed["clothing_item"],
           clothing_material: parsed["clothing_material"],
           clothing_colour: parsed["clothing_colour"],
           clothing_brand: parsed["clothing_brand"],
           clothing_price: parsed["clothing_price"],
           item_name: parsed["item_name"],
-          item_description: parsed["item_description"],
-          item_image: parsed["item_image"]
-        )
+          item_description: parsed["item_description"]
+        }
+
+        if @search.uploaded_image.attached?
+          # Get Cloudinary URL and save to both uploaded_image (string column) and item_image
+          cloudinary_url = @search.uploaded_image.url
+          update_attrs[:item_image] = cloudinary_url
+          @search.update(update_attrs)
+          # Use update_column to bypass Active Storage and write directly to the string column
+          @search.update_column(:uploaded_image, cloudinary_url)
+        else
+          # Use scraped image URL for link uploads
+          update_attrs[:item_image] = parsed["item_image"]
+          @search.update(update_attrs)
+        end
       end
       redirect_to search_matches_path(@search), notice: "Search completed."
       # render :new #!!!for testing, remove after and change to the code above
