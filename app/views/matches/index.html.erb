@@ -42,12 +42,12 @@
           <div class="uploaded-details">
             <% if @brand_info.present? %>
             <div class="rating-item overall-brand-rating">
-              <div class="rating-item__label">People</div>
+              <div class="rating-item__label">Overall</div>
                   <% @brand_info.overall_rating.times do %>
-                    <i class="fa-solid fa-child rating-item__icon"></i>
+                    <i class="fa-solid fa-leaf" style="color: #2a2a2a;"></i>
                   <% end %>
                   <% (5 - @brand_info.overall_rating).times do %>
-                    <i class="fa-solid fa-child rating-item__icon" style="color: #838383;"></i>
+                    <i class="fa-solid fa-leaf" style="color: #838383;"></i>
                   <% end %>
               </div>
 
@@ -89,7 +89,7 @@
 
             <%= link_to "Upload another item", root_path, class: "btn btn-primary mt-3" %>
             </div>
-        
+
       </div>
     </div>
 
