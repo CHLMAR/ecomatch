@@ -22,7 +22,7 @@ class ComparisonProduct < ApplicationRecord
 
   scope :by_overall_rating, lambda { |rating|
     if rating.present?
-      joins(:brand).where(brands: { overall_rating: rating })
+      joins(:brand).where("brands.overall_rating >= ?", rating.to_i)
     end
   }
 
