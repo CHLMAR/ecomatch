@@ -2,6 +2,8 @@
 
 require 'json'
 require 'uri'
+require 'net/http'
+require 'tempfile'
 require 'playwright'
 
 # Patagonia Playwright Scraper
@@ -50,8 +52,9 @@ module PatagoniaPlaywrightScraper
   class Scraper
     BRAND_NAME = "Patagonia"
 
-    def initialize(headless: true)
+    def initialize(headless: true, upload_images: false)
       @headless = headless
+      @upload_images = upload_images
       @browser = nil
       @page = nil
     end
@@ -298,6 +301,14 @@ module PatagoniaPlaywrightScraper
     def build_product(search_info, page_details)
       name = page_details['name'].to_s.empty? ? search_info[:name] : page_details['name']
 
+      # Get image URL - upload to Cloudinary if enabled
+      original_image_url = ensure_absolute_url(page_details['image'])
+      item_image = if @upload_images && !original_image_url.empty?
+                     upload_image_to_cloudinary(original_image_url, name) || original_image_url
+                   else
+                     original_image_url
+                   end
+
       {
         product_description: name,
         clothing_item: infer_clothing_type(name),
@@ -305,7 +316,7 @@ module PatagoniaPlaywrightScraper
         clothing_colour: page_details['color'] || 'Unknown',
         clothing_brand: BRAND_NAME,
         clothing_price: page_details['price'].to_f,
-        item_image: ensure_absolute_url(page_details['image']),
+        item_image: item_image,
         external_link: ensure_absolute_url(search_info[:url])
       }
     end
@@ -325,11 +336,70 @@ module PatagoniaPlaywrightScraper
       return url if url.start_with?('http')
       "#{BASE_URL}#{url.start_with?('/') ? '' : '/'}#{url}"
     end
+
+    # Download image from Patagonia using browser (bypasses hotlink protection)
+    # and upload to Cloudinary
+    def upload_image_to_cloudinary(image_url, product_name)
+      return nil if image_url.nil? || image_url.empty?
+
+      begin
+        puts "    Downloading image..."
+
+        # Use page to download image (has proper cookies/headers)
+        image_data = @page.evaluate(<<~JS, image_url)
+          async (url) => {
+            try {
+              const response = await fetch(url);
+              if (!response.ok) return null;
+              const blob = await response.blob();
+              return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => resolve(reader.result);
+                reader.readAsDataURL(blob);
+              });
+            } catch (e) {
+              return null;
+            }
+          }
+        JS
+
+        return nil unless image_data&.start_with?('data:image')
+
+        # Extract base64 data and save to temp file
+        base64_data = image_data.split(',')[1]
+        return nil unless base64_data
+
+        temp_file = Tempfile.new(['patagonia', '.jpg'])
+        temp_file.binmode
+        temp_file.write(Base64.decode64(base64_data))
+        temp_file.rewind
+
+        # Upload to Cloudinary
+        puts "    Uploading to Cloudinary..."
+        result = Cloudinary::Uploader.upload(
+          temp_file.path,
+          folder: 'ecomatch/patagonia',
+          public_id: product_name.to_s.parameterize.slice(0, 50),
+          overwrite: true,
+          resource_type: 'image'
+        )
+
+        temp_file.close
+        temp_file.unlink
+
+        cloudinary_url = result['secure_url']
+        puts "    Uploaded: #{cloudinary_url.slice(0, 60)}..."
+        cloudinary_url
+      rescue StandardError => e
+        puts "    Image upload failed: #{e.message}"
+        nil
+      end
+    end
   end
 
   # Convenience method for Rails integration
-  def self.scrape(query, limit: 10, headless: true)
-    scraper = Scraper.new(headless: headless)
+  def self.scrape(query, limit: 10, headless: true, upload_images: false)
+    scraper = Scraper.new(headless: headless, upload_images: upload_images)
     scraper.search(query, limit: limit)
   end
 end
@@ -340,9 +410,10 @@ if __FILE__ == $0
   limit = (ARGV[1] || 10).to_i
   headless = !ARGV.include?('--visible')
   save_to_db = !ARGV.include?('--no-save')
+  upload_images = ARGV.include?('--upload-images')
 
   begin
-    products = PatagoniaPlaywrightScraper.scrape(query, limit: limit, headless: headless)
+    products = PatagoniaPlaywrightScraper.scrape(query, limit: limit, headless: headless, upload_images: upload_images)
 
     if products.empty?
       puts "\nNo products found."

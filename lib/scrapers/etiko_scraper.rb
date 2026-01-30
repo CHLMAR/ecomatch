@@ -31,8 +31,8 @@ module EtikoPlaywrightScraper
   BASE_URL = "https://etiko.com.au"
 
   # Delays to avoid detection
-  PAGE_LOAD_DELAY = 2.0
-  BETWEEN_PRODUCTS_DELAY = 1.5
+  PAGE_LOAD_DELAY = 1.0
+  BETWEEN_PRODUCTS_DELAY = 0.75
 
   # Collection URLs mapping
   COLLECTION_URLS = {
@@ -322,18 +322,37 @@ module EtikoPlaywrightScraper
 
           // Get main product image
           let image = '';
-          // Look for main gallery image
-          const galleryImg = document.querySelector('img[alt*="Etiko"]');
-          if (galleryImg) {
-            image = galleryImg.src || galleryImg.getAttribute('data-src') || '';
+
+          // Look for product gallery images (Shopify product media)
+          const gallerySelectors = [
+            '.product__media img',
+            '.product-gallery img',
+            '[data-product-media-type="image"] img',
+            '.product-single__media img',
+            '.product__main-photos img',
+            'img[src*="/products/"]'
+          ];
+
+          for (const selector of gallerySelectors) {
+            const img = document.querySelector(selector);
+            if (img) {
+              const src = img.src || img.getAttribute('data-src') || '';
+              // Skip brand logos and badges
+              if (src && !src.includes('Digital_Tag') && !src.includes('Media_Kit') && !src.includes('logo')) {
+                image = src;
+                break;
+              }
+            }
           }
 
-          // Fallback: look for any product image
+          // Fallback: look for any product image on Shopify CDN
           if (!image) {
             const imgs = document.querySelectorAll('img[src*="cdn.shopify.com"]');
             for (const img of imgs) {
-              if (img.src && !img.src.includes('icon') && !img.src.includes('logo')) {
-                image = img.src;
+              const src = img.src || '';
+              // Skip icons, logos, badges, and brand tags
+              if (src && !src.includes('icon') && !src.includes('logo') && !src.includes('Digital_Tag') && !src.includes('Media_Kit')) {
+                image = src;
                 break;
               }
             }
