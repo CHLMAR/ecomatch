@@ -13,6 +13,9 @@ class MatchesController < ApplicationController
     @matches_by_product_id = @search.matches
       .where(comparison_product_id: product_ids)
       .index_by(&:comparison_product_id)
+
+    @item_brand = @search.clothing_brand
+    @brand_info = Brand.where("name ILIKE ?", @item_brand).first
   end
 
   def show
