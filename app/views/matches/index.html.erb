@@ -115,11 +115,8 @@
       <div class="matches-list">
         <% @comparison_products.each do |product| %>
           <% brand = product.brand %>
-          <% match = @matches_by_product_id[product.id] %>
           <div class="match-item">
             <%= render "shared/match_card",
-                  search: @search,
-                  match: match,
                   product: product,
                   brand: brand %>
           </div>

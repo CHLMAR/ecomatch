@@ -1,5 +1,6 @@
 class ComparisonProduct < ApplicationRecord
   belongs_to :brand
+  has_many :wishlist_items, dependent: :destroy
   validates :brand_id, :clothing_item, :clothing_material, :clothing_colour, :clothing_brand, :external_link, :product_description, presence: true
 
   scope :by_clothing_item, lambda { |item|

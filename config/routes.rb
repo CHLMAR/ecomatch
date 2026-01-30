@@ -13,9 +13,13 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :searches, only: [:new, :create, :edit, :update, :show] do
-    resources :matches, only: [:index, :show] do
-      post 'save', to: 'wishlist_items#create', on: :member
-      delete 'unsave', to: 'wishlist_items#destroy', on: :member
+    resources :matches, only: [:index, :show]
+  end
+
+  resources :comparison_products, only: [] do
+    member do
+      post :add_to_wishlist, to: "wishlist_items#create"
+      delete :remove_from_wishlist, to: "wishlist_items#destroy"
     end
   end
 
