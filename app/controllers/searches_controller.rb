@@ -50,7 +50,9 @@ class SearchesController < ApplicationController
           @search.update_column(:uploaded_image, cloudinary_url)
         else
           # Use scraped image URL for link uploads
-          update_attrs[:item_image] = parsed["item_image"]
+          item_image = parsed["item_image"]
+          item_image = item_image.first if item_image.is_a?(Array)
+          update_attrs[:item_image] = item_image
           @search.update(update_attrs)
         end
       end

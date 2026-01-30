@@ -7,10 +7,14 @@
         <div class="uploaded-product">
           <div class="uploaded-product__main">
 
-        <%= image_tag(
-              @search.item_image.presence || "placeholder_outfit.png",
-              alt: "image of a sweater"
-            ) %>
+<% item_image_url = @search.item_image.presence&.gsub(/^\[?"?/, '')&.gsub(/"?\]?$/, '') %>
+        <% if item_image_url.present? && item_image_url.start_with?('//') %>
+          <%= image_tag("https:#{item_image_url}", alt: @search.item_name || "Uploaded item") %>
+        <% elsif item_image_url.present? && item_image_url.start_with?('http') %>
+          <%= image_tag(item_image_url, alt: @search.item_name || "Uploaded item") %>
+        <% else %>
+          <%= image_tag("placeholder_outfit.png", alt: "Uploaded item") %>
+        <% end %>
 
             <div class="uploaded-product__details">
 
@@ -91,11 +95,11 @@
             <div class="row g-3">
               <div class="col-md-3">
                 <%= label_tag :clothing_item, "Clothing Item", class: "form-label" %>
-                <%= text_field_tag :clothing_item, params[:clothing_item] || @search.clothing_item.capitalize, class: "form-control", placeholder: "e.g. T-shirt, Jacket" %>
+                <%= text_field_tag :clothing_item, params[:clothing_item] || @search.clothing_item&.capitalize, class: "form-control", placeholder: "e.g. T-shirt, Jacket" %>
               </div>
               <div class="col-md-3">
                 <%= label_tag :clothing_colour, "Colour", class: "form-label" %>
-                <%= text_field_tag :clothing_colour, params[:clothing_colour] || @search.clothing_colour.capitalize, class: "form-control", placeholder: "e.g. Blue, Red" %>
+                <%= text_field_tag :clothing_colour, params[:clothing_colour] || @search.clothing_colour&.capitalize, class: "form-control", placeholder: "e.g. Blue, Red" %>
               </div>
               <div class="col-md-3">
                 <%= label_tag :clothing_material, "Material", class: "form-label" %>
