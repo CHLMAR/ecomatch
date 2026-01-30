@@ -85,20 +85,20 @@ class SearchesController < ApplicationController
 
        IMPORTANT - Normalize values to generic categories:
 
-      For clothing_item: Use base garment type only. Strip style modifiers.
+      For clothing_item: Use base garment type only. Strip style modifiers. For example:
       - "barrel leg jeans", "skinny jeans", "bootcut jeans" → "jeans"
       - "oversized hoodie", "cropped hoodie" → "hoodie"
       - "maxi dress", "midi dress", "wrap dress" → "dress"
       - "bomber jacket", "denim jacket" → "jacket"
 
-      For clothing_colour: Use base color only. Strip shade/tone modifiers.
-      - "dark blue", "navy blue", "light blue", "royal blue" → "blue"
+      For clothing_colour: Use base color only. Strip shade/tone modifiers. For example:
+      - "dark blue", "navy blue", "light blue", "royal blue", "dark denim" → "blue"
       - "forest green", "sage green", "olive" → "green"
       - "burgundy", "wine", "maroon" → "red"
       - "cream", "ivory", "off-white" → "white"
       - "charcoal", "graphite" → "grey"
 
-      For clothing_material: Use primary material only.
+      For clothing_material: Use primary material only. For example:
       - "100% organic cotton" → "cotton"
       - "recycled polyester blend" → "polyester"
 
