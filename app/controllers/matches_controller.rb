@@ -3,6 +3,7 @@ class MatchesController < ApplicationController
 
   def index
     @search = Search.find(params[:search_id])
+    @brand_info = @search.clothing_brand.present? ? Brand.find_by("LOWER(name) = ?", @search.clothing_brand.strip.downcase) : nil
 
     clothing_item = params[:commit] ? params[:clothing_item] : (params[:clothing_item].presence || @search.clothing_item)
     clothing_colour = params[:commit] ? params[:clothing_colour] : (params[:clothing_colour].presence || @search.clothing_colour)
