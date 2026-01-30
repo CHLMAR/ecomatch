@@ -7,8 +7,9 @@
 
     <div class="card-image">
     <%= image_tag(
-          @search.item_image.presence || "placeholder_outfit.png",
-          alt: product.clothing_item
+          product.item_image.presence || "placeholder_outfit.png",
+          alt: product.clothing_item,
+          class: "card-img"
         ) %>
 
     <div class="card-price">
