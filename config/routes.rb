@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :searches, only: [:new, :create, :edit, :update, :show] do
+    get "products/:id", to: "matches#show_product", as: :product
     resources :matches, only: [:index, :show]
   end
 

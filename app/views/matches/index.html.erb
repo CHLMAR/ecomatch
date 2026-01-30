@@ -129,6 +129,7 @@
           <% brand = product.brand %>
           <div class="match-item">
             <%= render "shared/match_card",
+                  search: @search,
                   product: product,
                   brand: brand %>
           </div>

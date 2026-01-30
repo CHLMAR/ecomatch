@@ -15,6 +15,15 @@ class MatchesController < ApplicationController
       .by_overall_rating(params[:overall_rating])
   end
 
+  def show_product
+    @comparison_product = ComparisonProduct.includes(:brand).find(params[:id])
+    @similar_products = ComparisonProduct
+      .by_clothing_item(@comparison_product.clothing_item)
+      .where.not(id: @comparison_product.id)
+      .includes(:brand)
+      .limit(6)
+  end
+
   def show
     @match = @search.matches.includes(comparison_product: :brand).find(params[:id])
 

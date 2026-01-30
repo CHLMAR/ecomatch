@@ -1,4 +1,7 @@
-<%= link_to product.external_link, class: "card-link", target: "_blank" do %>
+<% link_to_details = local_assigns[:search].present? %>
+<% link_url = link_to_details ? search_product_path(search, product) : product.external_link %>
+<% link_options = { class: "card-link" }.merge(link_to_details ? {} : { target: "_blank" }) %>
+<%= link_to link_url, **link_options do %>
   <div class="card-match">
 
     <div class="card-image">
