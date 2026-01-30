@@ -12,14 +12,6 @@ class MatchesController < ApplicationController
       .by_clothing_colour(clothing_colour)
       .by_clothing_material(params[:clothing_material])
       .by_overall_rating(params[:overall_rating])
-
-    product_ids = @comparison_products.pluck(:id)
-    @matches_by_product_id = @search.matches
-      .where(comparison_product_id: product_ids)
-      .index_by(&:comparison_product_id)
-
-    @item_brand = @search.clothing_brand
-    @brand_info = Brand.where("name ILIKE ?", @item_brand).first
   end
 
   def show

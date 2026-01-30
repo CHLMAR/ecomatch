@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "wishlist_#{product.id}" do %>
+  <div class="wishlist-button" onclick="event.stopPropagation();">
+    <% if saved_to_wishlist?(product) %>
+      <%= button_to remove_from_wishlist_comparison_product_path(product), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
+        <i class="fa-solid fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= button_to add_to_wishlist_comparison_product_path(product), method: :post, class: "btn-wishlist", title: "Save to wishlist" do %>
+        <i class="fa-regular fa-heart"></i>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

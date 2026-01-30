@@ -1,38 +1,36 @@
 class WishlistItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_search, only: [:create, :destroy]
-  before_action :set_match, only: [:create, :destroy]
+  before_action :set_comparison_product, only: [:create, :destroy]
 
   def create
-    @wishlist_item = current_user.wishlist_items.build(
-      match: @match,
-      comparison_product: @match.comparison_product
-    )
+    @wishlist_item = current_user.wishlist_items.build(comparison_product: @comparison_product)
 
     if @wishlist_item.save
-      redirect_back(fallback_location: search_matches_path(@search), notice: "Product saved to wishlist!")
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("wishlist_#{@comparison_product.id}", partial: "shared/wishlist_button", locals: { product: @comparison_product }) }
+        format.html { redirect_back(fallback_location: root_path, notice: "Product saved to wishlist!") }
+      end
     else
-      redirect_back(fallback_location: search_matches_path(@search), alert: @wishlist_item.errors.full_messages.first || "Could not save to wishlist.")
+      redirect_back(fallback_location: root_path, alert: @wishlist_item.errors.full_messages.first || "Could not save to wishlist.")
     end
   end
 
   def destroy
-    @wishlist_item = current_user.wishlist_items.find_by(match_id: @match.id)
-    
+    @wishlist_item = current_user.wishlist_items.find_by(comparison_product_id: @comparison_product.id)
+
     if @wishlist_item&.destroy
-      redirect_back(fallback_location: search_matches_path(@search), notice: "Product removed from wishlist!")
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("wishlist_#{@comparison_product.id}", partial: "shared/wishlist_button", locals: { product: @comparison_product }) }
+        format.html { redirect_back(fallback_location: root_path, notice: "Product removed from wishlist!") }
+      end
     else
-      redirect_back(fallback_location: search_matches_path(@search), alert: "Could not remove from wishlist.")
+      redirect_back(fallback_location: root_path, alert: "Could not remove from wishlist.")
     end
   end
 
   private
 
-  def set_search
-    @search = Search.find(params[:search_id])
-  end
-
-  def set_match
-    @match = @search.matches.find(params[:id])
+  def set_comparison_product
+    @comparison_product = ComparisonProduct.find(params[:id])
   end
 end

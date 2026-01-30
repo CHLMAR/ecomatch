@@ -4,10 +4,10 @@
   <% if @wishlist_items.any? %>
     <div class="row">
       <% @wishlist_items.each do |wishlist_item| %>
-        <% product = wishlist_item.match.comparison_product %>
+        <% product = wishlist_item.comparison_product %>
         <% brand = product.brand %>
         <div class="col-md-3 col-sm-6 mb-4">
-          <%= render 'shared/match_card', match: wishlist_item.match, search: wishlist_item.match.search, product: product, brand: brand, wishlist_item: wishlist_item, user_id: @user.id %>
+          <%= render 'shared/match_card', product: product, brand: brand %>
         </div>
       <% end %>
     </div>
