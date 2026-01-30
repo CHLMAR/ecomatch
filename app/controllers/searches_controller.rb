@@ -24,6 +24,8 @@ class SearchesController < ApplicationController
       else
         # Use ScrapingBee for link analysis
         parsed = ScrapingBeeApi.new.send_request(@search.uploaded_link)
+        # Handle array response from ScrapingBee (extracts first element if array)
+        parsed = parsed.first if parsed.is_a?(Array)
         @raw_response = parsed.to_json #!!!Just for testing, remove after
       end
 
