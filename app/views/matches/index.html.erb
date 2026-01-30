@@ -81,10 +81,11 @@
                   <% (5 - @brand_info.planet_rating).times do %>
                     <i class="fa-solid fa-earth-americas rating-item__icon" style="color: #838383;"></i>
                   <% end %>
-              </div>
-            <% else %>
-              <p class="text-muted">Brand sustainability ratings not available</p>
-            <% end %>
+                </div>
+              <% else %>
+                <p class="text-muted small">Brand not in database — ratings unavailable.</p>
+              <% end %>
+            </div>
 
             <%= link_to "Upload another item", root_path, class: "btn btn-primary mt-3" %>
           </div>
@@ -125,11 +126,8 @@
       <div class="matches-list">
         <% @comparison_products.each do |product| %>
           <% brand = product.brand %>
-          <% match = @matches_by_product_id[product.id] %>
           <div class="match-item">
             <%= render "shared/match_card",
-                  search: @search,
-                  match: match,
                   product: product,
                   brand: brand %>
           </div>

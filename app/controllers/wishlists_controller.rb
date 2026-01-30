@@ -3,6 +3,6 @@ class WishlistsController < ApplicationController
 
   def index
     @user = User.find(params[:id])
-    @wishlist_items = @user.wishlist_items.includes(:match, :comparison_product, match: :comparison_product).order(created_at: :desc)
+    @wishlist_items = @user.wishlist_items.includes(comparison_product: :brand).order(created_at: :desc)
   end
 end
