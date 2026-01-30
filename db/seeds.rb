@@ -350,6 +350,9 @@ puts "Brand: #{bershka_brand.name}"
 # =============================================================================
 # Comparison Products
 # =============================================================================
+# Delete dependent records first to avoid foreign key violations
+WishlistItem.destroy_all
+Match.destroy_all
 ComparisonProduct.destroy_all
 # Patagonia Products
 patagonia_products = [
