@@ -1,32 +1,43 @@
-<% card_url = local_assigns[:match] ? search_match_path(search, match) : product.external_link %>
-<% link_target = local_assigns[:match] ? nil : "_blank" %>
+<% match = local_assigns[:match] %>
+<% card_url = match ? search_match_path(search, match) : product.external_link %>
+<% link_target = match ? nil : "_blank" %>
 
 <%= link_to card_url, class: "card-link", target: link_target do %>
   <div class="card-match">
 
+    <div class="card-image">
     <%= image_tag(
-          product.item_image.presence || "placeholder_outfit.png",
+          @search.item_image.presence || "placeholder_outfit.png",
           alt: product.clothing_item
         ) %>
 
-    <div class="card-match-infos">
-        <div class="brand">
-          <p class="brand-name"><%= brand.name %> </p>
-
-          <div class="rating">
-            <p class="rating-score"><%= brand.overall_rating %></p>
-            <i class="fa-solid fa-star"></i>
-          </div>
-        </div>
-
-        <h2><%= product.clothing_colour %> <%= product.clothing_item %></h2>
-
-        <p class="card-match-pricing">
-          <%= product.clothing_price %>
-        </p>
+    <div class="card-price">
+        € <%= product.clothing_price %>
+      </div>
     </div>
 
-    <% if local_assigns[:match] && user_signed_in? %>
+    <div class="card-match-infos">
+
+      <div class="card-brand-info">
+        <p class="brand-name"><%= brand.name %> </p>
+        <div class="rating">
+
+          <% brand.overall_rating.times do %>
+            <i class="fa-solid fa-leaf leaf-sm" style="color: #5ce242"></i>
+          <% end %>
+          <% (5 - brand.overall_rating).times do %>
+            <i class="fa-solid fa-leaf leaf-sm" style="color: #c8c8c8"></i>
+          <% end %>
+        </div>
+      </div>
+
+        <div class="brand">
+          <h2><%= product.clothing_colour %> <%= product.clothing_item %></h2>
+        </div>
+
+    </div>
+
+    <% if match && user_signed_in? %>
       <div class="wishlist-button" onclick="event.stopPropagation();">
         <% if saved_to_wishlist?(product) %>
           <%= button_to unsave_search_match_path(search, match), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
