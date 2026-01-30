@@ -350,7 +350,10 @@ puts "Brand: #{bershka_brand.name}"
 # =============================================================================
 # Comparison Products
 # =============================================================================
-
+# Delete dependent records first to avoid foreign key violations
+WishlistItem.destroy_all
+Match.destroy_all
+ComparisonProduct.destroy_all
 # Patagonia Products
 patagonia_products = [
   {
@@ -3711,7 +3714,7 @@ etiko_products = [
     clothing_price: 22.95,
     external_link: "https://etiko.com.au/products/fairtrade-organic-cotton-black-tshirt-unisex",
     product_description: "Round Neck T-shirt, Unisex Black",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_ROUND_NECK_T-SHIRT_UNISEX_BLACK.jpg?v=1736981941&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3721,7 +3724,7 @@ etiko_products = [
     clothing_price: 22.95,
     external_link: "https://etiko.com.au/products/fairtrade-organic-cotton-charcoal-tshirt-unisex",
     product_description: "Round Neck T-shirt, Unisex Charcoal",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_ROUND_NECK_T-SHIRT_UNISEX_CHARCOAL.jpg?v=1736981940&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3731,7 +3734,7 @@ etiko_products = [
     clothing_price: 22.95,
     external_link: "https://etiko.com.au/products/fairtrade-organic-cotton-white-tshirt-unisex",
     product_description: "Round Neck T-shirt, Unisex White",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_ROUND_NECK_TSHIRT_UNISEX_WHITE.jpg?v=1736981978&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3741,7 +3744,7 @@ etiko_products = [
     clothing_price: 22.95,
     external_link: "https://etiko.com.au/products/fairtrade-organic-cotton-navy-tshirt-unisex",
     product_description: "Round Neck T-shirt, Unisex Navy",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_ROUND_NECK_TSHIRT_UNISEX_NAVY.jpg?v=1736981966&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3751,7 +3754,7 @@ etiko_products = [
     clothing_price: 22.95,
     external_link: "https://etiko.com.au/products/fairtrade-organic-cotton-grey-tshirt-unisex",
     product_description: "Round Neck T-shirt, Unisex Grey Marle",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_ROUND_NECK_TSHIRT_UNISEX_GREY_MARLE.jpg?v=1736981968&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3761,7 +3764,7 @@ etiko_products = [
     clothing_price: 9.95,
     external_link: "https://etiko.com.au/products/organic-fairtrade-black-tshirt-unisex-refujesus",
     product_description: "REFUJESUS PRINTED T-SHIRT, UNISEX BLACK",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_REFUJESUS_PRINTED_UNISEX_TSHIRT_BLACK.jpg?v=1736981906&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3771,7 +3774,7 @@ etiko_products = [
     clothing_price: 9.95,
     external_link: "https://etiko.com.au/products/tshirt-unisex-less-plastic-more-love-blue-marle-organic-fairtrade",
     product_description: "Less Plastic More Love Printed T-shirt, Unisex Blue Marle",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_LESS_PLASTIC_MORE_LOVE_PRINTED_UNISEX_TSHIRT_BLUE_MARLE.png?v=1736981865&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3781,7 +3784,7 @@ etiko_products = [
     clothing_price: 6.95,
     external_link: "https://etiko.com.au/products/tshirt-vneck-unisex-navy-blue-organic-fairtrade",
     product_description: "V-Neck T-shirt, Unisex Navy",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_VNECK_TSHIRT_UNISEX_NAVY.jpg?v=1736981932&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3791,7 +3794,7 @@ etiko_products = [
     clothing_price: 6.95,
     external_link: "https://etiko.com.au/products/tshirt-vneck-unisex-grey-marle-organic-fairtrade",
     product_description: "V-Neck T-shirt, Unisex Grey Marle",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_VNECK_TSHIRT_UNISEX_GREY_MARLE.jpg?v=1736981933&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3801,7 +3804,7 @@ etiko_products = [
     clothing_price: 6.95,
     external_link: "https://etiko.com.au/products/tshirt-vneck-unisex-black-organic-fairtrade",
     product_description: "V-Neck T-shirt, Unisex Black",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_VNECK_TSHIRT_UNISEX_BLACK.jpg?v=1736981937&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3811,7 +3814,7 @@ etiko_products = [
     clothing_price: 6.95,
     external_link: "https://etiko.com.au/products/tshirt-vneck-unisex-white-organic-fairtrade",
     product_description: "V-Neck T-shirt, Unisex White",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_VNECK_TSHIRT_UNISEX_WHITE.jpg?v=1736981930&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3821,7 +3824,7 @@ etiko_products = [
     clothing_price: 9.95,
     external_link: "https://etiko.com.au/products/tshirt-unisex-beard-charcoal-organic-fairtrade",
     product_description: "Zoo Beard Printed T-Shirt, Unisex Charcoal",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_ZOO_BEARD_PRINTED_UNISEX_TSHIRT_CHARCOAL.jpg?v=1736981935&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3831,7 +3834,7 @@ etiko_products = [
     clothing_price: 6.95,
     external_link: "https://etiko.com.au/products/tshirt-longsleeve-unisex-grey-marle-organic-fairtrade",
     product_description: "Long Sleeve T-shirt, Unisex Grey Marle",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_LONG_SLEEVE_TSHIRT_UNISEX_GREY_MARLE.png?v=1736981922&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3841,7 +3844,7 @@ etiko_products = [
     clothing_price: 6.95,
     external_link: "https://etiko.com.au/products/tshirt-longsleeve-unisex-navy-blue-organic-fairtrade",
     product_description: "Long Sleeve T-shirt, Unisex Navy",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_LONG_SLEEVE_TSHIRT_UNISEX_NAVY.png?v=1736981920&width=1946"
   },
   {
     clothing_item: "T-Shirt",
@@ -3851,7 +3854,7 @@ etiko_products = [
     clothing_price: 9.95,
     external_link: "https://etiko.com.au/products/tshirt-unisex-wear-no-evil-2-organic-fairtrade",
     product_description: "Wear No Evil 2.0 Printed T-shirt, Unisex Black",
-    item_image: "https://etiko.com.au/cdn/shop/files/Etiko_Digital_Tag_Brands_For_Good_Grey_Media_Kit_180x.png?v=1756778840"
+    item_image: "https://etiko.com.au/cdn/shop/products/ETIKO_FAIRTRADE_ORGANIC_COTTON_WEAR_NO_EVIL_PRINTED_UNISEX_TSHIRT_BLACK.jpg?v=1736981871&width=1946"
   }
 ]
 

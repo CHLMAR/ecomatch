@@ -25,4 +25,8 @@ class ComparisonProduct < ApplicationRecord
       joins(:brand).where(brands: { overall_rating: rating })
     end
   }
+
+  scope :ordered_by_params, lambda { |_rating, _desc|
+    joins(:brand).order("brands.overall_rating DESC")
+  }
 end
