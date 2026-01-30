@@ -89,11 +89,11 @@
             <div class="row g-3">
               <div class="col-md-3">
                 <%= label_tag :clothing_item, "Clothing Item", class: "form-label" %>
-                <%= text_field_tag :clothing_item, params[:clothing_item] || @search.clothing_item.capitalize, class: "form-control", placeholder: "e.g. T-shirt, Jacket" %>
+                <%= text_field_tag :clothing_item, params[:clothing_item] || @search.clothing_item&.capitalize, class: "form-control", placeholder: "e.g. T-shirt, Jacket" %>
               </div>
               <div class="col-md-3">
                 <%= label_tag :clothing_colour, "Colour", class: "form-label" %>
-                <%= text_field_tag :clothing_colour, params[:clothing_colour] || @search.clothing_colour.capitalize, class: "form-control", placeholder: "e.g. Blue, Red" %>
+                <%= text_field_tag :clothing_colour, params[:clothing_colour] || @search.clothing_colour&.capitalize, class: "form-control", placeholder: "e.g. Blue, Red" %>
               </div>
               <div class="col-md-3">
                 <%= label_tag :clothing_material, "Material", class: "form-label" %>
