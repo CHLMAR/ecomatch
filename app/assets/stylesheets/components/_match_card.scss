@@ -7,70 +7,104 @@
   background: white;
   box-shadow: 0 0 15px rgba(161, 161, 161, 0.2);
   width: 200px;
+  height: 396px;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
   border-radius: 6px;
+  margin-bottom: 20px;
 }
 
 .card-match > img {
-  height: 200px;
   width: 100%;
+  height: 270px;
   object-fit: cover;
+  display: block;
 }
 
-.card-match h2 {
-  font-size: 16px;
-  margin-top: 2px;
-  font-weight: 900;
-  width: 100%;
-}
 
 .card-match p {
-  font-size: 12px;
-  opacity: .7;
+  font-size: 16px;
   margin: 0;
+  color: #272727;
+  font-weight: 300 !important;
 }
 
 .brand {
   display: flex;
-  justify-content: space-between;
   width: 100%;
-  padding-top: 12px
-}
-
-.card-match {
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  padding: 16px;
+  padding-top: 12px;
+  color: #272727;
 }
 
 .brand-name {
-  font-weight: 3004;
+  font-weight: 300;
+  align-content: center;
 }
 
 .card-match-infos{
-  display: flex;
-  flex-direction: column;
+  margin: 0 12px;
+
+  p {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 23px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;   /* 2 linhas */
+    overflow: hidden;
+  }
 }
 
-.card-match-pricing {
+.image-container {
+  height: 270px;
+  width: 200px;
+}
+.card-match-pricing p {
   padding-top: 0;
-  font-size: 16px;
 }
 
 .rating {
   display: flex;
-  font-size: 11px;
+  align-content: center;
+
+  p {
+    align-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    padding-left: 2px;
+  }
 
   .fa-star {
     display: flex;
     font-size: 11px;
     align-items: center;
+    color:#fcbe4a;
+    margin-left: 2px;
   }
 
   .rating-score {
     font-weight: bold;
     margin-right: 4px;
   }
+}
+
+.card-brand-info {
+  justify-content: end;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.rating {
+  padding-top: 4px;
+}
+.leaf-sm {
+  font-size: 13px;
+  height: fit-content;
+  padding-right: 2px;
 }
 
 /* Wishlist Button Styles */
@@ -113,4 +147,33 @@
   &.saved .fa-heart {
     color: #e74c3c;
   }
+}
+
+.card-image {
+  position: relative;
+  height: 260px;      /* altura fixa da área da imagem */
+  overflow: hidden;
+  border-radius: 12px; /* opcional */
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-price {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(66, 66, 66, 0.65);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+  font-weight: 200;
+  font-size: 14px;
 }
