@@ -50,7 +50,9 @@ class SearchesController < ApplicationController
           @search.update_column(:uploaded_image, cloudinary_url)
         else
           # Use scraped image URL for link uploads
-          update_attrs[:item_image] = parsed["item_image"]
+          item_image = parsed["item_image"]
+          item_image = item_image.first if item_image.is_a?(Array)
+          update_attrs[:item_image] = item_image
           @search.update(update_attrs)
         end
       end
@@ -84,6 +86,25 @@ class SearchesController < ApplicationController
       - item_name: the product name if available
       - item_description: a brief description of style, fit, and notable features
       - item_image: the product image URL (only if analyzing a link)
+
+       IMPORTANT - Normalize values to generic categories:
+
+      For clothing_item: Use base garment type only. Strip style modifiers.
+      - "barrel leg jeans", "skinny jeans", "bootcut jeans" → "jeans"
+      - "oversized hoodie", "cropped hoodie" → "hoodie"
+      - "maxi dress", "midi dress", "wrap dress" → "dress"
+      - "bomber jacket", "denim jacket" → "jacket"
+
+      For clothing_colour: Use base color only. Strip shade/tone modifiers.
+      - "dark blue", "navy blue", "light blue", "royal blue" → "blue"
+      - "forest green", "sage green", "olive" → "green"
+      - "burgundy", "wine", "maroon" → "red"
+      - "cream", "ivory", "off-white" → "white"
+      - "charcoal", "graphite" → "grey"
+
+      For clothing_material: Use primary material only.
+      - "100% organic cotton" → "cotton"
+      - "recycled polyester blend" → "polyester"
 
       Return ONLY valid JSON with this exact structure:
       {

@@ -3,9 +3,13 @@ class MatchesController < ApplicationController
 
   def index
     @search = Search.find(params[:search_id])
+
+    clothing_item = params[:commit] ? params[:clothing_item] : (params[:clothing_item].presence || @search.clothing_item)
+    clothing_colour = params[:commit] ? params[:clothing_colour] : (params[:clothing_colour].presence || @search.clothing_colour)
+
     @comparison_products = ComparisonProduct.includes(:brand)
-      .by_clothing_item(params[:clothing_item])
-      .by_clothing_colour(params[:clothing_colour])
+      .by_clothing_item(clothing_item)
+      .by_clothing_colour(clothing_colour)
       .by_clothing_material(params[:clothing_material])
       .by_overall_rating(params[:overall_rating])
   end
