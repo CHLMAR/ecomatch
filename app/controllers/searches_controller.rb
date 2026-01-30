@@ -34,7 +34,7 @@ class SearchesController < ApplicationController
         update_attrs = {
           clothing_item: parsed["clothing_item"],
           clothing_material: parsed["clothing_material"],
-          clothing_colour: parsed["clothing_colour"],
+          clothing_colour: normalize_colour(parsed["clothing_colour"]),
           clothing_brand: parsed["clothing_brand"],
           clothing_price: parsed["clothing_price"],
           item_name: parsed["item_name"],
@@ -89,20 +89,23 @@ class SearchesController < ApplicationController
 
        IMPORTANT - Normalize values to generic categories:
 
-      For clothing_item: Use base garment type only. Strip style modifiers.
+      For clothing_item: Use base garment type only. Strip style modifiers. For example:
       - "barrel leg jeans", "skinny jeans", "bootcut jeans" → "jeans"
       - "oversized hoodie", "cropped hoodie" → "hoodie"
       - "maxi dress", "midi dress", "wrap dress" → "dress"
       - "bomber jacket", "denim jacket" → "jacket"
 
-      For clothing_colour: Use base color only. Strip shade/tone modifiers.
-      - "dark blue", "navy blue", "light blue", "royal blue" → "blue"
-      - "forest green", "sage green", "olive" → "green"
-      - "burgundy", "wine", "maroon" → "red"
-      - "cream", "ivory", "off-white" → "white"
-      - "charcoal", "graphite" → "grey"
+      For clothing_colour: ALWAYS use a single base color from this list: black, white, grey, blue, red, green, yellow, orange, pink, purple, brown, beige, multicolor.
+      NEVER include shade modifiers like "light", "dark", "navy", "royal", etc. Examples:
+      - "light blue", "dark blue", "navy blue", "royal blue", "sky blue", "dark denim" → "blue"
+      - "light green", "dark green", "forest green", "sage green", "olive", "mint" → "green"
+      - "light pink", "hot pink", "blush", "rose" → "pink"
+      - "burgundy", "wine", "maroon", "crimson", "scarlet" → "red"
+      - "cream", "ivory", "off-white", "eggshell" → "white"
+      - "charcoal", "graphite", "slate", "light grey", "dark grey" → "grey"
+      - "tan", "camel", "khaki", "taupe" → "beige"
 
-      For clothing_material: Use primary material only.
+      For clothing_material: Use primary material only. For example:
       - "100% organic cotton" → "cotton"
       - "recycled polyester blend" → "polyester"
 
@@ -141,6 +144,33 @@ class SearchesController < ApplicationController
 
   def set_search
     @search = Search.find(params[:id])
+  end
+
+  def normalize_colour(colour)
+    return nil if colour.blank?
+
+    colour = colour.downcase.strip
+
+    colour_map = {
+      "blue" => %w[blue navy light\ blue dark\ blue sky\ blue royal\ blue baby\ blue cobalt denim \light wash],
+      "green" => %w[green olive sage mint forest\ green dark\ green light\ green emerald teal],
+      "red" => %w[red burgundy wine maroon crimson scarlet cherry],
+      "pink" => %w[pink blush rose hot\ pink light\ pink fuchsia magenta],
+      "white" => %w[white cream ivory off-white eggshell],
+      "grey" => %w[grey gray charcoal graphite slate silver],
+      "black" => %w[black],
+      "brown" => %w[brown chocolate espresso],
+      "beige" => %w[beige tan camel khaki taupe nude sand],
+      "yellow" => %w[yellow gold mustard],
+      "orange" => %w[orange coral peach rust],
+      "purple" => %w[purple violet lavender plum lilac]
+    }
+
+    colour_map.each do |base_colour, variants|
+      return base_colour if variants.any? { |v| colour.include?(v) }
+    end
+
+    colour # Return original if no match found
   end
 
   def search_params
