@@ -15,7 +15,7 @@ export default class extends Controller {
   handleSubmit(event) {
     event.preventDefault()
     this.overlayTarget.classList.add("active")
-    const minDisplayTime = 6000
+    const minDisplayTime = 1000
 
     setTimeout(() => {
       this.formTarget.removeEventListener("submit", this.boundHandleSubmit)
