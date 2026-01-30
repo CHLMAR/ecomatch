@@ -28,7 +28,7 @@
 
     <% if local_assigns[:match] && user_signed_in? %>
       <div class="wishlist-button" onclick="event.stopPropagation();">
-        <% if saved_to_wishlist?(product) %>
+        <% if saved_to_wishlist?(match) %>
           <%= button_to unsave_search_match_path(search, match), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
             <i class="fa-solid fa-heart"></i>
           <% end %>
