@@ -348,6 +348,57 @@ end
 puts "Brand: #{bershka_brand.name}"
 
 # =============================================================================
+# Brand Logos (Cloudinary URLs)
+# =============================================================================
+brand_logos = {
+  "Abercrombie & Fitch" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046636/development/brand_logos/abercrombie-fitch.png",
+  "Adidas" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046246/development/brand_logos/adidas.png",
+  "American Eagle" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046668/development/brand_logos/american-eagle.png",
+  "Anthropologie" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046694/development/brand_logos/anthropologie.png",
+  "ASKET" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047163/development/brand_logos/asket.png",
+  "ASOS" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046530/development/brand_logos/asos.png",
+  "Bershka" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046766/development/brand_logos/bershka.png",
+  "Boohoo" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046808/development/brand_logos/boohoo.png",
+  "Brandy Melville" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047187/development/brand_logos/brandy-melville.png",
+  "Cider" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047208/development/brand_logos/cider.png",
+  "Etiko" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047240/development/brand_logos/etiko.png",
+  "Fashion Nova" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046850/development/brand_logos/fashion-nova.png",
+  "Forever 21" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046716/development/brand_logos/forever-21.png",
+  "GAP" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046251/development/brand_logos/gap.png",
+  "H&M" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046253/development/brand_logos/h-m.png",
+  "Kotn" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047274/development/brand_logos/kotn.png",
+  "Levi's" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046364/development/brand_logos/levis.png",
+  "Lululemon" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046391/development/brand_logos/lululemon.png",
+  "Mango" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046410/development/brand_logos/mango.png",
+  "Missguided" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047472/development/brand_logos/missguided.png",
+  "MUD Jeans" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047297/development/brand_logos/mud-jeans.png",
+  "Nasty Gal" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047136/development/brand_logos/nasty-gal.png",
+  "Nike" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046255/development/brand_logos/nike.png",
+  "Patagonia" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046347/development/brand_logos/patagonia.png",
+  "Primark" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046827/development/brand_logos/primark.png",
+  "Princess Polly" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047058/development/brand_logos/princess-polly.png",
+  "Romwe" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047330/development/brand_logos/romwe.png",
+  "SHEIN" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046434/development/brand_logos/shein.png",
+  "TEMU" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046789/development/brand_logos/temu.png",
+  "Topshop" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047487/development/brand_logos/topshop.png",
+  "Uniqlo" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046256/development/brand_logos/uniqlo.png",
+  "Urban Outfitters" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046613/development/brand_logos/urban-outfitters.png",
+  "Victoria's Secret" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046745/development/brand_logos/victorias-secret.png",
+  "YesStyle" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047356/development/brand_logos/yesstyle.png",
+  "Zaful" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047445/development/brand_logos/zaful.png",
+  "Zara" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046258/development/brand_logos/zara.png"
+}
+
+brand_logos.each do |name, logo_url|
+  brand = Brand.find_by(name: name)
+  if brand
+    brand.update!(logo: logo_url)
+    puts "  Logo set for #{name}"
+  end
+end
+puts "Brand logos updated!"
+
+# =============================================================================
 # Comparison Products
 # =============================================================================
 # Delete dependent records first to avoid foreign key violations
