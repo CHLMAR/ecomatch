@@ -7,6 +7,7 @@ class ExploreController < ApplicationController
       .by_clothing_colour(params[:clothing_colour])
       .by_clothing_material(params[:clothing_material])
       .by_overall_rating(params[:overall_rating])
+      .joins(:brand).order("brands.overall_rating DESC")
   end
 
   def show
