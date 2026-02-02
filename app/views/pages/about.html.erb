@@ -1,43 +1,84 @@
-<div class="container py-5">
-  <h1 class="mb-4">About EcoMatch</h1>
+<div class="page-about">
+  <section class="page-about__hero">
+    <div class="container">
+      <h1 class="page-about__hero-title">We are slowing down fast fashion fast</h1>
+      <p class="page-about__hero-subline">EcoMatch helps you find eco-friendly alternatives to the clothes you love.</p>
+    </div>
+  </section>
 
-  <div class="row g-4">
-    <div class="col-md-6">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">What we do</h5>
-          <p class="card-text">EcoMatch helps you find more sustainable alternatives to fast-fashion items. Upload a photo or paste a product link, and EcoMatch suggests similar products from brands that prioritize better materials, fairer production, and transparency.</p>
+  <section class="page-about__steps">
+    <div class="container">
+      <h2 class="page-about__section-title">How it works</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-sm-6 col-lg-4">
+          <div class="page-about__step">
+            <div class="page-about__step-icon">
+              <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
+            </div>
+            <h3 class="page-about__step-title">Upload</h3>
+            <p class="page-about__step-text">Share a photo or product link</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="page-about__step">
+            <div class="page-about__step-icon">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </div>
+            <h3 class="page-about__step-title">Discover</h3>
+            <p class="page-about__step-text">We find sustainable alternatives</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="page-about__step">
+            <div class="page-about__step-icon">
+              <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            </div>
+            <h3 class="page-about__step-title">Save</h3>
+            <p class="page-about__step-text">Keep favorites in your wishlist</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">Why we built it</h5>
-          <p class="card-text">We know that shopping more sustainably is hard. Information is scattered, claims are unclear, and finding comparable alternatives takes time. EcoMatch was built to make sustainable choices easier and more accessible — without asking users to become experts.</p>
+  </section>
+
+  <section class="page-about__content">
+    <div class="container">
+      <div class="page-about__block">
+        <div class="page-about__block-image">
+          <%= image_tag "what-we-do-image.png", alt: "" %>
+        </div>
+        <div class="page-about__block-body">
+          <h3 class="page-about__block-title">What we do</h3>
+          <p class="page-about__block-text">EcoMatch helps you find more sustainable alternatives to fast-fashion items. Upload a photo or paste a product link, and EcoMatch suggests similar products from brands that prioritize better materials, fairer production, and transparency.</p>
+        </div>
+      </div>
+
+      <div class="page-about__block page-about__block--reverse">
+        <div class="page-about__block-image">
+          <%= image_tag "why-ecomatch-iamge.png", alt: "" %>
+        </div>
+        <div class="page-about__block-body">
+          <h3 class="page-about__block-title">Why we built EcoMatch</h3>
+          <p class="page-about__block-text">We know that shopping more sustainably is hard. Information is scattered, claims are unclear, and finding comparable alternatives takes time. EcoMatch was built to make sustainable choices easier and more accessible, without asking users to become experts.</p>
+        </div>
+      </div>
+
+      <div class="page-about__block">
+        <div class="page-about__block-image">
+          <%= image_tag "rating-image.png", alt: "" %>
+        </div>
+        <div class="page-about__block-body">
+          <h3 class="page-about__block-title">What sustainability means to us</h3>
+          <p class="page-about__block-text">Sustainability is complex. EcoMatch does not claim to be perfect or exhaustive. Our recommendations are based on available information such as materials, certifications, brand transparency, and publicly shared practices. Our sustainability ranking is based on <%= link_to "Good On You", "https://goodonyou.eco/", target: "_blank", rel: "noopener" %>.</p>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">How it works</h5>
-          <ul class="card-text mb-0">
-            <li>You upload a product image or link</li>
-            <li>EcoMatch identifies key features (category, style, materials)</li>
-            <li>We suggest comparable products from more sustainable brands</li>
-            <li>You can save your favorites to a wishlist</li>
-          </ul>
-        </div>
-      </div>
+  </section>
+
+  <section class="page-about__cta">
+    <div class="container text-center">
+      <p class="page-about__cta-text">Questions? We'd love to hear from you.</p>
+      <%= link_to "Get in touch", contact_path, class: "btn btn-primary btn-lg rounded-pill px-4" %>
     </div>
-    <div class="col-md-6">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">What sustainable means to us</h5>
-          <p class="card-text">Sustainability is complex. EcoMatch does not claim to be perfect or exhaustive. Our recommendations are based on available information such as materials, certifications, brand transparency, and publicly shared practices. Our sustainability ranking is based on <%= link_to "Good On You", "https://goodonyou.eco/", target: "_blank", rel: "noopener" %>.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 </div>
