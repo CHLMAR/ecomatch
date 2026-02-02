@@ -2,6 +2,13 @@ class SearchesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_search, only: [:show, :edit, :update]
 
+  def index
+    @user = User.find(params[:id])
+    return head :forbidden unless current_user == @user
+
+    @searches = @user.searches.order(created_at: :desc)
+  end
+
   def new
     @search = Search.new
   end

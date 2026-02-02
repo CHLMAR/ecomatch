@@ -24,6 +24,9 @@
             <%= link_to "Contact", contact_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "My Searches", searches_user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "My Wishlist", wishlist_user_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
