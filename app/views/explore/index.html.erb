@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 matches-section">
+      <%= turbo_frame_tag "results_frame", data: { turbo_action: "advance" } do %>
+      <div class="results-section">
+        <h2>Explore Our Sustainable Collection</h2>
+        <p class="text-muted mb-4">Browse <%= @comparison_products.count %> eco-friendly products</p>
+
+        <div class="results-section__filters">
+          <%= render "shared/product_filters",
+              form_url: explore_path,
+              clear_url: explore_path %>
+        </div>
+      </div>
+
+      <div class="matches-list">
+        <% @comparison_products.each do |product| %>
+          <% brand = product.brand %>
+          <div class="match-item">
+            <%= render "shared/match_card",
+                  product: product,
+                  brand: brand,
+                  product_path: explore_product_path(product) %>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+  </div>
+</div>

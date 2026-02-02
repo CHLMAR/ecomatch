@@ -118,7 +118,6 @@ a{
 .rating-category {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   height: 50px;
   width: 100%;
@@ -227,4 +226,52 @@ a{
     object-fit: cover;
     display: block;
   }
+}
+
+// My Searches page: search cards
+.search-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Override .card-match so search card image/infos stretch full width (does not change .card-match elsewhere)
+.search-card.card-match {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: stretch;
+}
+
+// Only on My Searches: zoom image slightly so any white padding in the uploaded image is cropped (wishlist unchanged)
+.search-card .card-image .card-img {
+  transform: scale(1.12);
+}
+
+.search-card__infos {
+  padding: 12px 12px 16px;
+  margin: 0 12px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: #272727;
+}
+
+.search-card__subtitle {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0 0 12px;
+  color: #666;
+}
+
+.search-card__cta {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a2a2a;
+  margin-top: auto;
 }
