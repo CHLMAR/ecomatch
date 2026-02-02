@@ -22,11 +22,36 @@ class SearchesController < ApplicationController
         parsed = JSON.parse(json_content) rescue nil
 
       else
-        # Use ScrapingBee for link analysis
-        parsed = ScrapingBeeApi.new.send_request(@search.uploaded_link)
-        # Handle array response from ScrapingBee (extracts first element if array)
-        parsed = parsed.first if parsed.is_a?(Array)
-        @raw_response = parsed.to_json #!!!Just for testing, remove after
+        # Use ScrapingBee to extract basic data, then GPT-4o to analyze
+        Rails.logger.info "DEBUG: Using ScrapingBee for link: #{@search.uploaded_link}"
+        # Calling the send_request method with the URL to fetch page data, returns hash or nil stored in the variable
+        scraped_data = ScrapingBeeApi.new.send_request(@search.uploaded_link)
+        #.inspect shows the full hash contents in the logs - great for seeing exactly what data came back
+        Rails.logger.info "DEBUG: ScrapingBee returned: #{scraped_data.inspect}"
+
+        if scraped_data
+          # Use GPT-4o to analyze the scraped data and extract clothing details
+          # Calling a helper method that creates a text prompt like
+          analysis_prompt = build_link_analysis_prompt(scraped_data)
+          @chat = RubyLLM.chat(model: "gpt-4o") #Creates a chat session with GPT-4o
+          @response = @chat.ask(analysis_prompt) #Sends our prompt and waits for a response
+          @raw_response = @response.content #!!!Just for testing, remove after
+          Rails.logger.info "DEBUG: GPT-4o response: #{@response.content}"
+
+          # Parse the JSON response
+          json_content = @response.content.gsub(/```json\s*/, '').gsub(/```\s*/, '').strip
+          parsed = JSON.parse(json_content) rescue nil #Converts JSON string → Ruby hash; if parsing fails, return nil instead of crashing
+
+          # Merge with scraped data (keep scraped image/name/description if GPT didn't provide)
+          # The ||= operator means "assign only if currently nil/empty".
+          if parsed
+            parsed["item_image"] ||= scraped_data["item_image"]
+            parsed["item_name"] ||= scraped_data["item_name"]
+            parsed["item_description"] ||= scraped_data["item_description"]
+          end
+        else
+          parsed = nil
+        end
       end
 
       # Update search with parsed data
@@ -63,6 +88,50 @@ class SearchesController < ApplicationController
     end
   end
 
+  ######## 2 PROMPTS INSTEAD OF 1 #############
+  #why? easy to isolate issues, changing one does not affect the other, less complex instructions and confusing conditionals
+
+  #1.build_link_analysis_prompt
+  ##INPUT: Text (scraped data)
+  ##GPT 40:	"Read this product info"
+  ##DATA: ScrapingBee extracted text
+  #USAGE: when uploaded_link is provided
+
+
+  def build_link_analysis_prompt(scraped_data)
+    <<~PROMPT
+      Analyze this product information and extract clothing details.
+
+      Product Name: #{scraped_data['item_name']}
+      Description: #{scraped_data['item_description']}
+      Page Title: #{scraped_data['page_title']}
+
+      Extract these fields:
+
+      clothing_item: ONLY the garment type, NO colors or style modifiers.
+        - "white t-shirt" → "t-shirt"
+        - "blue skinny jeans" → "jeans"
+        - "red maxi dress" → "dress"
+        - "black leather jacket" → "jacket"
+
+      clothing_colour: The color. Use ONLY: black, white, grey, blue, red, green, yellow, orange, pink, purple, brown, beige, multicolor
+
+      clothing_material: The fabric if mentioned (cotton, polyester, denim, wool, etc.)
+
+      clothing_brand: The brand name
+
+      clothing_price: Price as number only, or null
+
+      Return ONLY valid JSON, no markdown:
+      {"clothing_item": "garment type only", "clothing_colour": "base color", "clothing_material": "fabric or null", "clothing_brand": "brand", "clothing_price": null}
+    PROMPT
+  end
+
+  #2.build_system_prompt
+  ##INPUT: Image (visual)
+  ##GPT 40: "Look at this picture"
+  ##DATA: Cloudinary URL
+  #USAGE: when uploaded_image.attached? is true
 
   def build_system_prompt(search)
     input_type_text = if search.uploaded_image.attached?
