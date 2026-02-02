@@ -11,7 +11,7 @@ class ComparisonProduct < ApplicationRecord
 
   scope :by_clothing_colour, lambda { |colour|
     if colour.present?
-      where("clothing_colour ILIKE ?", "%#{colour}%")
+      where("main_colour ILIKE ?", "%#{colour}%")
     end
   }
 
