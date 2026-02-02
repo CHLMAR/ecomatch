@@ -1,0 +1,25 @@
+<% item_image_url = search.item_image.presence&.gsub(/^\[?"?/, '')&.gsub(/"?\]?$/, '') %>
+<% search_title = search.item_name.presence || [search.clothing_colour, search.clothing_item].compact.join(" ") %>
+<% search_title = "Search from #{search.created_at.strftime('%d %b %Y')}" if search_title.blank? %>
+
+<%= link_to search_matches_path(search), class: "search-card-link" do %>
+  <div class="search-card card-match">
+    <div class="card-image">
+      <% placeholder_path = asset_path("placeholder_outfit.png") %>
+      <% if item_image_url.present? && item_image_url.start_with?('//') %>
+        <%= image_tag("https:#{item_image_url}", alt: search_title, class: "card-img", onerror: "this.onerror=null; this.src='#{placeholder_path}'") %>
+      <% elsif item_image_url.present? && item_image_url.start_with?('http') %>
+        <%= image_tag(item_image_url, alt: search_title, class: "card-img", onerror: "this.onerror=null; this.src='#{placeholder_path}'") %>
+      <% else %>
+        <%= image_tag("placeholder_outfit.png", alt: search_title, class: "card-img", onerror: "this.style.display='none'") %>
+      <% end %>
+    </div>
+    <div class="search-card__infos">
+      <p class="search-card__title"><%= search_title %></p>
+      <% if search.item_name.present? && (search.clothing_item.present? || search.clothing_colour.present?) %>
+        <p class="search-card__subtitle"><%= [search.clothing_colour, search.clothing_item].compact.join(" ") %></p>
+      <% end %>
+      <span class="search-card__cta">View matches</span>
+    </div>
+  </div>
+<% end %>
