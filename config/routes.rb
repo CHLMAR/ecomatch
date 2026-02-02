@@ -1,33 +1,33 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Static pages
+  get "about", to: "pages#about"
+  get "contact", to: "pages#contact"
+
+  # Health check
   get "up" => "rails/health#show", as: :rails_health_check
-  get "about", to: "pages#about", as: :about
-  get "contact", to: "pages#contact", as: :contact
+
+  # Explore (browse all products)
   get "explore", to: "explore#index"
   get "explore/:id", to: "explore#show", as: :explore_product
 
-  # Defines the root path route ("/")
-  # root "posts#index"
-
+  # Search flow
   resources :searches, only: [:new, :create, :edit, :update, :show] do
     get "products/:id", to: "matches#show_product", as: :product
     resources :matches, only: [:index, :show]
   end
 
+  # Wishlist actions on products
   resources :comparison_products, only: [] do
-    member do
-      post :add_to_wishlist, to: "wishlist_items#create"
-      delete :remove_from_wishlist, to: "wishlist_items#destroy"
-    end
+    post :add_to_wishlist, to: "wishlist_items#create", on: :member
+    delete :remove_from_wishlist, to: "wishlist_items#destroy", on: :member
   end
 
+  # User profiles and wishlists
   resources :users, only: [:show, :edit, :update] do
     resources :wishlist_items, only: [:index, :show, :destroy]
-    get 'wishlist', to: 'wishlists#index', on: :member
+    get "wishlist", to: "wishlists#index", on: :member
   end
 end
