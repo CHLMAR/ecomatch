@@ -1,0 +1,43 @@
+<%= turbo_stream_from @search %>
+
+<div class="processing-container"
+     data-controller="brand-carousel"
+     data-brand-carousel-search-id-value="<%= @search.id %>"
+     data-brand-carousel-brands-value="<%= @brand_logos.to_json %>">
+
+  <%= turbo_frame_tag "search_processing" do %>
+    <div class="processing-content">
+      <h2 class="processing-title">searching for matches with</h2>
+
+      <div class="brand-showcase">
+        <div class="brand-logo-container" data-brand-carousel-target="logoContainer">
+          <% if @brand_logos.any? %>
+            <img src="<%= @brand_logos.first[1] %>"
+                 alt="<%= @brand_logos.first[0] %>"
+                 class="brand-logo"
+                 data-brand-carousel-target="logo">
+          <% else %>
+            <div class="brand-logo-placeholder">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+          <% end %>
+        </div>
+
+        <p class="brand-name" data-brand-carousel-target="brandName">
+          <%= @brand_logos.first&.first || "sustainable brands" %>
+        </p>
+      </div>
+
+      <%# Animated loading dots %>
+      <div class="processing-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <p class="processing-subtitle">
+        Analyzing your item and finding eco-friendly alternatives...
+      </p>
+    </div>
+  <% end %>
+</div>

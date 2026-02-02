@@ -8,6 +8,9 @@ gem "pg_search"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.6"
 
+# Background job processing with database-backed queue
+gem "solid_queue"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
