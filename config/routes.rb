@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # Search flow
   resources :searches, only: [:new, :create, :edit, :update, :show] do
+    get :processing, on: :member  # Shows loading state while AI processes
     get "products/:id", to: "matches#show_product", as: :product
     resources :matches, only: [:index, :show]
   end

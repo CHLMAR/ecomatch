@@ -1,0 +1,17 @@
+<%= turbo_frame_tag "search_processing" do %>
+  <div class="search-completed">
+    <div class="success-icon">
+      <i class="fa-solid fa-check-circle"></i>
+    </div>
+
+    <h2>Matches Found!</h2>
+    <p>Redirecting to your results...</p>
+
+    <script>
+      // Small delay for visual feedback, then redirect
+      setTimeout(function() {
+        window.location.href = "<%= search_matches_path(search) %>";
+      }, 600);
+    </script>
+  </div>
+<% end %>

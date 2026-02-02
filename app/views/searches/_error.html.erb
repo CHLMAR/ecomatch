@@ -1,0 +1,26 @@
+<%= turbo_frame_tag "search_processing" do %>
+  <div class="search-error">
+    <div class="error-icon">
+      <i class="fa-solid fa-exclamation-circle"></i>
+    </div>
+
+    <h2>Oops! Something went wrong</h2>
+
+    <p class="error-message">
+      We couldn't analyze your item. This might be due to a temporary issue.
+    </p>
+
+    <% if defined?(error_message) && error_message.present? %>
+      <details class="error-details">
+        <summary>Technical details</summary>
+        <code><%= error_message %></code>
+      </details>
+    <% end %>
+
+    <div class="error-actions">
+      <%= link_to root_path, class: "btn btn-primary" do %>
+        <i class="fa-solid fa-redo"></i> Try Again
+      <% end %>
+    </div>
+  </div>
+<% end %>

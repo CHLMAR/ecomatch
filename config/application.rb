@@ -30,5 +30,9 @@ module Ecomatch
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Use async adapter for development (in-memory, immediate processing)
+    # For production, consider solid_queue or sidekiq
+    config.active_job.queue_adapter = :async
   end
 end
