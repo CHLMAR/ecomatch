@@ -94,6 +94,7 @@
     </div>
 
     <div class="col-lg-9 col-md-8 matches-section">
+      <%= turbo_frame_tag "results_frame", data: { turbo_action: "advance" } do %>
       <div class="results-section">
         <h2>You've got <%= @comparison_products.count %> matches</h2>
         <div class="results-section__filters">
@@ -115,5 +116,6 @@
           </div>
         <% end %>
       </div>
+      <% end %>
     </div>
   </div>
