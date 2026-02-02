@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>My Searches</h1>
+
+  <% if @searches.any? %>
+    <div class="row">
+      <% @searches.each do |search| %>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <%= render "shared/search_card", search: search %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You haven't done any searches yet.</p>
+    <%= link_to "Start a search", root_path, class: "btn btn-primary" %>
+  <% end %>
+</div>

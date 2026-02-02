@@ -9,7 +9,7 @@
     <div class="col-md-3">
       <%= label_tag :clothing_item, "Clothing Item", class: "form-label" %>
       <%= text_field_tag :clothing_item,
-          params[:clothing_item] || local_assigns[:search]&.clothing_item&.capitalize,
+          params[:clear].present? ? nil : (params[:clothing_item] || local_assigns[:search]&.clothing_item&.capitalize),
           class: "form-control",
           placeholder: "e.g. T-shirt, Jacket",
           data: { action: "input->filter-form#debounceSubmit" } %>
@@ -17,7 +17,7 @@
     <div class="col-md-3">
       <%= label_tag :clothing_colour, "Colour", class: "form-label" %>
       <%= text_field_tag :clothing_colour,
-          params[:clothing_colour] || local_assigns[:search]&.clothing_colour&.capitalize,
+          params[:clear].present? ? nil : (params[:clothing_colour] || local_assigns[:search]&.clothing_colour&.capitalize),
           class: "form-control",
           placeholder: "e.g. Blue, Red",
           data: { action: "input->filter-form#debounceSubmit" } %>

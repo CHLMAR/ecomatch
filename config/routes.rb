@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   # User profiles and wishlists
   resources :users, only: [:show, :edit, :update] do
     resources :wishlist_items, only: [:index, :show, :destroy]
-    get "wishlist", to: "wishlists#index", on: :member
+    get 'wishlist', to: 'wishlists#index', on: :member
+    get 'searches', to: 'searches#index', on: :member
   end
 end
