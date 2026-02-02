@@ -1,125 +1,123 @@
 <div class="container">
   <div class="row">
+
+    <%# Sidebar %>
     <div class="col-lg-3 col-md-4 uploaded-product-sidebar">
+      <h4>Your item</h4>
+      <div class="uploaded-product">
+        <div class="uploaded-product__main">
+          <% item_image_url = @search.item_image.presence&.gsub(/^\[?"?/, '')&.gsub(/"?\]?$/, '') %>
+            <% if item_image_url.present? && item_image_url.start_with?('//') %>
+              <%= image_tag("https:#{item_image_url}", alt: @search.item_name || "Uploaded item") %>
+            <% elsif item_image_url.present? && item_image_url.start_with?('http') %>
+              <%= image_tag(item_image_url, alt: @search.item_name || "Uploaded item") %>
+            <% else %>
+              <%= image_tag("placeholder_outfit.png", alt: "Uploaded item") %>
+          <% end %>
 
-      <div class="">
-        <h4>Your item</h4>
-        <div class="uploaded-product">
-          <div class="uploaded-product__main">
+          <div class="uploaded-product__details">
 
-            <% item_image_url = @search.item_image.presence&.gsub(/^\[?"?/, '')&.gsub(/"?\]?$/, '') %>
-              <% if item_image_url.present? && item_image_url.start_with?('//') %>
-                <%= image_tag("https:#{item_image_url}", alt: @search.item_name || "Uploaded item") %>
-              <% elsif item_image_url.present? && item_image_url.start_with?('http') %>
-                <%= image_tag(item_image_url, alt: @search.item_name || "Uploaded item") %>
-              <% else %>
-                <%= image_tag("placeholder_outfit.png", alt: "Uploaded item") %>
-            <% end %>
-
-            <div class="uploaded-product__details">
-
-              <div class="uploaded_product__item">
-                <p class="uploaded_product__label">
-                Brand
-                </p>
-                <p class="uploaded_product__value">
-                  <%= @brand_info&.name || @search.clothing_brand || "Unknown" %>
-                </p>
-              </div>
-
-              <div class="uploaded_product__item">
-                <p class="uploaded_product__label">
-                  Product type
-                </p>
-                <p class="uploaded_product__value">
-                  <%= @search.clothing_colour %> <%= @search.clothing_item %>
-                </p>
-              </div>
+            <div class="uploaded_product__item">
+              <p class="uploaded_product__label">
+              Brand
+              </p>
+              <p class="uploaded_product__value">
+                <%= @brand_info&.name || @search.clothing_brand || "Unknown" %>
+              </p>
             </div>
 
+            <div class="uploaded_product__item">
+              <p class="uploaded_product__label">
+                Product type
+              </p>
+              <p class="uploaded_product__value">
+                <%= @search.clothing_colour %> <%= @search.clothing_item %>
+              </p>
+            </div>
           </div>
+        </div>
 
-          <div class="uploaded-details">
-            <% if @brand_info.present? %>
+        <div class="uploaded-details">
+          <% if @brand_info.present? %>
             <div class="rating-item overall-brand-rating">
               <h5>Sustainability score</h5>
               <div class="rating-item">
                 <div class="rating-item__label">Overall</div>
-
-                  <% if @brand_info.present? %>
                     <% @brand_info.overall_rating.times do %>
-                        <i class="fa-solid fa-leaf" style="color: #2a2a2a;"></i>
-                      <% end %>
-                      <% (5 - @brand_info.overall_rating).times do %>
-                        <i class="fa-solid fa-leaf" style="color: #838383;"></i>
-                      <% end %>
-                </div>
+                      <i class="fa-solid fa-leaf" style="color: #2a2a2a;"></i>
+                    <% end %>
+                    <% (5 - @brand_info.overall_rating).times do %>
+                      <i class="fa-solid fa-leaf" style="color: #838383;"></i>
+                    <% end %>
+              </div>
             </div>
 
-
-              <div class="rating-item">
-                <div class="rating-item__label">People</div>
-                  <% @brand_info.people_rating.times do %>
-                    <i class="fa-solid fa-child rating-item__icon"></i>
-                  <% end %>
-                  <% (5 - @brand_info.people_rating).times do %>
-                    <i class="fa-solid fa-child rating-item__icon" style="color: #838383;"></i>
-                  <% end %>
-              </div>
-
-              <div class="rating-item">
-                <div class="rating-item__label">Animals</div>
-                  <% @brand_info.animals_rating.times do %>
-                    <i class="fa-solid fa-paw rating-item__icon"></i>
-                  <% end %>
-                  <% (5 - @brand_info.animals_rating).times do %>
-                    <i class="fa-solid fa-paw rating-item__icon" style="color: #838383"></i>
-                  <% end %>
-              </div>
-
-              <div class="rating-item">
-                <div class="rating-item__label">Planet</div>
-                  <% @brand_info.planet_rating.times do %>
-                    <i class="fa-solid fa-earth-americas rating-item__icon"></i>
-                  <% end %>
-                  <% (5 - @brand_info.planet_rating).times do %>
-                    <i class="fa-solid fa-earth-americas rating-item__icon" style="color: #838383;"></i>
-                  <% end %>
-                </div>
-                  <% else %>
-                    <p class="text-muted small">Brand not in database — ratings unavailable.</p>
-                  <% end %>
-              </div>
-
-            <%= link_to "Upload another item", root_path, class: "btn btn-primary mt-3" %>
+            <div class="rating-item">
+              <div class="rating-item__label">People</div>
+                <% @brand_info.people_rating.times do %>
+                  <i class="fa-solid fa-child rating-item__icon"></i>
+                <% end %>
+                <% (5 - @brand_info.people_rating).times do %>
+                  <i class="fa-solid fa-child rating-item__icon" style="color: #838383;"></i>
+                <% end %>
             </div>
 
-      </div>
-    </div>
+            <div class="rating-item">
+              <div class="rating-item__label">Animals</div>
+                <% @brand_info.animals_rating.times do %>
+                  <i class="fa-solid fa-paw rating-item__icon"></i>
+                <% end %>
+                <% (5 - @brand_info.animals_rating).times do %>
+                  <i class="fa-solid fa-paw rating-item__icon" style="color: #838383"></i>
+                <% end %>
+            </div>
 
-    <div class="col-lg-9 col-md-8 matches-section">
-      <%= turbo_frame_tag "results_frame", data: { turbo_action: "advance" } do %>
-      <div class="results-section">
-        <h2>You've got <%= @comparison_products.count %> matches</h2>
-        <div class="results-section__filters">
-          <%= render "shared/product_filters",
-              form_url: search_matches_path(@search),
-              search: @search,
-              clear_url: search_matches_path(@search, clear: true) %>
+            <div class="rating-item">
+              <div class="rating-item__label">Planet</div>
+                <% @brand_info.planet_rating.times do %>
+                  <i class="fa-solid fa-earth-americas rating-item__icon"></i>
+                <% end %>
+                <% (5 - @brand_info.planet_rating).times do %>
+                  <i class="fa-solid fa-earth-americas rating-item__icon" style="color: #838383;"></i>
+                <% end %>
+            </div>
+          <% else %>
+            <p class="text-muted small">Brand not in database — ratings unavailable.</p>
+          <% end %>
         </div>
       </div>
 
-      <div class="matches-list">
-        <% @comparison_products.each do |product| %>
-          <% brand = product.brand %>
-          <div class="match-item">
-            <%= render "shared/match_card",
-                  search: @search,
-                  product: product,
-                  brand: brand %>
-          </div>
-        <% end %>
-      </div>
-      <% end %>
+      <%= link_to "Upload another item", root_path, class: "btn btn-primary mt-3" %>
     </div>
+
+    <%# Filters and results %>
+    <div class="col-lg-9 col-md-8 matches-section">
+
+        <div class="results-section">
+          <h2>You've got <%= @comparison_products.count %> matches</h2>
+
+          <%= turbo_frame_tag "results_frame", data: { turbo_action: "advance" } do %>
+            <div class="results-section__filters">
+              <%= render "shared/product_filters",
+                  form_url: search_matches_path(@search),
+                  search: @search,
+                  clear_url: search_matches_path(@search, clear: true) %>
+            </div>
+
+            <div class="matches-list">
+              <% @comparison_products.each do |product| %>
+                <% brand = product.brand %>
+                <div class="match-item">
+                  <%= render "shared/match_card",
+                        search: @search,
+                        product: product,
+                        brand: brand %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+
   </div>
+</div>
