@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_01_30_130000) do
+ActiveRecord::Schema[7.1].define(version: 2026_02_02_145444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_30_130000) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index "lower((name)::text)", name: "index_brands_on_lower_name"
   end
 
   create_table "comparison_products", force: :cascade do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_30_130000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id", null: false
+    t.string "main_colour"
     t.index ["brand_id"], name: "index_comparison_products_on_brand_id"
   end
 
@@ -94,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_30_130000) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
