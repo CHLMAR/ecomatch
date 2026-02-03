@@ -29,12 +29,11 @@ class MatchesController < ApplicationController
   end
 
   def show_product
-    @comparison_product = ComparisonProduct.includes(:brand).find(params[:id])
-    @similar_products = ComparisonProduct
-      .by_clothing_item(@comparison_product.clothing_item)
-      .where.not(id: @comparison_product.id)
-      .includes(:brand)
-      .limit(6)
+    comparison_product = ComparisonProduct.find(params[:id])
+    match = @search.matches.find_or_create_by(comparison_product: comparison_product) do |m|
+      m.similarities = "Matched via product view"
+    end
+    redirect_to search_match_path(@search, match)
   end
 
   def show
@@ -42,9 +41,17 @@ class MatchesController < ApplicationController
 
     if @match.comparison_product.blank?
       redirect_to search_matches_path(@search), alert: "Content not available."
+      return
     end
 
+    @comparison_product = @match.comparison_product
     @matches = @search.matches.includes(comparison_product: :brand)
+
+    # Find similar products based on clothing item type, excluding the current product
+    @similar_products = ComparisonProduct.includes(:brand)
+      .where(clothing_item: @comparison_product.clothing_item)
+      .where.not(id: @comparison_product.id)
+      .limit(6)
   end
 
   private

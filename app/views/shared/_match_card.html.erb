@@ -7,7 +7,7 @@
               end %>
 <% link_options = { class: "card-link" }
    link_options[:target] = "_blank" unless local_assigns[:product_path].present? || local_assigns[:search].present?
-   link_options[:data] = { turbo_frame: "_top" } if local_assigns[:search].present? %>
+   link_options[:data] = { turbo_frame: "_top" } if local_assigns[:search].present? || local_assigns[:product_path].present? %>
 <%= link_to link_url, **link_options do %>
   <div class="card-match">
 
