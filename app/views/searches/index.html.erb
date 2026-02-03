@@ -1,16 +1,23 @@
-<div class="container">
-  <h1>My Searches</h1>
+<div class="page-searches">
+  <div class="container">
+    <h1 class="page-searches__title">My Searches</h1>
+    <p class="page-searches__subtitle"><%= @searches.size %> searched <%= 'item'.pluralize(@searches.size) %></p>
 
-  <% if @searches.any? %>
-    <div class="row product-cards-grid">
-      <% @searches.each do |search| %>
-        <div class="col-md-3 col-sm-6">
-          <%= render "shared/search_card", search: search %>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <p>You haven't done any searches yet.</p>
-    <%= link_to "Start a search", root_path, class: "btn btn-primary" %>
-  <% end %>
+    <% if @searches.any? %>
+      <div class="row page-searches__grid product-cards-grid">
+        <% @searches.each do |search| %>
+          <div class="col-md-3 col-sm-6 page-searches__col">
+            <%= render "shared/search_card", search: search %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="page-searches__empty-text">You haven't done any searches yet.</p>
+      <div class="page-searches__empty-actions">
+        <%= link_to "Find sustainable alternative for your fast fashion products", root_path, class: "eco-btn eco-btn--primary" %>
+        <span class="page-searches__empty-or">or</span>
+        <%= link_to "Simply explore sustainable clothes", explore_path, class: "eco-btn eco-btn--primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>
