@@ -158,10 +158,10 @@ a{
 .matches-list {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  column-gap: 0.125rem;
-  row-gap: 0.25rem;
+  column-gap: 1rem;
+  row-gap: 1rem;
   width: 100%;
 }
 
