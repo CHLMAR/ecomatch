@@ -37,25 +37,7 @@ class SearchAnalysisJob < ApplicationJob
 
   private
 
-  # Analyze an uploaded image using GPT-4o vision
-  def analyze_image(search)
-    Rails.logger.info "[SearchAnalysisJob] Analyzing image for search ##{search.id}"
-
-    chat = RubyLLM.chat(model: "gpt-4o").with_instructions(search.system_prompt)
-    response = chat.ask(
-      "Analyze this clothing item and return the JSON.",
-      with: { image: search.uploaded_image.url }
-    )
-
-    json_content = response.content.gsub(/```json\s*/, '').gsub(/```\s*/, '').strip
-    parsed = JSON.parse(json_content) rescue nil
-
-    if parsed
-      update_search_with_parsed_data(search, parsed, image_upload: true)
-    end
-  end
-
-  # Analyze a product link using ScrapingBee + GPT-4o
+  # Analyze a product link using ScrapingBee + GPT
   def analyze_link(search)
     Rails.logger.info "[SearchAnalysisJob] Analyzing link for search ##{search.id}: #{search.uploaded_link}"
 
@@ -168,6 +150,8 @@ class SearchAnalysisJob < ApplicationJob
 
   # Build the analysis prompt for link-based searches
   def build_link_analysis_prompt(scraped_data)
+    valid_items = ComparisonProduct.valid_clothing_items.join(", ")
+
     <<~PROMPT
       Analyze this product information and extract clothing details.
 
@@ -177,11 +161,10 @@ class SearchAnalysisJob < ApplicationJob
 
       Extract these fields:
 
-      clothing_item: ONLY the garment type, NO colors or style modifiers.
-        - "white t-shirt" → "t-shirt"
-        - "blue skinny jeans" → "jeans"
-        - "red maxi dress" → "dress"
-        - "black leather jacket" → "jacket"
+      clothing_item: MUST be EXACTLY ONE of these values: #{valid_items}
+        - Choose the closest match from the list above
+        - Use ONLY the exact values listed (all lowercase, hyphenated)
+        - Examples: "white t-shirt" → "t-shirt", "blue jeans" → "jeans", "winter coat" → "coat"
 
       clothing_colour: The color. Use ONLY: black, white, grey, blue, red, green, yellow, orange, pink, purple, brown, beige, multicolor
 
@@ -192,7 +175,28 @@ class SearchAnalysisJob < ApplicationJob
       clothing_price: Price as number only, or null
 
       Return ONLY valid JSON, no markdown:
-      {"clothing_item": "garment type only", "clothing_colour": "base color", "clothing_material": "fabric or null", "clothing_brand": "brand", "clothing_price": null}
+      {"clothing_item": "exact value from list", "clothing_colour": "base color", "clothing_material": "fabric or null", "clothing_brand": "brand", "clothing_price": null}
     PROMPT
+  end
+
+  # Analyze an uploaded image using GPT-4o vision
+  def analyze_image(search)
+    Rails.logger.info "[SearchAnalysisJob] Analyzing image for search ##{search.id}"
+
+    valid_items = ComparisonProduct.valid_clothing_items.join(", ")
+    system_instructions = "#{search.system_prompt}\n\nIMPORTANT: For clothing_item, ONLY use one of: #{valid_items}"
+
+    chat = RubyLLM.chat(model: "gpt-4o").with_instructions(system_instructions)
+    response = chat.ask(
+      "Analyze this clothing item and return the JSON.",
+      with: { image: search.uploaded_image.url }
+    )
+
+    json_content = response.content.gsub(/```json\s*/, '').gsub(/```\s*/, '').strip
+    parsed = JSON.parse(json_content) rescue nil
+
+    if parsed
+      update_search_with_parsed_data(search, parsed, image_upload: true)
+    end
   end
 end
