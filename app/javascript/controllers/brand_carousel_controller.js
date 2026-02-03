@@ -5,7 +5,7 @@ export default class extends Controller {
   static values = {
     searchId: Number,
     brands: Array,
-    interval: { type: Number, default: 700 }  // 0.3 seconds
+    interval: { type: Number, default: 700 }
   }
 
   connect() {

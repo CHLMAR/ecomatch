@@ -1,17 +1,25 @@
-<div class="container">
-  <h1>My Wishlist</h1>
-  
-  <% if @wishlist_items.any? %>
-    <div class="row">
-      <% @wishlist_items.each do |wishlist_item| %>
-        <% product = wishlist_item.comparison_product %>
-        <% brand = product.brand %>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <%= render 'shared/match_card', product: product, brand: brand %>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <p>Your wishlist is empty.</p>
-  <% end %>
+<div class="page-wishlist">
+  <div class="container">
+    <h1 class="page-wishlist__title">My Wishlist</h1>
+    <p class="page-wishlist__subtitle"><%= @wishlist_items.size %> saved <%= 'item'.pluralize(@wishlist_items.size) %></p>
+
+    <% if @wishlist_items.any? %>
+      <div class="row page-wishlist__grid product-cards-grid">
+        <% @wishlist_items.each do |wishlist_item| %>
+          <% product = wishlist_item.comparison_product %>
+          <% brand = product.brand %>
+          <div class="col-md-3 col-sm-6 page-wishlist__col">
+            <%= render 'shared/match_card', product: product, brand: brand %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="page-wishlist__empty-text">Your wishlist is empty.</p>
+      <div class="page-wishlist__empty-actions">
+        <%= link_to "Find sustainable alternative for your fast fashion products", root_path, class: "eco-btn eco-btn--primary" %>
+        <span class="page-wishlist__empty-or">or</span>
+        <%= link_to "Simply explore sustainable clothes", explore_path, class: "eco-btn eco-btn--primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>

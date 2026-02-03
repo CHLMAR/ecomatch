@@ -30,4 +30,22 @@ class ComparisonProduct < ApplicationRecord
   scope :ordered_by_params, lambda { |_rating, _desc|
     joins(:brand).order("brands.overall_rating DESC")
   }
+
+  def self.unique_clothing_items
+    distinct.pluck(:clothing_item).compact.reject(&:blank?).sort
+  end
+
+  def self.valid_clothing_items
+    [
+      "t-shirt",
+      "hoodie",
+      "jacket",
+      "jeans",
+      "leggings",
+      "pants",
+      "shorts",
+      "sweater",
+      "shirt"
+  ].sort
+  end
 end

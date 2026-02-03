@@ -19,7 +19,9 @@
       <% if search.item_name.present? && (search.clothing_item.present? || search.clothing_colour.present?) %>
         <p class="search-card__subtitle"><%= [search.clothing_colour, search.clothing_item].compact.join(" ") %></p>
       <% end %>
-      <span class="search-card__cta">View matches</span>
+      <div class="search-card__cta-wrap">
+        <span class="search-card__cta eco-btn eco-btn--primary">View matches</span>
+      </div>
     </div>
   </div>
 <% end %>

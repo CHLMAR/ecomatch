@@ -23,9 +23,9 @@ a{
   text-decoration: none;
 }
 
-.results-section__filters form .first-input-field:first-of-type {
-  display: none;
-}
+// .results-section__filters form .first-input-field:first-of-type {
+//   display: none;
+// }
 .card-product-lg {
   overflow: hidden;
   margin: 10px 0 52px 0;
@@ -174,9 +174,10 @@ a{
 .matches-list {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 24px;
+  column-gap: 1rem;
+  row-gap: 1rem;
   width: 100%;
 }
 
@@ -246,12 +247,25 @@ a{
   color: inherit;
 }
 
-// Override .card-match so search card image/infos stretch full width (does not change .card-match elsewhere)
+// Search cards: same fixed size as product cards (250×435) so My Searches matches My Wishlist
 .search-card.card-match {
   display: flex;
   flex-direction: column;
-  height: 100%;
   align-items: stretch;
+  width: 250px;
+  height: 435px;
+  min-width: 0;
+}
+
+.search-card .card-image {
+  height: 300px;
+  flex-shrink: 0;
+}
+
+// Shared grid: same spacing as Wishlist; less space between cards in one line (horizontal)
+.product-cards-grid {
+  --bs-gutter-x: 0.125rem;
+  --bs-gutter-y: 0.25rem;
 }
 
 // Only on My Searches: zoom image slightly so any white padding in the uploaded image is cropped (wishlist unchanged)
@@ -281,11 +295,14 @@ a{
   color: #666;
 }
 
-.search-card__cta {
-  font-size: 14px;
-  font-weight: 600;
-  color: #2a2a2a;
+.search-card__cta-wrap {
+  display: flex;
+  justify-content: flex-end;
   margin-top: auto;
+}
+
+.search-card__cta.eco-btn {
+  pointer-events: none;
 }
 
 .rating-icon--green {
@@ -300,7 +317,6 @@ a{
   color: $green;
   text-decoration: none;
 }
-
 
 .tab-content {
   width: 100%;
@@ -337,4 +353,35 @@ a{
 
 .link-back {
   padding: 20px 0 12px 0;
+// My Searches page structure (mirrors .page-wishlist)
+.page-searches {
+  .page-searches__title {
+    margin-bottom: 0.25rem;
+  }
+
+  .page-searches__subtitle {
+    color: $gray;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-searches__col {
+    margin-bottom: 0;
+  }
+
+  .page-searches__empty-text {
+    margin-bottom: 1rem;
+  }
+
+  .page-searches__empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-searches__empty-or {
+    color: $gray;
+    font-size: 0.9375rem;
+  }
 }
