@@ -137,19 +137,6 @@ a{
   height: 50px;
 }
 
-.similar-products {
-  margin: 52px 0;
-}
-
-.similar-products-list {
-  display: flex;
-  gap: 18px;
-  margin: 20px 0;
-}
-
-.similar-product-item {
-  width: fit-content;
-}
 .filters {
   display: flex;
   justify-content: start;
@@ -353,35 +340,90 @@ a{
 
 .link-back {
   padding: 20px 0 12px 0;
-// My Searches page structure (mirrors .page-wishlist)
-.page-searches {
-  .page-searches__title {
-    margin-bottom: 0.25rem;
-  }
+  // My Searches page structure (mirrors .page-wishlist)
+  .page-searches {
+    .page-searches__title {
+      margin-bottom: 0.25rem;
+    }
 
-  .page-searches__subtitle {
-    color: $gray;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
+    .page-searches__subtitle {
+      color: $gray;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
 
-  .page-searches__col {
-    margin-bottom: 0;
-  }
+    .page-searches__col {
+      margin-bottom: 0;
+    }
 
-  .page-searches__empty-text {
-    margin-bottom: 1rem;
-  }
+    .page-searches__empty-text {
+      margin-bottom: 1rem;
+    }
 
-  .page-searches__empty-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-  }
+    .page-searches__empty-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
 
-  .page-searches__empty-or {
-    color: $gray;
-    font-size: 0.9375rem;
+    .page-searches__empty-or {
+      color: $gray;
+      font-size: 0.9375rem;
+    }
   }
+}
+
+
+
+
+.similar-wrapper {
+  position: relative;
+}
+
+.similar-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 12px 0px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.similar-scroll__item {
+  flex: 0 0 auto;
+  width: 280px;
+}
+
+/* Setas */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  width: 40px;
+  height: 40px;
+  border: none;
+
+  background-color: rgba($white, .5);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+}
+
+.scroll-btn--left {
+  left: -20px;
+}
+
+.scroll-btn--right {
+  right: -20px;
+}
+
+/* opcional: esconder scrollbar */
+.similar-scroll::-webkit-scrollbar {
+  display: none;
 }

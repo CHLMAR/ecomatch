@@ -76,11 +76,15 @@
 
             <div class="tab-content brand-tabs__content mt-3">
               <div class="tab-pane fade show active" id="brand-score" role="tabpanel">
-                <%= render "shared/brand_score", brand: brand %>
+                <%= render "shared/brand_score",
+                                    brand: brand,
+                                    product: @comparison_product %>
               </div>
 
               <div class="tab-pane fade" id="about-brand" role="tabpanel">
-                <%= render "shared/about_brand", brand: brand %>
+                <%= render "shared/about_brand",
+                                    brand: brand,
+                                    product: @comparison_product %>
               </div>
             </div>
 
@@ -93,18 +97,33 @@
 
   <% if @similar_products.any? %>
     <div class="similar-products">
-      <h3>Similar Products</h3>
+      <h4>Similar Products</h4>
+        <div class="similar-wrapper">
+          <button
+            class="scroll-btn scroll-btn--left"
+            type="button"
+            aria-label="Scroll left">
+            ‹
+          </button>
 
-      <div class="similar-products-list">
-        <% @similar_products.each do |similar_product| %>
-          <div class="similar-product-item">
-            <%= render "shared/match_card",
-                  search: @search,
-                  product: similar_product,
-                  brand: similar_product.brand %>
+          <div class="similar-scroll" data-scroll-container>
+            <% @similar_products.each do |similar_product| %>
+              <div class="similar-scroll__item">
+                <%= render "shared/match_card",
+                search: @search,
+                product: similar_product,
+                brand: similar_product.brand %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+
+          <button
+            class="scroll-btn scroll-btn--right"
+            type="button"
+            aria-label="Scroll right">
+            ›
+          </button>
+        </div>
       </div>
-    </div>
   <% end %>
 </div>
