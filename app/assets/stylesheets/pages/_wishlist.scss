@@ -1,0 +1,17 @@
+// Wishlist page — uses central card size and product-cards-grid spacing
+
+.page-wishlist {
+  .page-wishlist__title {
+    margin-bottom: 0.25rem;
+  }
+
+  .page-wishlist__subtitle {
+    color: $gray;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-wishlist__col {
+    margin-bottom: 0;
+  }
+}

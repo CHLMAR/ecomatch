@@ -52,7 +52,6 @@ ActiveRecord::Schema[7.1].define(version: 2026_02_03_000002) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "logo"
-    t.index "lower((name)::text)", name: "index_brands_on_lower_name"
   end
 
   create_table "comparison_products", force: :cascade do |t|
@@ -97,7 +96,6 @@ ActiveRecord::Schema[7.1].define(version: 2026_02_03_000002) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", default: "pending"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
