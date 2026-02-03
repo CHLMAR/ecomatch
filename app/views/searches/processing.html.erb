@@ -9,7 +9,7 @@
     <div class="processing-content">
       <h2 class="processing-title">searching for matches with</h2>
 
-      <div class="brand-showcase">
+      <div class="brand-logos">
         <div class="brand-logo-container" data-brand-carousel-target="logoContainer">
           <% if @brand_logos.any? %>
             <img src="<%= @brand_logos.first[1] %>"
@@ -35,8 +35,8 @@
         <span class="dot"></span>
       </div>
 
-      <p class="processing-subtitle">
-        Analyzing your item and finding eco-friendly alternatives...
+      <p class="processing-message">
+        Analyzing your item and finding better alternatives...
       </p>
     </div>
   <% end %>
