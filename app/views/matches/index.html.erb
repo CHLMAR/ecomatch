@@ -22,7 +22,7 @@
               Brand
               </p>
               <p class="uploaded_product__value">
-                <%= @brand_info&.name || @search.clothing_brand || "Unknown" %>
+                <%= @brand_info.name || @search.clothing_brand || "Unknown" %>
               </p>
             </div>
 
@@ -40,14 +40,14 @@
         <div class="uploaded-details">
           <% if @brand_info.present? %>
             <div class="rating-item overall-brand-rating">
-              <h5>Sustainability score</h5>
+              <h6>Sustainability score</h6>
               <div class="rating-item">
                 <div class="rating-item__label">Overall</div>
                     <% @brand_info.overall_rating.times do %>
-                      <i class="fa-solid fa-leaf" style="color: #2a2a2a;"></i>
+                      <i class="fa-solid fa-leaf rating-icon--green"></i>
                     <% end %>
                     <% (5 - @brand_info.overall_rating).times do %>
-                      <i class="fa-solid fa-leaf" style="color: #838383;"></i>
+                      <i class="fa-solid fa-leaf rating-icon--gray"></i>
                     <% end %>
               </div>
             </div>
@@ -55,30 +55,30 @@
             <div class="rating-item">
               <div class="rating-item__label">People</div>
                 <% @brand_info.people_rating.times do %>
-                  <i class="fa-solid fa-child rating-item__icon"></i>
+                  <i class="fa-solid fa-child rating-item__icon rating-icon--green"></i>
                 <% end %>
                 <% (5 - @brand_info.people_rating).times do %>
-                  <i class="fa-solid fa-child rating-item__icon" style="color: #838383;"></i>
+                  <i class="fa-solid fa-child rating-item__icon rating-icon--gray"></i>
                 <% end %>
             </div>
 
             <div class="rating-item">
               <div class="rating-item__label">Animals</div>
                 <% @brand_info.animals_rating.times do %>
-                  <i class="fa-solid fa-paw rating-item__icon"></i>
+                  <i class="fa-solid fa-paw rating-icon rating-icon--green"></i>
                 <% end %>
                 <% (5 - @brand_info.animals_rating).times do %>
-                  <i class="fa-solid fa-paw rating-item__icon" style="color: #838383"></i>
+                  <i class="fa-solid fa-paw rating-icon rating-icon--gray"></i>
                 <% end %>
             </div>
 
             <div class="rating-item">
               <div class="rating-item__label">Planet</div>
                 <% @brand_info.planet_rating.times do %>
-                  <i class="fa-solid fa-earth-americas rating-item__icon"></i>
+                  <i class="fa-solid fa-earth-americas rating-item__icon rating-icon--green"></i>
                 <% end %>
                 <% (5 - @brand_info.planet_rating).times do %>
-                  <i class="fa-solid fa-earth-americas rating-item__icon" style="color: #838383;"></i>
+                  <i class="fa-solid fa-earth-americas rating-item__icon rating-icon--gray"></i>
                 <% end %>
             </div>
           <% else %>
@@ -87,7 +87,7 @@
         </div>
       </div>
 
-      <%= link_to "Upload another item", root_path, class: "btn btn-primary mt-3" %>
+      <%= link_to "Upload another item", root_path, class: "eco-btn eco-btn--primary" %>
     </div>
 
     <%# Filters and results %>
@@ -103,6 +103,7 @@
                   search: @search,
                   clear_url: search_matches_path(@search, clear: true) %>
             </div>
+          <% end %>
 
             <div class="matches-list">
               <% @comparison_products.each do |product| %>
@@ -115,7 +116,7 @@
                 </div>
               <% end %>
             </div>
-          <% end %>
+
         </div>
     </div>
 

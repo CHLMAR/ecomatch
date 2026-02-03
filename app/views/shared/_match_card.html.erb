@@ -30,10 +30,10 @@
         <div class="rating">
 
           <% brand.overall_rating.times do %>
-            <i class="fa-solid fa-leaf leaf-sm" style="color: #5ce242"></i>
+            <i class="fa-solid fa-leaf leaf-sm" style="color: $green"></i>
           <% end %>
           <% (5 - brand.overall_rating).times do %>
-            <i class="fa-solid fa-leaf leaf-sm" style="color: #c8c8c8"></i>
+            <i class="fa-solid fa-leaf leaf-sm" style="color: $light-gray"></i>
           <% end %>
         </div>
       </div>

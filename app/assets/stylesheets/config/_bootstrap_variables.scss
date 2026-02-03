@@ -15,6 +15,7 @@ $form-label-color:       rgba($black, 0.75);
 // Colors
 $body-color: $gray;
 $primary:    $green;
+$secondary:  $green;
 $success:    $dark-green;
 $danger:     $orange;
 $warning:    $orange;
@@ -26,4 +27,24 @@ $border-radius-lg:            100px;
 $border-radius-xl:            .5rem;
 $border-radius-xxl:           1rem;
 
-// Override other variables below!
+$input-font-size: 1rem;
+$input-line-height: 1.5;
+
+$btn-font-size: 1rem;
+$btn-line-height: 1.5;
+
+
+$input-padding-y: 0.5rem;
+$btn-padding-y:   0.5rem;
+
+
+$input-padding-x: 0.75rem;
+$btn-padding-x:   1.25rem;
+
+
+//BUTTONS
+// Typography
+$btn-font-family: "Urbanist", system-ui, -apple-system, sans-serif;
+$btn-font-size: 1rem;        // 16px
+$btn-font-weight: 400;
+$btn-line-height: 1;         // ajuda a controlar altura
