@@ -22,7 +22,8 @@
                 <span>UPLOAD AN IMAGE</span>
               </label>
               <div class="file-input-wrapper">
-                <%= f.input_field :uploaded_image, as: :file, class: "file-input", accept: "image/*", id: "uploaded_image" %>
+                <%= f.input_field :uploaded_image, as: :file, class: "file-input", accept: "image/*", id: "uploaded_image",
+                onchange: "this.nextElementSibling.querySelector('.file-placeholder').textContent = this.files[0]?.name || 'Choose a file or drag it here'" %>
                 <div class="file-input-display">
                   <span class="file-placeholder">Choose a file or drag it here</span>
                 </div>
