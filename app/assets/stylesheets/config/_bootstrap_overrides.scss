@@ -1,0 +1,68 @@
+.eco-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+
+  border-radius: 999px;
+  border-width: 1px;
+  border-style: solid;
+
+  font-family: "Urbanist", system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 .25rem rgba($green, .25);
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    opacity: .6;
+  }
+}
+
+/* Primary */
+.eco-btn--primary {
+  background: $green;
+  border-color: $green;
+  color: $white;
+
+  &:hover {
+    background: rgba($dark-green, .8);
+    border-color: rgba($dark-green, .6);
+    color: $white;
+  }
+
+  &:active {
+    background: $dark-green;
+    border-color: $dark-green;
+    color: $white;
+  }
+}
+
+/* Secondary outline */
+.eco-btn--secondary {
+  background: transparent;
+  border-color: rgba($gray, .3);
+  color: rgba($black, .85);
+
+  &:hover,
+  &:active {
+    background: transparent;
+    border-color: rgba($gray, .3);
+    color: rgba($black, .85);
+  }
+}
+
+
+.form-label {
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba($black, 0.75);
+  margin-bottom: 4px !important;
+}
