@@ -160,7 +160,8 @@ a{
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 24px;
+  column-gap: 0.125rem;
+  row-gap: 0.25rem;
   width: 100%;
 }
 
@@ -236,12 +237,25 @@ a{
   color: inherit;
 }
 
-// Override .card-match so search card image/infos stretch full width (does not change .card-match elsewhere)
+// Search cards: same fixed size as product cards (250×435) so My Searches matches My Wishlist
 .search-card.card-match {
   display: flex;
   flex-direction: column;
-  height: 100%;
   align-items: stretch;
+  width: 250px;
+  height: 435px;
+  min-width: 0;
+}
+
+.search-card .card-image {
+  height: 300px;
+  flex-shrink: 0;
+}
+
+// Shared grid: same spacing as Wishlist; less space between cards in one line (horizontal)
+.product-cards-grid {
+  --bs-gutter-x: 0.125rem;
+  --bs-gutter-y: 0.25rem;
 }
 
 // Only on My Searches: zoom image slightly so any white padding in the uploaded image is cropped (wishlist unchanged)
