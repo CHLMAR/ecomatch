@@ -1,0 +1,56 @@
+<div class="rating-wrapper">
+  <div class="general-rating">
+    <div class="general-rating__score">
+      <h5>Sustainability score</h5>
+
+      <div class="score-number">
+        <div class="rating-cat__item">
+          <% brand.overall_rating.times do %>
+            <i class="fa-solid fa-leaf rating-icon rating-icon--green"></i>
+          <% end %>
+          <% (5 - brand.overall_rating).times do %>
+            <i class="fa-solid fa-leaf rating-icon rating-icon--gray"></i>
+          <% end %>
+        </div>
+        <h1><%= brand.overall_rating %></h1>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="other-ratings flex-column">
+    <div class="rating-cat">
+      <p class="rating-cat__title">People</p>
+      <div class="rating-cat__item">
+        <% brand.people_rating.times do %>
+          <i class="fa-solid fa-child rating-icon rating-icon--green"></i>
+        <% end %>
+        <% (5 - brand.people_rating).times do %>
+          <i class="fa-solid fa-child rating-icon rating-icon--gray"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="rating-cat">
+      <p class="rating-cat__title">Animals</p>
+      <div class="rating-cat__item">
+        <% brand.animals_rating.times do %>
+          <i class="fa-solid fa-paw rating-icon rating-icon--green"></i>
+        <% end %>
+        <% (5 - brand.animals_rating).times do %>
+          <i class="fa-solid fa-paw rating-icon rating-icon--gray""></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="rating-cat">
+      <p class="rating-cat__title">Planet</p>
+      <div class="rating-cat__item">
+        <% brand.planet_rating.times do %>
+          <i class="fa-solid fa-earth-americas rating-icon rating-icon--green"></i>
+        <% end %>
+        <% (5 - brand.planet_rating).times do %>
+          <i class="fa-solid fa-earth-americas rating-icon rating-icon--gray"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -28,83 +28,67 @@
           <% end %>
         </div>
       <% end %>
-      <h2><%= product.clothing_item %></h2>
-      <p class="product-description">
+      <div class="prod-info-group">
+        <h2><%= product.clothing_item %></h2>
+        <p class="product-description">
         <%= product.product_description %>
-      </p>
-
-      <p class="product-price-lg"><%= product.clothing_price %></p>
-      <%= link_to product.external_link, class: "btn-2", target: "_blank" do %>
-        View details
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      <% end %>
+        </p>
+        <div class="price-view">
+          <p class="product-price-lg"><%= product.clothing_price %> €</p>
+          <%= link_to product.external_link, class: "btn-2", target: "_blank" do %>
+            View details
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <% end %>
+        </div>
+      </div>
 
       <div class="brand-intro">
         <div class="overall-rating">
-          <h5><%= brand.name %></h5>
-          <p class="brand-description-full">
-            <%= brand.description %>
-          </p>
-        </div>
 
-        <div class="overall-rating-container">
-          <div class="score">
-            <div class="rating-vs">
-                <div class="rating-item overall-brand-rating">
-                  <h5>Sustainability score</h5>
-                  <div class="rating-item">
-                    <div class="rating-item__label">Overall</div>
-                        <% brand.overall_rating.times do %>
-                          <i class="fa-solid fa-leaf leaf rating-icon--green"></i>
-                        <% end %>
-                        <% (5 - brand.overall_rating).times do %>
-                          <i class="fa-solid fa-leaf leaf rating-icon--gray"></i>
-                        <% end %>
-                  </div>
-                </div>
-              <h2><%= brand.overall_rating %></h2>
-              <p class="total-rating"> / 5</p>
+            <div class="tabs-header">
+              <p><%= brand.name %></p>
+              <ul class="nav brand-tabs__nav" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    data-bs-toggle="tab"
+                    data-bs-target="#brand-score"
+                    type="button"
+                    role="tab"
+                    aria-selected="true">
+                    Brand score
+                  </button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    data-bs-toggle="tab"
+                    data-bs-target="#about-brand"
+                    type="button"
+                    role="tab"
+                    aria-selected="false">
+                    About the brand
+                  </button>
+                </li>
+              </ul>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="secondary-ratings">
-        <div class="rating-category">
-          <p class="rating-title">People</p>
-          <div class="rating-item">
-            <% brand.people_rating.times do %>
-              <i class="fa-solid fa-child rating-icon rating-icon--green"></i>
-            <% end %>
-            <% (5 - brand.people_rating).times do %>
-              <i class="fa-solid fa-child rating-icon rating-icon--gray"></i>
-            <% end %>
-          </div>
-        </div>
-        <div class="rating-category">
-          <p class="rating-title">Animals</p>
-          <div class="rating-item">
-            <% brand.animals_rating.times do %>
-              <i class="fa-solid fa-paw rating-icon rating-icon--green"></i>
-            <% end %>
-            <% (5 - brand.animals_rating).times do %>
-              <i class="fa-solid fa-paw rating-icon rating-icon--gray"></i>
-            <% end %>
-          </div>
-        </div>
-        <div class="rating-category">
-          <p class="rating-title">Planet</p>
-          <div class="rating-item">
-            <% brand.planet_rating.times do %>
-              <i class="fa-solid fa-earth-americas rating-icon rating-icon--green"></i>
-            <% end %>
-            <% (5 - brand.planet_rating).times do %>
-              <i class="fa-solid fa-earth-americas rating-icon rating-icon--gray"></i>
-            <% end %>
-          </div>
+            <div class="tab-content brand-tabs__content mt-3">
+              <div class="tab-pane fade show active" id="brand-score" role="tabpanel">
+                <%= render "shared/brand_score", brand: brand %>
+              </div>
+
+              <div class="tab-pane fade" id="about-brand" role="tabpanel">
+                <%= render "shared/about_brand", brand: brand %>
+              </div>
+            </div>
+
+
         </div>
       </div>
     </div>
+
   </div>
 
   <% if @similar_products.any? %>
