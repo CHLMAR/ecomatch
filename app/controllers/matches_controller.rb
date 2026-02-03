@@ -5,16 +5,13 @@ class MatchesController < ApplicationController
     @search = Search.find(params[:search_id])
     @brand_info = @search.clothing_brand.present? ? Brand.find_by("LOWER(name) = ?", @search.clothing_brand.strip.downcase) : nil
 
-    # If clear param is present, show all products (no filters)
-    # If commit param is present (form submitted), use filter params
-    # Otherwise (initial load), prepopulate with search values
-    if params[:clear].present?
+    if params[:clear].present?  # no filters
       clothing_item = nil
       clothing_colour = nil
-    elsif params[:commit].present?
+    elsif params[:commit].present? # form submitted filters
       clothing_item = params[:clothing_item]
       clothing_colour = params[:clothing_colour]
-    else
+    else # initial load, prepopulate with search values
       clothing_item = params[:clothing_item].presence || @search.clothing_item
       clothing_colour = params[:clothing_colour].presence || @search.clothing_colour
     end
