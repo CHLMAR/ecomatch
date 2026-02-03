@@ -14,4 +14,20 @@
   .page-wishlist__col {
     margin-bottom: 0;
   }
+
+  .page-wishlist__empty-text {
+    margin-bottom: 1rem;
+  }
+
+  .page-wishlist__empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-wishlist__empty-or {
+    color: $gray;
+    font-size: 0.9375rem;
+  }
 }

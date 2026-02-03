@@ -14,7 +14,12 @@
         <% end %>
       </div>
     <% else %>
-      <p>Your wishlist is empty.</p>
+      <p class="page-wishlist__empty-text">Your wishlist is empty.</p>
+      <div class="page-wishlist__empty-actions">
+        <%= link_to "Find sustainable alternative for your fast fashion products", root_path, class: "eco-btn eco-btn--primary" %>
+        <span class="page-wishlist__empty-or">or</span>
+        <%= link_to "Simply explore sustainable clothes", explore_path, class: "eco-btn eco-btn--primary" %>
+      </div>
     <% end %>
   </div>
 </div>
