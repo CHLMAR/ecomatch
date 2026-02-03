@@ -52,44 +52,46 @@
 
             <p>Sustainability score</p>
           </div>
+
+          <div class="secondary-ratings">
+            <div class="rating-category">
+              <p class="rating-title">People</p>
+              <div class="rating-item">
+                <% brand.people_rating.times do %>
+                  <i class="fa-solid fa-child rating-icon"></i>
+                <% end %>
+                <% (5 - brand.people_rating).times do %>
+                  <i class="fa-solid fa-child rating-icon" style="color: #c8c8c8;"></i>
+                <% end %>
+              </div>
+            </div>
+            <div class="rating-category">
+              <p class="rating-title">Animals</p>
+              <div class="rating-item">
+                <% brand.animals_rating.times do %>
+                  <i class="fa-solid fa-paw rating-icon"></i>
+                <% end %>
+                <% (5 - brand.animals_rating).times do %>
+                  <i class="fa-solid fa-paw rating-icon" style="color: #c8c8c8;"></i>
+                <% end %>
+              </div>
+            </div>
+            <div class="rating-category">
+              <p class="rating-title">Planet</p>
+              <div class="rating-item">
+                <% brand.planet_rating.times do %>
+                  <i class="fa-solid fa-earth-americas rating-icon"></i>
+                <% end %>
+                <% (5 - brand.planet_rating).times do %>
+                  <i class="fa-solid fa-earth-americas rating-icon" style="color: #c8c8c8;"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="secondary-ratings">
-        <div class="rating-category">
-          <p class="rating-title">People</p>
-          <div class="rating-item">
-            <% brand.people_rating.times do %>
-              <i class="fa-solid fa-child rating-icon"></i>
-            <% end %>
-            <% (5 - brand.people_rating).times do %>
-              <i class="fa-solid fa-child rating-icon" style="color: #c8c8c8;"></i>
-            <% end %>
-          </div>
-        </div>
-        <div class="rating-category">
-          <p class="rating-title">Animals</p>
-          <div class="rating-item">
-            <% brand.animals_rating.times do %>
-              <i class="fa-solid fa-paw rating-icon"></i>
-            <% end %>
-            <% (5 - brand.animals_rating).times do %>
-              <i class="fa-solid fa-paw rating-icon" style="color: #c8c8c8;"></i>
-            <% end %>
-          </div>
-        </div>
-        <div class="rating-category">
-          <p class="rating-title">Planet</p>
-          <div class="rating-item">
-            <% brand.planet_rating.times do %>
-              <i class="fa-solid fa-earth-americas rating-icon"></i>
-            <% end %>
-            <% (5 - brand.planet_rating).times do %>
-              <i class="fa-solid fa-earth-americas rating-icon" style="color: #c8c8c8;"></i>
-            <% end %>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 
