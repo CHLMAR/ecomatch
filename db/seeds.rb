@@ -14,15 +14,6 @@ puts "User: #{user.email}"
 # Brands
 # =============================================================================
 
-ecowear_brand = Brand.find_or_create_by!(name: "EcoWear") do |b|
-  b.description = "Sustainable fashion brand focused on eco-friendly materials and ethical production."
-  b.planet_rating = 4
-  b.people_rating = 5
-  b.animals_rating = 4
-  b.overall_rating = 4
-end
-puts "Brand: #{ecowear_brand.name}"
-
 zara_brand = Brand.find_or_create_by!(name: "Zara") do |b|
   b.description = "Global fast fashion retailer offering trendy clothing and accessories."
   b.planet_rating = 2
