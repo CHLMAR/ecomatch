@@ -4,9 +4,8 @@
   </div>
   <div class="banner-home">
     <div class="banner-content">
-      <h1>Find sustainable fashion that matches your style</h1>
-      <p>Upload any fashion item and discover eco-friendly alternatives.
-        Make conscious choices withoput compromising on style.</p>
+      <h1>Dress sustainably. <br> Stay Yourself.</h1>
+      <p>Discover eco-friendly alternatives for fashion items without compromising on style.</p>
     </div>
     <div class="banner-search" data-controller="form-loader">
       <!-- Loading overlay -->
@@ -16,16 +15,12 @@
       <% if current_user %>
         <%= simple_form_for Search.new, url: searches_path, html: { multipart: true, data: { form_loader_target: "form" } } do |f| %>
           <div class="search-inputs">
-            <div class="input-card">
-              <label class="input-card-label">
-                <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                <span>UPLOAD AN IMAGE</span>
-              </label>
               <div class="file-input-wrapper">
                 <%= f.input_field :uploaded_image, as: :file, class: "file-input", accept: "image/*", id: "uploaded_image",
                 onchange: "this.nextElementSibling.querySelector('.file-placeholder').textContent = this.files[0]?.name || 'Choose a file or drag it here'" %>
                 <div class="file-input-display">
-                  <span class="file-placeholder">Choose a file or drag it here</span>
+                  <span class="file-placeholder">Drag and drop or click to upload the image of a product to find matches</span>
+                  <i class="fa-solid fa-file-arrow-up"></i>
                 </div>
               </div>
             </div>
@@ -34,22 +29,20 @@
             </div>
             <div class="input-card">
               <label class="input-card-label">
-                <i class="fa-solid fa-link"></i>
-                <span>PASTE A LINK</span>
+                <span>Paste the link to the product</span>
               </label>
               <div class="input-group">
+                <i class="fa-solid fa-link"></i>
                 <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product" %>
               </div>
             </div>
           </div>
           <div class="mt-4">
-            <%= f.submit "Find the perfect match", class: "btn btn-primary w-100" %>
+            <%= f.submit "Find the perfect match", class: "eco-btn eco-btn--primary" %>
           </div>
-          <div class="text-center mt-5 mb-2">
-            <span class="text-muted">LOOKING FOR INSPIRATION?</span>
-          </div>
-          <div class="mt-3">
-            <%= link_to "Browse our collection", explore_path, class: "btn btn-outline-secondary w-100" %>
+          <div class="inspiration-row mt-5">
+            <span class="text-muted">Looking for inspiration?</span>
+            <%= link_to "Get inspired now", explore_path, class: "link" %>
           </div>
         <% end %>
       <% else %>
@@ -80,14 +73,12 @@
               </div>
             </div>
           </div>
-          <div class="mt-4">
-            <%= f.submit "Find the perfect match", class: "btn btn-primary w-100", disabled: true %>
+          <div class="mt-4 text-center">
+            <%= f.submit "Find the perfect match", class: "eco-btn eco-btn--primary", disabled: true %>
           </div>
-          <div class="text-center mt-5 mb-2">
-            <span class="text-muted">LOOKING FOR INSPIRATION?</span>
-          </div>
-          <div class="mt-3">
-            <%= link_to "Browse our collection", new_user_registration_path, class: "btn btn-outline-secondary w-100" %>
+        <div class="inspiration-row mt-5">
+            <span class="text-muted">Looking for inspiration?</span>
+            <%= link_to "Get inspired now", explore_path, class: "link" %>
           </div>
         <% end %>
         <p class="text-center mt-4"><a href="<%= new_user_registration_path %>">Sign up</a> or <a href="<%= new_user_session_path %>">log in</a> to search for matches and browse for inspiration.</p>
@@ -106,34 +97,28 @@
       <%= image_tag "fast_fashion.png", alt: "Fast fashion problem" %>
       <p>Fast fashion relies on low-cost production that comes at the expense
         of <strong>fair wages, safe working conditions and animal welfare</strong>.
-        The sector consumes enough water annually to meet the needs of 5 million people, and
-        generates millions of tons of carbon emissions, plastic and other waste.
       </p>
     </div>
     <div class="column-item">
       <h3>Our Solution</h3>
       <%= image_tag "susainable_fashion.jpg", alt: "Sustainable fashion solution" %>
-      <p>EcoMatch helps shoppers replace fast-fashion items with <strong>similar products from more responsible brands</strong>.
-        By prioritizing ethical labor standards and
-        animal-friendly practices, we make better choices accessible in seconds.</p>
+      <p>EcoMatch helps shoppers replace fast-fashion items with <strong>similar products from more
+        responsible brands</strong>.
+      </p>
     </div>
     <div class="column-item">
       <h3>Your Impact</h3>
       <%= image_tag "your_impact.jpg", alt: "Your impact" %>
-      <p>Supporting brands with fair labor and responsible sourcing helps drive demand for better industry standards.
-        Even small shifts matter: each time you make a sustainable choice, <strong>you reduce pressure on exploitative labor
+      <p> Each time you make a sustainable choice, <strong>you reduce pressure on exploitative labor
           and our precious planet</strong>.</p>
     </div>
   </div>
 </div>
 <div class="rating-system-container">
   <h2>Rating system</h2>
-  <p>EcoMatch's rating system is informed by publicly available research and
+  <p class="mt-3">EcoMatch's rating system is informed by publicly available research and
     methodologies from <strong><a href="https://goodonyou.eco/" target="_blank">Good On You</a></strong>, one of the world's most trusted independent
     fashion sustainability rating platforms.
-    <br>
-    To cut through complexity and greenwashing, we organise our ratings into three
-    key pillars: People, Planet, and Animals.
     <br>
     <a href="https://how-we-rate.instantdocsbase.com/" target="_blank">Read more about our rating system <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
   <div class="rating-icons-row">
@@ -141,15 +126,10 @@
       <div class="rating-circle">
         <h3>People</h3>
         <div class="rating-icons">
-          <i class="fa-solid fa-child rating-icon--green"></i>
-          <i class="fa-solid fa-child rating-icon--green"></i>
-          <i class="fa-solid fa-child rating-icon--green"></i>
-          <i class="fa-solid fa-child rating-icon--green"></i>
-          <i class="fa-solid fa-child rating-icon--gray"></i>
+          <i class="fa-solid fa-person rating-icon--green"></i>
         </div>
       </div>
-      <p class="rating-description">This rating looks at how brands treat workers throughout
-        their supply chain. We assess issues such as <strong>child and forced labour, worker safety,
+      <p class="rating-description">Assesses issues such as <strong>child and forced labour, worker safety,
         freedom of association, fair wages, gender equality, and supplier accountability</strong>, as
         well as whether policies are meaningfully implemented—not just written on paper.</p>
     </div>
@@ -158,14 +138,9 @@
         <h3>Animals</h3>
         <div class="rating-icons">
           <i class="fa-solid fa-paw rating-icon--green"></i>
-          <i class="fa-solid fa-paw rating-icon--green"></i>
-          <i class="fa-solid fa-paw rating-icon--green"></i>
-          <i class="fa-solid fa-paw rating-icon--green"></i>
-          <i class="fa-solid fa-paw rating-icon--gray"></i>
         </div>
       </div>
-      <p class="rating-description">This rating focuses on animal welfare in supply chains.
-        We assess <strong>the use of fur, leather, wool, down, exotic skins, animal testing, and whether
+      <p class="rating-description"> Assesses <strong>the use of fur, leather, wool, down, exotic skins, animal testing, and whether
         brands prioritise certified, recycled, or animal-free alternatives</strong>, while avoiding practices
         linked to cruelty or endangered species.</p>
     </div>
@@ -174,16 +149,13 @@
         <h3>Planet</h3>
         <div class="rating-icons">
           <i class="fa-solid fa-earth-americas rating-icon--green"></i>
-          <i class="fa-solid fa-earth-americas rating-icon--green"></i>
-          <i class="fa-solid fa-earth-americas rating-icon--green"></i>
-          <i class="fa-solid fa-earth-americas rating-icon--green"></i>
-          <i class="fa-solid fa-earth-americas rating-icon--gray"></i>
         </div>
       </div>
-      <p class="rating-description">The planet rating evaluates a <strong>brand's environmental impact
+      <p class="rating-description">Asseses <strong>brand's environmental impact
         across the product life cycle</strong>. This includes materials used, emissions, water and chemical
-        management, waste, circularity, durability, and <strong>whether the brand takes real action to reduce its
-        environmental footprint</strong> rather than relying on vague sustainability claims.</p>
+        management, durability, and <strong>whether the brand takes real action to reduce its
+        environmental footprint</strong>.
+      </p>
     </div>
   </div>
 </div>
