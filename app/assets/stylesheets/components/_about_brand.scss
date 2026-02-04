@@ -1,6 +1,13 @@
 .description-wrapper {
-  border-top: solid 1.3px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: solid 1.5px;
   width: 100%;
-  height: 190px;
+  height: 200px;
   margin-top: 20px;
+}
+
+.mb-0 {
+  padding-top: 20px;
 }
