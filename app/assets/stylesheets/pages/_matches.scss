@@ -29,8 +29,8 @@ a{
 
 .matches-section {
   padding: 40px 20px;
-
 }
+
 .card-product-lg {
   overflow: hidden;
   margin: 10px 0 52px 0;
@@ -169,14 +169,89 @@ a{
 
 /* sidebar styles */
 
+.uploaded-product {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px 40px 40px;
+
+  h4 {
+    padding-bottom: 20px;
+  }
+
+  h6 {
+    font-size: 14px;
+    padding-top: 26px;
+    margin-bottom: 0;
+    height: fit-content;
+  }
+}
+
 .uploaded-product-sidebar {
   background-color: $sand;
-  padding: 40px 60px;
+}
+
+.uploaded_product__label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: $black;
+}
+
+.uploaded_product__value {
+  font-size: 14px;
+}
+
+.icons-sidebar-wrapper {
+  .fa-child {
+    font-size: 17px !important;
+  }
 }
 
 .uploaded-product__main {
   display: flex;
-  margin-bottom: 20px;
+  width: 100%;
+}
+
+.rating-item__label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: $black;
+  align-content: center;
+
+  p {
+    padding-bottom: 4px;
+  }
+}
+
+.rating-item {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center;
+}
+
+.rating-item__icon {
+  margin: 0 2px;
+  font-size: 14px;
+}
+
+.img-container {
+  width: 100px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.product-image-sm {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.upload-product {
+  padding-top: 30px;
   width: 100%;
 }
 
@@ -185,21 +260,6 @@ a{
   flex-direction: column;
 }
 
-.uploaded_product__label {
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 0;
-}
-
-.rating-item__label {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.rating-item__icon {
-  font-size: 18px;
-  margin: 0 2px;
-}
 
 .results-section {
   padding-left: 14px;
@@ -207,23 +267,6 @@ a{
 
 .card-product-lg .col-4 {
   object-fit: cover;
-}
-
-.uploaded-product {
-  width: 60%;
-  padding: 16px 0 22px 0;
-  display: flex;
-  flex-direction: column;
-
-  img {
-    width: 40%;
-    margin-right: 26px;
-    border-radius: 4px;
-    width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    display: block;
-  }
 }
 
 // My Searches page: search cards
