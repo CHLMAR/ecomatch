@@ -3,17 +3,21 @@
 
     <%# Sidebar %>
     <div class="col-lg-3 col-md-4 uploaded-product-sidebar">
-      <h4>Your item</h4>
+
       <div class="uploaded-product">
+        <h4>Your item</h4>
         <div class="uploaded-product__main">
-          <% item_image_url = @search.item_image.presence&.gsub(/^\[?"?/, '')&.gsub(/"?\]?$/, '') %>
+          <div class="img-container">
+            <% item_image_url = @search.item_image.presence&.gsub(/^\[?"?/, '')&.gsub(/"?\]?$/, '') %>
             <% if item_image_url.present? && item_image_url.start_with?('//') %>
-              <%= image_tag("https:#{item_image_url}", alt: @search.item_name || "Uploaded item") %>
+              <%= image_tag("https:#{item_image_url}", alt: @search.item_name || "Uploaded item", class: "product-image-sm") %>
             <% elsif item_image_url.present? && item_image_url.start_with?('http') %>
-              <%= image_tag(item_image_url, alt: @search.item_name || "Uploaded item") %>
+              <%= image_tag(item_image_url, alt: @search.item_name || "Uploaded item", class: "product-image-sm") %>
             <% else %>
-              <%= image_tag("placeholder_outfit.png", alt: "Uploaded item") %>
-          <% end %>
+              <%= image_tag("placeholder_outfit.png", alt: "Uploaded item", class: "product-image-sm") %>
+            <% end %>
+          </div>
+
 
           <div class="uploaded-product__details">
 
@@ -39,55 +43,67 @@
 
         <div class="uploaded-details">
           <% if @brand_info.present? %>
-            <div class="rating-item overall-brand-rating">
-              <h6>Sustainability score</h6>
-              <div class="rating-item">
-                <div class="rating-item__label">Overall</div>
-                    <% @brand_info.overall_rating.times do %>
-                      <i class="fa-solid fa-leaf rating-icon--green"></i>
-                    <% end %>
-                    <% (5 - @brand_info.overall_rating).times do %>
-                      <i class="fa-solid fa-leaf rating-icon--gray"></i>
-                    <% end %>
-              </div>
+            <h6>Sustainability score</h6>
+            <div class="rating-item">
+              <div class="rating-item__label">Overall</div>
+                <div>
+                  <% @brand_info.overall_rating.times do %>
+                    <i class="fa-solid fa-leaf rating-item__icon rating-icon--green"></i>
+                  <% end %>
+                  <% (5 - @brand_info.overall_rating).times do %>
+                    <i class="fa-solid fa-leaf rating-item__icon rating-icon--gray"></i>
+                  <% end %>
+                </div>
             </div>
+
+            <hr>
 
             <div class="rating-item">
               <div class="rating-item__label">People</div>
-                <% @brand_info.people_rating.times do %>
-                  <i class="fa-solid fa-child rating-item__icon rating-icon--green"></i>
-                <% end %>
-                <% (5 - @brand_info.people_rating).times do %>
-                  <i class="fa-solid fa-child rating-item__icon rating-icon--gray"></i>
-                <% end %>
+                <div class="icons-sidebar-wrapper">
+                  <% @brand_info.people_rating.times do %>
+                    <i class="fa-solid fa-child rating-item__icon rating-icon--green"></i>
+                  <% end %>
+                  <% (5 - @brand_info.people_rating).times do %>
+                    <i class="fa-solid fa-child rating-item__icon rating-icon--gray"></i>
+                  <% end %>
+                </div>
             </div>
+
+            <hr>
 
             <div class="rating-item">
               <div class="rating-item__label">Animals</div>
-                <% @brand_info.animals_rating.times do %>
-                  <i class="fa-solid fa-paw rating-icon rating-icon--green"></i>
-                <% end %>
-                <% (5 - @brand_info.animals_rating).times do %>
-                  <i class="fa-solid fa-paw rating-icon rating-icon--gray"></i>
-                <% end %>
+                <div>
+                  <% @brand_info.animals_rating.times do %>
+                    <i class="fa-solid fa-paw rating-icon rating-item__icon rating-icon--green"></i>
+                  <% end %>
+                  <% (5 - @brand_info.animals_rating).times do %>
+                    <i class="fa-solid fa-paw rating-icon rating-icon--gray"></i>
+                  <% end %>
+                </div>
             </div>
+
+            <hr>
 
             <div class="rating-item">
               <div class="rating-item__label">Planet</div>
-                <% @brand_info.planet_rating.times do %>
-                  <i class="fa-solid fa-earth-americas rating-item__icon rating-icon--green"></i>
-                <% end %>
-                <% (5 - @brand_info.planet_rating).times do %>
-                  <i class="fa-solid fa-earth-americas rating-item__icon rating-icon--gray"></i>
-                <% end %>
+                <div>
+                  <% @brand_info.planet_rating.times do %>
+                    <i class="fa-solid fa-earth-americas rating-item__icon rating-icon--green"></i>
+                  <% end %>
+                  <% (5 - @brand_info.planet_rating).times do %>
+                    <i class="fa-solid fa-earth-americas rating-item__icon rating-icon--gray"></i>
+                  <% end %>
+                </div>
             </div>
           <% else %>
             <p class="text-muted small">Brand not in database — ratings unavailable.</p>
           <% end %>
+          <%= link_to "Upload another item", root_path, class: "upload-button eco-btn eco-btn--primary" %>
         </div>
       </div>
 
-      <%= link_to "Upload another item", root_path, class: "eco-btn eco-btn--primary" %>
     </div>
 
     <%# Filters and results %>
@@ -119,5 +135,4 @@
 
         </div>
     </div>
-
   </div>
