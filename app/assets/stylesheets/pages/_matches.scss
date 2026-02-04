@@ -233,7 +233,7 @@ a{
 }
 
 // Search cards: same fixed size as product cards (250×435) so My Searches matches My Wishlist
-.search-card.card-match {
+.search-card .card-match {
   display: flex;
   flex-direction: column;
   align-items: stretch;
