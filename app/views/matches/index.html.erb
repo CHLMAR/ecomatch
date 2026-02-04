@@ -22,7 +22,7 @@
               Brand
               </p>
               <p class="uploaded_product__value">
-                <%= @brand_info.name || @search.clothing_brand || "Unknown" %>
+                <%= @brand_info&.name || @search.clothing_brand || "Unknown" %>
               </p>
             </div>
 
