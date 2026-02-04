@@ -1,9 +1,16 @@
 <div class="rating-wrapper">
   <div class="general-rating">
     <div class="general-rating__score">
-      <h5>Sustainability score</h5>
 
-      <div class="score-number">
+
+
+        <div class="rating-comparison">
+          <h1><%= brand.overall_rating %></h1>
+          <div class="rating-label">
+            <p>Sustainability</p><p>score</p>
+          </div>
+        </div>
+
         <div class="rating-cat__item">
           <% brand.overall_rating.times do %>
             <i class="fa-solid fa-leaf rating-icon rating-icon--green"></i>
@@ -12,8 +19,6 @@
             <i class="fa-solid fa-leaf rating-icon rating-icon--gray"></i>
           <% end %>
         </div>
-        <h1><%= brand.overall_rating %></h1>
-      </div>
 
     </div>
   </div>
@@ -30,6 +35,7 @@
         <% end %>
       </div>
     </div>
+    <hr>
     <div class="rating-cat">
       <p class="rating-cat__title">Animals</p>
       <div class="rating-cat__item">
@@ -41,6 +47,7 @@
         <% end %>
       </div>
     </div>
+    <hr>
     <div class="rating-cat">
       <p class="rating-cat__title">Planet</p>
       <div class="rating-cat__item">

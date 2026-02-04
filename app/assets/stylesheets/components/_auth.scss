@@ -1,0 +1,120 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.auth-container {
+  background-color: $off-white;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: $black;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.auth-subtitle {
+  font-size: 16px;
+  color: $gray;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-container .form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.auth-container .form-group {
+  margin-bottom: 0;
+}
+
+.auth-container .form-label,
+.auth-container label.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: $black;
+  margin-bottom: 8px;
+}
+
+.auth-container .form-control,
+.auth-input {
+  padding: 14px 16px;
+  border: 1px solid rgba($gray, 0.3);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    border-color: $green;
+    box-shadow: 0 0 0 3px rgba($green, 0.15);
+    outline: none;
+  }
+}
+
+.auth-remember {
+  margin-top: 4px;
+
+  label {
+    font-size: 14px;
+    color: $gray;
+    font-weight: 400;
+  }
+}
+
+.auth-container .form-actions .eco-btn {
+  width: 100%;
+  // Override Bootstrap's .btn class added by simple_form
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  background: $green;
+  border-color: $green;
+  color: $white;
+
+  &:hover {
+    background: rgba($dark-green, 0.8);
+    border-color: rgba($dark-green, 0.6);
+    color: $white;
+  }
+
+  &:active,
+  &:focus {
+    background: $dark-green;
+    border-color: $dark-green;
+    color: $white;
+    box-shadow: 0 0 0 0.25rem rgba($green, 0.25);
+  }
+}
+
+.auth-links {
+  margin-top: 24px;
+  text-align: center;
+
+  a {
+    display: block;
+    color: $dark-green;
+    font-size: 14px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $green;
+      text-decoration: underline;
+    }
+  }
+}

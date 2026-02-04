@@ -21,7 +21,7 @@
           placeholder: "e.g. T-shirt, Jacket",
           data: { action: "input->filter-form#debounceSubmit" } %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 dropdowns-group">
       <%= label_tag :clothing_colour, "COLOUR", class: "form-label" %>
       <%= text_field_tag :clothing_colour,
           params[:clear].present? ? nil : (params[:clothing_colour] || local_assigns[:search]&.clothing_colour&.capitalize),
@@ -36,7 +36,7 @@
           placeholder: "e.g. Cotton, Wool",
           data: { action: "input->filter-form#debounceSubmit" } %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 dropdown-rating">
       <%= label_tag :overall_rating, "MIN RATING", class: "form-label" %>
       <%= select_tag :overall_rating,
           options_for_select([["Any", ""], ["1+", 1], ["2+", 2], ["3+", 3], ["4+", 4], ["5", 5]],
@@ -45,8 +45,8 @@
           data: { action: "change->filter-form#submit" } %>
     </div>
   </div>
-  <div class="mt-3">
-    <%= submit_tag "Search", class: "eco-btn eco-btn--primary" %>
-    <%= link_to "Clear", clear_url, class: "eco-btn eco-btn--secondary", data: { turbo_frame: local_assigns[:turbo_frame] || "_top" } %>
+  <div class="mt-3 filters-buttons">
+    <%= submit_tag "Search", class: "eco-btn eco-btn--primary btn-search" %>
+    <%= link_to "Clear", clear_url, class: "btn-clear", data: { turbo_frame: local_assigns[:turbo_frame] || "_top" } %>
   </div>
 <% end %>
