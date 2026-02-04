@@ -1,5 +1,8 @@
 <div class="page-wishlist">
   <div class="container">
+    <%= link_to search_matches_path(@search) || root_path do %>
+      <div class="link-back"><i class="fa-solid fa-arrow-left"></i> Back</div>
+    <% end %>
     <h1 class="page-wishlist__title">My Wishlist</h1>
     <p class="page-wishlist__subtitle"><%= @wishlist_items.size %> saved <%= 'item'.pluralize(@wishlist_items.size) %></p>
 
@@ -9,7 +12,10 @@
           <% product = wishlist_item.comparison_product %>
           <% brand = product.brand %>
           <div class="col-md-3 col-sm-6 page-wishlist__col">
-            <%= render 'shared/match_card', product: product, brand: brand %>
+            <%= render 'shared/match_card', product: product,
+                  brand: brand, form_url: search_matches_path(@search),
+                  search: @search,
+                  clear_url: search_matches_path(@search, clear: true) %>
           </div>
         <% end %>
       </div>
