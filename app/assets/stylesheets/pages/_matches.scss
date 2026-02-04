@@ -275,14 +275,6 @@ a{
   --bs-gutter-y: 0.25rem;
 }
 
-// Search card CTA link (small text link at bottom of card)
-.search-card__cta {
-  font-size: 13px;
-  font-weight: 500;
-  color: $green;
-  letter-spacing: 0.02em;
-}
-
 .rating-icon--green {
   color: $green;
 }
@@ -331,38 +323,6 @@ a{
 
 .link-back {
   padding: 20px 0 12px 0;
-}
-// My Searches page structure (mirrors .page-wishlist)
-.page-searches {
-  .page-searches__title {
-    margin-bottom: 0.25rem;
-  }
-
-  .page-searches__subtitle {
-    color: $gray;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .page-searches__col {
-    margin-bottom: 0;
-  }
-
-  .page-searches__empty-text {
-    margin-bottom: 1rem;
-  }
-
-  .page-searches__empty-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .page-searches__empty-or {
-    color: $gray;
-    font-size: 0.9375rem;
-  }
 }
 
 

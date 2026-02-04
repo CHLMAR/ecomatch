@@ -20,11 +20,11 @@
     <div class="card-match-infos">
       <% if search.clothing_brand.present? %>
         <div class="card-brand-info truncate">
-          <p class="brand-name"><%= search.clothing_brand.capitalize %></p>
+          <p class="brand-name"><%= search.clothing_brand.titleize %></p>
         </div>
       <% else %>
         <div class="card-brand-info truncate">
-          <p class="brand-name">&nbsp;</p>
+          <p class="brand-name">Unknown brand</p>
         </div>
       <% end %>
 
