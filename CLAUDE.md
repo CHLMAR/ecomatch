@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Ecomatch is a Rails 7.1 sustainable fashion alternative finder. Users upload clothing images or provide links, GPT-4o analyzes the item, and the app matches it against eco-friendly alternatives from sustainable brands.
+Ecomatch is a Rails 7.1 sustainable fashion alternative finder. Users upload clothing images or provide links, GPT-4o analyzes the item asynchronously via background jobs, and the app matches it against eco-friendly alternatives from sustainable brands.
 
 ## Common Commands
 
@@ -12,6 +12,7 @@ Ecomatch is a Rails 7.1 sustainable fashion alternative finder. Users upload clo
 # Development
 rails server                    # Start server on localhost:3000
 rails console                   # Rails console
+bin/jobs                        # Start Solid Queue worker for background jobs
 
 # Database
 rails db:setup                  # Create, migrate, and seed (creates test user: eco@match.com/test123)
@@ -38,26 +39,27 @@ rails patagonia:list                                       # List Patagonia comp
 app/
 ├── assets/           # Images, stylesheets (SCSS), manifests
 ├── channels/         # Action Cable for real-time features
-├── controllers/      # 6 main controllers
+├── controllers/      # 7 main controllers
 ├── helpers/          # Application helpers
-├── javascript/       # Stimulus controllers, importmap config
-├── jobs/             # Background jobs (Active Job)
+├── javascript/       # Stimulus controllers, entrypoints
+├── jobs/             # Background jobs (SearchAnalysisJob via Solid Queue)
 ├── mailers/          # Email templates
-├── models/           # 8 core models
+├── models/           # 7 core models
 └── views/            # ERB templates organized by controller
 
 config/
-├── initializers/     # Devise, Ruby LLM, ScrapingBee configs
+├── initializers/     # Devise, Ruby LLM, ScrapingBee, Solid Queue configs
 ├── environments/     # Development/Production/Test configs
 └── routes.rb         # Nested resource routing
 
 db/
-├── migrate/          # 10 migrations
+├── migrate/          # 16 migrations
 ├── seeds.rb          # Seed data for brands (50+ brands)
 └── schema.rb         # PostgreSQL schema
 
 lib/
 ├── scrapers/         # 9 brand scrapers (Patagonia, Kotn, ASKET, etc.)
+├── scraping_bee_api.rb  # ScrapingBee service wrapper
 └── tasks/            # Rake tasks
 
 test/
@@ -70,60 +72,76 @@ test/
 
 **Core Flow:**
 1. User uploads image OR provides clothing link → `SearchesController#create`
-2. AI (GPT-4o via ruby_llm gem) analyzes clothing, extracts: item type, material, colour, brand, price
-3. Results matched against `comparison_products` table via AI similarity analysis
-4. Matches displayed with sustainable brand alternatives
-5. Users save favorites to wishlists
+2. Search record created with status `"processing"` → redirect to processing page
+3. `SearchAnalysisJob` runs asynchronously via Solid Queue
+4. AI (GPT-4o via ruby_llm gem) analyzes clothing, extracts: item type, material, colour, brand, price
+5. Job broadcasts completion via Turbo Stream → user redirected to matches
+6. Results matched against `comparison_products` table via AI similarity analysis
+7. Users save favorites to wishlists (linked to ComparisonProduct)
 
 ## Models
 
 ### User (Devise)
-- **Relationships:** `has_many :searches`, `has_many :wishlist_items`, `has_many :matches through: :searches`
+- **Relationships:** `has_many :searches, dependent: :destroy`, `has_many :wishlist_items, dependent: :destroy`, `has_many :matches, through: :searches`
 - **Devise modules:** `database_authenticatable`, `registerable`, `recoverable`, `rememberable`, `validatable`
 
 ### Search
-- **Relationships:** `belongs_to :user`, `has_many :matches dependent: :destroy`, `has_one_attached :uploaded_image`
+- **Relationships:** `belongs_to :user`, `has_many :matches, dependent: :destroy`, `has_one_attached :uploaded_image`
 - **Validation:** `image_or_link_present` - must have image OR link, not both
-- **Key attributes:** `uploaded_image`, `uploaded_link`, `system_prompt`, `clothing_item`, `clothing_material`, `clothing_colour`, `clothing_brand`, `clothing_price`, `item_image`, `item_name`, `item_description`
+- **Key attributes:** `uploaded_image`, `uploaded_link`, `system_prompt`, `clothing_item`, `clothing_material`, `clothing_colour`, `clothing_brand`, `clothing_price`, `item_image`, `item_name`, `item_description`, `status`
+- **Status values:** `"pending"` (default), `"processing"`, `"completed"`, `"failed"`
 
 ### Match
 - **Relationships:** `belongs_to :search`, `belongs_to :comparison_product`
-- **Delegation:** `delegate :user to: :search`
+- **Delegation:** `delegate :user, to: :search`
 - **Validation:** `similarities` presence required
 
 ### ComparisonProduct
-- **Relationships:** `belongs_to :brand`
+- **Relationships:** `belongs_to :brand`, `has_many :wishlist_items, dependent: :destroy`
 - **Required fields:** `brand_id`, `clothing_item`, `clothing_material`, `clothing_colour`, `clothing_brand`, `external_link`, `product_description`
-- **Key attributes:** Product details scraped from sustainable brand websites
+- **Key attributes:** `item_image`, `clothing_price`, `main_colour`
+- **Scopes:** `by_clothing_item`, `by_clothing_colour`, `by_clothing_material`, `by_overall_rating`, `ordered_by_params`
+- **Class methods:** `unique_clothing_items`, `valid_clothing_items` (9 types: t-shirt, hoodie, jacket, jeans, leggings, pants, shorts, sweater, shirt)
 
 ### Brand
 - **Relationships:** `has_many :comparison_products`
 - **Required fields:** `name`, `planet_rating`, `people_rating`, `animals_rating`, `overall_rating`, `description`
+- **Optional fields:** `logo` (URL string)
 - **Ratings:** Integer values (1-5 scale) for sustainability scoring
+- **Index:** `index_brands_on_lower_name` for case-insensitive lookups
 
 ### WishlistItem
-- **Relationships:** `belongs_to :user`, `belongs_to :match`, `belongs_to :comparison_product`
-- **Unique constraint:** `user_id` scoped to `match_id` (prevents duplicate saves)
+- **Relationships:** `belongs_to :user`, `belongs_to :comparison_product`
+- **Unique constraint:** `user_id` scoped to `comparison_product_id` (prevents duplicate saves)
 
 ## Controllers
 
 ### SearchesController
-- **Actions:** `new`, `create`, `edit`, `update`, `show`
+- **Actions:** `index`, `new`, `create`, `processing`, `show`, `edit`, `update`
 - **Key logic in `create`:**
   - Validates image OR link (not both)
-  - If image: Uses RubyLLM (GPT-4o) for image analysis
-  - If link: Uses ScrapingBeeApi for link scraping
-  - Parses JSON response and updates search record
+  - Creates search with status `"processing"`
+  - Enqueues `SearchAnalysisJob` for async processing
+  - Redirects to `processing` action (shows loading UI)
+- **Processing action:** Shows brand logo carousel while job runs
 - **Authentication:** `before_action :authenticate_user!`
 
 ### MatchesController
-- **Actions:** `index`, `show`
+- **Actions:** `index`, `show`, `show_product` (member)
+- **Before actions:** `set_search`
 - **Eager loads:** brand data for performance
-- **Features:** Filter dropdowns for color, material, clothing item
+- **Features:** Filter dropdowns for item type, colour, material, overall rating
+
+### ExploreController
+- **Actions:** `index`, `show`
+- **Purpose:** Browse all comparison products independently of searches
+- **Features:** Same filtering as MatchesController
+- **Authentication:** `before_action :authenticate_user!`
 
 ### WishlistItemsController
-- **Actions:** `create` (save), `destroy` (unsave)
-- **Routes:** `POST save`, `DELETE unsave` as member routes
+- **Actions:** `create`, `destroy`
+- **Before actions:** `authenticate_user!`, `set_comparison_product`
+- **Responses:** Turbo Stream for AJAX updates
 - **Handles:** Duplicate prevention via model validation
 
 ### WishlistsController
@@ -131,7 +149,21 @@ test/
 - **Displays:** User's saved wishlist items with eager-loaded associations
 
 ### PagesController
-- **Actions:** `home` (root path)
+- **Actions:** `home`, `about`, `contact`
+- **Home:** Loads top 7 brands by overall_rating for display
+
+## Background Jobs
+
+### SearchAnalysisJob
+- **Queue:** `:default` (via Solid Queue)
+- **Purpose:** Async AI analysis of uploaded images or links
+- **Methods:**
+  - `analyze_image(search)` - Uses RubyLLM for GPT-4o vision analysis
+  - `analyze_link(search)` - Uses ScrapingBeeApi + GPT-4o
+  - `normalize_colour(colour)` - Maps 30+ color variants to 12 standard colors
+  - `broadcast_completion(search)` - Turbo Stream broadcast on success
+  - `broadcast_error(search, error)` - Turbo Stream broadcast on failure
+- **Color normalization:** Maps shades (e.g., "navy", "teal", "forest") to base colors (blue, green)
 
 ## Database Schema
 
@@ -149,6 +181,7 @@ searches
 ├── system_prompt (string)
 ├── clothing_item/material/colour/brand/price
 ├── item_image/name/description
+├── status (string, default: "pending")
 └── timestamps
 
 brands
@@ -158,11 +191,14 @@ brands
 ├── animals_rating (integer, 1-5)
 ├── overall_rating (integer, 1-5)
 ├── description (text)
+├── logo (string, URL)
+├── index on lower(name)
 └── timestamps
 
 comparison_products
 ├── brand_id (FK → brands, indexed)
 ├── clothing_item/material/colour/brand
+├── main_colour (string)
 ├── clothing_price (float)
 ├── external_link (string)
 ├── product_description (text)
@@ -177,10 +213,11 @@ matches
 
 wishlist_items
 ├── user_id (FK → users, indexed)
-├── match_id (FK → matches, indexed)
 ├── comparison_product_id (FK → comparison_products, indexed)
-├── unique index on (user_id, match_id)
+├── unique index on (user_id, comparison_product_id)
 └── timestamps
+
+solid_queue_* tables (job queue infrastructure)
 
 active_storage_blobs/attachments (for Cloudinary image uploads)
 ```
@@ -190,19 +227,33 @@ active_storage_blobs/attachments (for Cloudinary image uploads)
 ```ruby
 devise_for :users                          # Devise authentication routes
 root to: "pages#home"                      # GET /
+get "about", to: "pages#about"             # GET /about
+get "contact", to: "pages#contact"         # GET /contact
+
+resources :explore, only: [:index, :show]  # Browse all products
 
 resources :searches, only: [:new, :create, :edit, :update, :show] do
+  member do
+    get :processing                        # GET /searches/:id/processing
+  end
   resources :matches, only: [:index, :show] do
     member do
-      post 'save', to: 'wishlist_items#create'      # POST /searches/:search_id/matches/:id/save
-      delete 'unsave', to: 'wishlist_items#destroy' # DELETE /searches/:search_id/matches/:id/unsave
+      get :show_product                    # GET /searches/:search_id/matches/:id/products/:id
     end
+  end
+end
+
+resources :comparison_products, only: [] do
+  member do
+    post :add_to_wishlist                  # POST /comparison_products/:id/add_to_wishlist
+    delete :remove_from_wishlist           # DELETE /comparison_products/:id/remove_from_wishlist
   end
 end
 
 resources :users, only: [:show, :edit, :update] do
   resources :wishlist_items, only: [:index, :show, :destroy]
   get 'wishlist', to: 'wishlists#index'    # GET /users/:id/wishlist
+  get 'searches', to: 'searches#index'     # GET /users/:id/searches
 end
 
 get "up" => "rails/health#show"            # Health check
@@ -215,10 +266,14 @@ get "up" => "rails/health#show"            # Health check
 - `layouts/mailer.html.erb` - Email template
 
 ### Pages
-- `pages/home.html.erb` - Hero banner, search form (conditional for logged-in users)
+- `pages/home.html.erb` - Hero banner, search form, top brands display
+- `pages/about.html.erb` - About page
+- `pages/contact.html.erb` - Contact page
 - `searches/new.html.erb` - Search form with image/link toggle, form-loader overlay
+- `searches/processing.html.erb` - Loading page with brand logo carousel (Turbo Stream updates)
 - `matches/index.html.erb` - Match results with filter dropdowns, match cards grid
-- `matches/show.html.erb` - Product detail with brand sustainability ratings, similar products carousel
+- `matches/show.html.erb` - Product detail with brand sustainability ratings
+- `explore/index.html.erb` - Browse all products with filters
 - `wishlists/index.html.erb` - User's saved matches grid
 
 ### Shared Partials
@@ -228,19 +283,33 @@ get "up" => "rails/health#show"            # Health check
 
 ## JavaScript/Stimulus
 
-**Importmap dependencies:**
+**Entry point:** `app/javascript/entrypoints/application.js`
+
+**Dependencies:**
 - `turbo-rails` (Hotwire page acceleration)
 - `stimulus` (modest JS framework)
 - `bootstrap` + `@popperjs/core`
 
 **Stimulus Controllers:**
 
-1. **form_loader_controller.js** (`app/javascript/controllers/`)
+1. **form_loader_controller.js**
    - Targets: `form`, `overlay`
-   - Shows loading overlay for 6000ms minimum, then submits form
-   - Message: "Entering the realm of sustainable fashion..."
+   - Shows loading overlay for minimum 1000ms, then submits form
+   - Intercepts form submit event
 
-2. **hello_controller.js** - Placeholder
+2. **filter_form_controller.js**
+   - Targets: `form`
+   - Auto-submits filter form on dropdown change
+   - Debounces text input (400ms delay)
+   - Methods: `submit()` (immediate), `debounceSubmit()` (delayed)
+
+3. **brand_carousel_controller.js**
+   - Targets: `logo`, `brandName`, `logoContainer`
+   - Values: `searchId`, `brands` (array), `interval` (default: 700ms)
+   - Rotates through brand logos during search processing
+   - Methods: `startCarousel()`, `stopCarousel()`, `nextBrand()`
+
+4. **hello_controller.js** - Placeholder
 
 ## Stylesheets (SCSS)
 
@@ -276,20 +345,33 @@ RubyLLM.configure do |config|
 end
 ```
 
-**Usage Pattern (SearchesController#create):**
+**Usage Pattern (SearchAnalysisJob):**
 ```ruby
-@chat = RubyLLM.chat(model: "gpt-4o").with_instructions(@search.system_prompt)
-@response = @chat.ask("Analyze this clothing item", with: { image: @search.uploaded_image.url })
-json_content = @response.content.gsub(/```json\s*/, '').gsub(/```\s*/, '').strip
-parsed = JSON.parse(json_content) rescue nil
+# Image analysis
+chat = RubyLLM.chat(model: "gpt-4o").with_instructions(search.system_prompt)
+response = chat.ask("Analyze this clothing item", with: { image: search.uploaded_image.url })
+
+# Link analysis (after ScrapingBee fetch)
+prompt = build_link_analysis_prompt(scraped_data)
+response = chat.ask(prompt)
+
+# Parse JSON response
+json_content = response.content.gsub(/```json\s*/, '').gsub(/```\s*/, '').strip
+parsed = JSON.parse(json_content)
 ```
 
 ## Services & Utilities
 
 ### ScrapingBeeApi (`lib/scraping_bee_api.rb`)
 - HTTP GET to ScrapingBee endpoint
-- Features: JS rendering, premium proxy, AI query
-- Returns JSON with: `clothing_item`, `clothing_material`, `clothing_colour`, `clothing_brand`, `clothing_price`, `item_image`, `item_name`, `item_description`
+- Features: JS rendering, stealth proxy, CSS selector extraction
+- Extracts: Open Graph meta tags (og:title, og:description, og:image) + page title
+- Returns JSON with: `item_name`, `item_description`, `item_image`, `page_title`
+
+### ApplicationHelper
+- `saved_to_wishlist?(comparison_product)` - Check if user saved product
+- `wishlist_item_for(comparison_product)` - Get wishlist item record
+- `brand_logo(brand_name)` - Map brand name to logo filename
 
 ## Web Scraping
 
@@ -312,6 +394,7 @@ parsed = JSON.parse(json_content) rescue nil
 - Realistic user agent, page delays (2-2.5s load, 1.5s between products)
 - Database saving with duplicate checking (external_link uniqueness)
 - `--visible` flag often required to bypass anti-bot detection
+- Optional Cloudinary image upload
 
 ### Patagonia Scraper Details
 
@@ -370,6 +453,9 @@ devise
 # AI/LLM
 ruby_llm                   # GPT-4o integration
 
+# Background Jobs
+solid_queue                # Database-backed job queue
+
 # Images
 cloudinary
 image_processing ~> 1.2
@@ -393,30 +479,44 @@ pg_search
 `db/seeds.rb` includes:
 - Test user: `eco@match.com` / `test123`
 - 50+ brands with sustainability ratings (1-5 scale):
-  - **High rated:** Patagonia (4.5), Everlane (4.5), Reformation (4.5)
+  - **High rated:** Patagonia (5), Everlane (5), Reformation (5)
   - **Medium rated:** H&M (3), Zara (3), Uniqlo (4)
   - **Low rated:** SHEIN (1), TEMU (1), Fashion Nova (1)
 
 ## Key Workflows
 
-### Search Flow
+### Search Flow (Async)
 1. User uploads image OR pastes product link (validated: must be one or other)
 2. `SearchesController#create`:
-   - Image: RubyLLM/GPT-4o analyzes → JSON extraction
-   - Link: ScrapingBeeApi fetches → AI query → JSON extraction
-3. Search record updated with: `clothing_item`, `clothing_material`, `clothing_colour`, `clothing_brand`, `clothing_price`, `item_image`, `item_name`, `item_description`
-4. Redirect to `search_matches_path` → displays Match results
+   - Creates search record with status `"processing"`
+   - Enqueues `SearchAnalysisJob.perform_later(search.id)`
+   - Redirects to `processing_search_path(search)`
+3. Processing page shows brand logo carousel via `brand_carousel_controller`
+4. `SearchAnalysisJob` performs analysis:
+   - Image: RubyLLM/GPT-4o vision analysis
+   - Link: ScrapingBeeApi fetch → GPT-4o analysis
+   - Updates search with extracted data, normalizes colour
+   - Sets status to `"completed"` or `"failed"`
+   - Broadcasts via Turbo Stream
+5. Client receives broadcast → redirects to `search_matches_path`
 
 ### Match Display
 1. `MatchesController#index` fetches matches with eager-loaded brand data
-2. Filter dropdowns for: color, material, clothing item
-3. Match cards with: product image, brand name, sustainability rating, price
-4. Wishlist heart button (conditional on authentication)
+2. Filter dropdowns for: item type, colour, material, overall rating
+3. `filter_form_controller` auto-submits on change with debouncing
+4. Match cards with: product image, brand name, sustainability rating, price
+5. Wishlist heart button (Turbo Stream updates)
+
+### Explore Products
+1. `ExploreController#index` shows all comparison products
+2. Same filtering as matches (item, colour, material, rating)
+3. Independent of search - users can browse catalog directly
 
 ### Wishlist Management
-- Save: `POST /searches/:search_id/matches/:id/save`
-- Unsave: `DELETE /searches/:search_id/matches/:id/unsave`
-- Duplicate prevention via unique constraint
+- Save: `POST /comparison_products/:id/add_to_wishlist`
+- Unsave: `DELETE /comparison_products/:id/remove_from_wishlist`
+- Turbo Stream responses for instant UI updates
+- Duplicate prevention via unique constraint (user_id, comparison_product_id)
 - View all: `GET /users/:id/wishlist`
 
 ## Deployment Notes
@@ -425,6 +525,11 @@ pg_search
 - Default: 5 threads min/max
 - Port: 3000 (or ENV PORT)
 - Worker timeout: 3600s in development
+
+**Solid Queue:**
+- Database-backed job queue (no Redis required)
+- Run worker: `bin/jobs`
+- Tables: `solid_queue_*` in PostgreSQL
 
 **Active Storage:**
 - Cloudinary service for image storage

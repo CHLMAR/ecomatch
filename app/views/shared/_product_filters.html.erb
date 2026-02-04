@@ -15,11 +15,6 @@
           ),
           class: "form-select",
           data: { action: "change->filter-form#submit" } %>
-      <%# <%= text_field_tag :clothing_item,
-          params[:clear].present? ? nil : (params[:clothing_item] || local_assigns[:search]&.clothing_item&.capitalize),
-          class: "form-control",
-          placeholder: "e.g. T-shirt, Jacket",
-          data: { action: "input->filter-form#debounceSubmit" } %>
     </div>
     <div class="col-md-3 dropdowns-group">
       <%= label_tag :clothing_colour, "COLOUR", class: "form-label" %>
