@@ -1,3 +1,9 @@
-<p class="mb-0 description-wrapper">
-  <%= brand.description.presence || "No description available for this brand yet." %>
-</p>
+<div class="description-wrapper">
+  <p class="mb-0">
+    <%= brand.description.presence || "No description available for this brand yet." %>
+  </p>
+  <%= link_to product.external_link, class: "btn-2 external-link", target: "_blank" do %>
+    Go their website
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+  <% end %>
+</div>

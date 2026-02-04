@@ -7,7 +7,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(161, 161, 161, 0.2);
   width: 250px;
-  height: 435px;
+  height: 375px;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
@@ -21,7 +21,6 @@
   display: block;
 }
 
-
 .card-match p {
   font-size: 16px;
   margin: 0;
@@ -29,16 +28,16 @@
   font-weight: 300 !important;
 }
 
-.brand {
+.product-name__full {
   display: flex;
   width: 100%;
-  padding-top: 12px;
-  color: #272727;
+  color: $black;
 }
 
 .brand-name {
   font-weight: 300;
   align-content: center;
+  letter-spacing: .05em;
 }
 
 .card-match-infos{
@@ -53,8 +52,9 @@
     font-size: 18px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;   /* 2 linhas */
+    -webkit-line-clamp: 2;
     overflow: hidden;
+    padding-top: 8px;
   }
 }
 
@@ -69,6 +69,8 @@
 .rating {
   display: flex;
   align-content: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
 
   p {
     align-content: center;
@@ -92,14 +94,12 @@
 }
 
 .card-brand-info {
-  justify-content: end;
+  display: flex;
+  justify-content: space-between;
   gap: 8px;
   padding-top: 4px;
 }
 
-.rating {
-  padding-top: 4px;
-}
 .leaf-sm {
   font-size: 13px;
   height: fit-content;
@@ -171,6 +171,14 @@
   font-weight: 600;
   line-height: 1;
   pointer-events: none;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 14px;
+  border-radius: 999px;
+  letter-spacing: .02em;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
