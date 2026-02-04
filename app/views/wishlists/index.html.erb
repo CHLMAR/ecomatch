@@ -13,9 +13,9 @@
           <% brand = product.brand %>
           <div class="col-md-3 col-sm-6 page-wishlist__col">
             <%= render 'shared/match_card', product: product,
-                  brand: brand, form_url: search_matches_path(@search),
-                  search: @search,
-                  clear_url: search_matches_path(@search, clear: true) %>
+                  brand: brand,
+                  search: @search
+            %>
           </div>
         <% end %>
       </div>
