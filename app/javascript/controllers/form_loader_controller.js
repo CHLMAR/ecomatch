@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "overlay"]
+  static targets = ["form"]
 
   connect() {
     this.boundHandleSubmit = this.handleSubmit.bind(this)
@@ -14,12 +14,7 @@ export default class extends Controller {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.overlayTarget.classList.add("active")
-    const minDisplayTime = 1000
-
-    setTimeout(() => {
-      this.formTarget.removeEventListener("submit", this.boundHandleSubmit)
-      this.formTarget.submit()
-    }, minDisplayTime)
+    this.formTarget.removeEventListener("submit", this.boundHandleSubmit)
+    this.formTarget.submit()
   }
 }
