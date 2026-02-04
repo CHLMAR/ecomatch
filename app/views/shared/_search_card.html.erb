@@ -1,6 +1,8 @@
 <% item_image_url = search.item_image.presence&.gsub(/^\[?"?/, '')&.gsub(/"?\]?$/, '') %>
 <% item_description = [search.clothing_colour&.capitalize, search.clothing_item&.capitalize].compact.join(" ") %>
 <% item_description = "Search from #{search.created_at.strftime('%d %b %Y')}" if item_description.blank? %>
+<% brand = Brand.find_by("LOWER(name) = ?", search.clothing_brand&.downcase) if search.clothing_brand.present? %>
+<% rating = brand&.overall_rating || 0 %>
 
 <%= link_to search_matches_path(search), class: "card-link" do %>
   <div class="card-match">
@@ -31,6 +33,14 @@
       </div>
 
       <div class="card-match-infos__bottom">
+        <div class="rating">
+          <% rating.times do %>
+            <i class="fa-solid fa-leaf leaf rating-icon--green"></i>
+          <% end %>
+          <% (5 - rating).times do %>
+            <i class="fa-solid fa-leaf leaf rating-icon--gray"></i>
+          <% end %>
+        </div>
         <span class="search-card__cta">View matches →</span>
       </div>
     </div>
