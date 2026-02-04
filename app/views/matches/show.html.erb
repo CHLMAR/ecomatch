@@ -34,7 +34,7 @@
         <%= product.product_description %>
         </p>
         <div class="price-view">
-          <p class="product-price-lg"><%= product.clothing_price %> €</p>
+          <p class="product-price-lg">€ <%= product.clothing_price %></p>
           <%= link_to product.external_link, class: "btn-2", target: "_blank" do %>
             View details
             <i class="fa-solid fa-arrow-up-right-from-square"></i>

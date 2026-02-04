@@ -25,21 +25,21 @@
 
     <div class="card-match-infos">
 
-      <div class="card-brand-info">
+      <div class="card-brand-info truncate">
         <p class="brand-name"><%= brand.name %> </p>
         <div class="rating">
 
           <% brand.overall_rating.times do %>
-            <i class="fa-solid fa-leaf leaf-sm" style="color: $green"></i>
+            <i class="fa-solid fa-leaf leaf-sm rating-icon--green"></i>
           <% end %>
           <% (5 - brand.overall_rating).times do %>
-            <i class="fa-solid fa-leaf leaf-sm" style="color: $light-gray"></i>
+            <i class="fa-solid fa-leaf leaf-sm rating-icon--gray"></i>
           <% end %>
         </div>
       </div>
 
-        <div class="brand">
-          <h2><%= product.clothing_colour %> <%= product.clothing_item %></h2>
+        <div class="product-name">
+          <h2 class="product-name_full truncate"><%= product.clothing_colour %> <%= product.clothing_item %></h2>
         </div>
 
     </div>
