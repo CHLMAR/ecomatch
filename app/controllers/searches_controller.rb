@@ -34,6 +34,7 @@ class SearchesController < ApplicationController
       # Render processing page
       render :processing
     else
+      @top_brands = Brand.order(overall_rating: :desc).limit(7)
       render 'pages/home', status: :unprocessable_entity, notice: "Error creating search."
     end
   end

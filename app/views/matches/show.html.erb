@@ -98,15 +98,16 @@
   <% if @similar_products.any? %>
     <div class="similar-products">
       <h4>Similar Products</h4>
-        <div class="similar-wrapper">
+        <div class="similar-wrapper" data-controller="scroll">
           <button
             class="scroll-btn scroll-btn--left"
             type="button"
-            aria-label="Scroll left">
+            aria-label="Scroll left"
+            data-action="click->scroll#scrollLeft">
             ‹
           </button>
 
-          <div class="similar-scroll" data-scroll-container>
+          <div class="similar-scroll" data-scroll-target="container">
             <% @similar_products.each do |similar_product| %>
               <div class="similar-scroll__item">
                 <%= render "shared/match_card",
@@ -120,7 +121,8 @@
           <button
             class="scroll-btn scroll-btn--right"
             type="button"
-            aria-label="Scroll right">
+            aria-label="Scroll right"
+            data-action="click->scroll#scrollRight">
             ›
           </button>
         </div>
