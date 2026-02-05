@@ -12,31 +12,32 @@
     </div>
 
     <div class="uploaded-product__details">
-
       <div class="uploaded_product__item">
-        <p class="uploaded_product__value">
-          <%= @brand_info&.name || @search.clothing_brand || "Unknown" %>
-          <h6><%= @search.clothing_colour %> <%= @search.clothing_item %></h6>
-        </p>
+        <h6>Brand</h6>
+        <p><%= @brand_info&.name || @search.clothing_brand || "Unknown" %></p>
+        <h6>Product</h6>
+        <p><%= @search.clothing_colour.titleize %> <%= @search.clothing_item.titleize %></p>
       </div>
     </div>
   </div>
 
-  <div class="uploaded-details">
+  <div class="uploaded-details mt-4">
     <% if @brand_info.present? %>
       <h6>Sustainability score</h6>
-      <div class="rating-item">
+      <div class="rating-item rating-item--with-tooltip">
         <div class="rating-item__label">Overall</div>
-          <div>
-            <% @brand_info.overall_rating.times do %>
-              <i class="fa-solid fa-leaf rating-item__icon rating-icon--green"></i>
-            <% end %>
-            <% (5 - @brand_info.overall_rating).times do %>
-              <i class="fa-solid fa-leaf rating-item__icon rating-icon--gray"></i>
-            <% end %>
-          </div>
+        <div>
+          <% @brand_info.overall_rating.times do %>
+            <i class="fa-solid fa-leaf rating-item__icon rating-icon--green"></i>
+          <% end %>
+          <% (5 - @brand_info.overall_rating).times do %>
+            <i class="fa-solid fa-leaf rating-item__icon rating-icon--gray"></i>
+          <% end %>
+        </div>
+        <div class="rating-tooltip">
+          <p class="rating-tooltip__text text-center">Overall rating is an average of the three categories: People, Animals, and Planet.<br>A higher rating is better.</p>
+        </div>
       </div>
-
       <hr>
 
       <div class="rating-item">
@@ -81,5 +82,6 @@
     <% else %>
       <p class="text-muted small">Brand not in database — ratings unavailable.</p>
     <% end %>
+    <%= link_to "Ratings provided by GoodOnYou", "https://goodonyou.eco/" %>
   </div>
 </div>
