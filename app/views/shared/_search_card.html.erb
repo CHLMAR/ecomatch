@@ -6,6 +6,7 @@
 
 <%= link_to search_matches_path(search), class: "card-link" do %>
   <div class="card-match">
+    <span class="search-card__id-badge"><%= search.id %></span>
     <div class="card-image">
       <% placeholder_path = asset_path("placeholder_outfit.png") %>
       <% if item_image_url.present? && item_image_url.start_with?('//') %>
