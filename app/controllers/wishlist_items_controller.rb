@@ -20,7 +20,12 @@ class WishlistItemsController < ApplicationController
 
     if @wishlist_item&.destroy
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("wishlist_#{@comparison_product.id}", partial: "shared/wishlist_button", locals: { product: @comparison_product }) }
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace("wishlist_#{@comparison_product.id}", partial: "shared/wishlist_button", locals: { product: @comparison_product }),
+            turbo_stream.remove("wishlist_card_#{@comparison_product.id}")
+          ]
+        end
         format.html { redirect_back(fallback_location: root_path, notice: "Product removed from wishlist!") }
       end
     else
