@@ -18,16 +18,8 @@
 
   <div class="col-8 product-card-show product-card-show--with-wishlist">
     <% if user_signed_in? %>
-      <div class="wishlist-button wishlist-button--main-card">
-        <% if saved_to_wishlist?(product) %>
-          <%= button_to remove_from_wishlist_comparison_product_path(product), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
-            <i class="fa-solid fa-heart"></i>
-          <% end %>
-        <% else %>
-          <%= button_to add_to_wishlist_comparison_product_path(product), method: :post, class: "btn-wishlist", title: "Save to wishlist" do %>
-            <i class="fa-regular fa-heart"></i>
-          <% end %>
-        <% end %>
+      <div class="wishlist-button--main-card">
+        <%= render "shared/wishlist_button", product: product %>
       </div>
     <% end %>
 
