@@ -7,7 +7,7 @@
       <h1>Dress Sustainably. <br> Stay Yourself.</h1>
       <p>Discover eco-friendly alternatives for fashion items without compromising on style.</p>
     </div>
-    <div class="banner-search" <%= "data-controller=form-loader" if current_user %>>
+    <div class="banner-search" <% if current_user %>data-controller="form-loader"<% end %>>
       <% if current_user %>
         <%= simple_form_for Search.new, url: searches_path, html: { multipart: true, data: { form_loader_target: "form" } } do |f| %>
           <div class="search-inputs">
