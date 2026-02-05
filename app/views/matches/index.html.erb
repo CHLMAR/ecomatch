@@ -7,6 +7,7 @@
           <li class="nav-item" role="presentation">
             <button
               class="nav-link active"
+              id="nav-btn-sidebar"
               data-bs-toggle="tab"
               data-bs-target="#brand-score"
               type="button"
@@ -19,6 +20,7 @@
           <li class="nav-item" role="presentation">
             <button
               class="nav-link"
+              id="nav-btn-sidebar"
               data-bs-toggle="tab"
               data-bs-target="#about-brand"
               type="button"
@@ -30,7 +32,7 @@
         </ul>
       </div>
 
-      <div class="tab-content brand-tabs__content mt-3">
+      <div class="tab-content brand-tabs__content mt-3" id="content-partials-sidebar">
         <div class="tab-pane fade show active uploaded-product-partial" id="brand-score" role="tabpanel">
           <%= render "shared/uploaded_product" %>
         </div>
