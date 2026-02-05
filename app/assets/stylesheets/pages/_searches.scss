@@ -8,8 +8,31 @@
   letter-spacing: 0.02em;
 }
 
-// My Searches page structure (mirrors .page-wishlist)
+// Search ID badge (top-left circle)
+.search-card__id-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 28px;
+  height: 28px;
+  background-color: $green;
+  color: $white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+// My Searches page structure (mirrors matches#index spacing)
 .page-searches {
+  // Wider container to fit 5 cards per row
+  .container {
+    max-width: 1400px;
+  }
+
   .page-searches__title {
     margin-bottom: 0.25rem;
   }
@@ -20,7 +43,16 @@
     margin-bottom: 1.5rem;
   }
 
+  .page-searches__grid {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.3rem;
+    row-gap: 2rem;
+    width: 100%;
+  }
+
   .page-searches__col {
+    flex: 0 0 auto;
     margin-bottom: 0;
   }
 

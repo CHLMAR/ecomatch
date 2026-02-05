@@ -1,0 +1,91 @@
+<% brand ||= product.brand %>
+<% back_path = local_assigns[:back_path] || request.referer || root_path %>
+
+<%= link_to back_path do %>
+  <div class="link-back"><i class="fa-solid fa-arrow-left"></i> Back</div>
+<% end %>
+
+<h1>Product details</h1>
+
+<div class="row card-product-lg g-0 align-items-stretch">
+  <div class="col-4">
+    <%= image_tag(
+      product.item_image.presence || "placeholder_outfit.png",
+      class: "img-fluid w-100 h-100 object-fit-cover",
+      alt: product.clothing_item
+    ) %>
+  </div>
+
+  <div class="col-8 product-card-show product-card-show--with-wishlist">
+    <% if user_signed_in? %>
+      <div class="wishlist-button wishlist-button--main-card">
+        <% if saved_to_wishlist?(product) %>
+          <%= button_to remove_from_wishlist_comparison_product_path(product), method: :delete, class: "btn-wishlist saved", title: "Remove from wishlist" do %>
+            <i class="fa-solid fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= button_to add_to_wishlist_comparison_product_path(product), method: :post, class: "btn-wishlist", title: "Save to wishlist" do %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="prod-info-group">
+      <h2><%= product.clothing_item %></h2>
+      <p class="product-description">
+        <%= product.product_description %>
+      </p>
+      <div class="price-view">
+        <p class="product-price-lg">€ <%= product.clothing_price %></p>
+        <%= link_to product.external_link, class: "btn-2", target: "_blank" do %>
+          View details
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="brand-intro">
+      <div class="overall-rating">
+        <div class="tabs-header">
+          <p><%= brand.name %></p>
+          <ul class="nav brand-tabs__nav" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                data-bs-toggle="tab"
+                data-bs-target="#brand-score"
+                type="button"
+                role="tab"
+                aria-selected="true">
+                Brand score
+              </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#about-brand"
+                type="button"
+                role="tab"
+                aria-selected="false">
+                About the brand
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-content brand-tabs__content mt-3">
+          <div class="tab-pane fade show active" id="brand-score" role="tabpanel">
+            <%= render "shared/brand_score", brand: brand, product: product %>
+          </div>
+
+          <div class="tab-pane fade" id="about-brand" role="tabpanel">
+            <%= render "shared/about_brand", brand: brand, product: product %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
