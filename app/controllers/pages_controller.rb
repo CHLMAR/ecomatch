@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @top_brands = Brand.order(overall_rating: :desc).limit(7)
+    @top_brands = Brand.where.not(logo: [nil, ""])
+                       .order(Arel.sql("(planet_rating + people_rating + animals_rating) / 3.0 DESC"))
+                       .limit(7)
   end
 
   def about

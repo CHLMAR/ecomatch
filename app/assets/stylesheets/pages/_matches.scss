@@ -11,6 +11,7 @@
   width: 25% !important;
   background-color: $sand;
   flex: 0 0 auto;
+  overflow: hidden;
 }
 
 h1 {
@@ -185,7 +186,7 @@ a {
 .matches-list {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   column-gap: 1.3rem;
   row-gap: 2rem;
@@ -212,15 +213,16 @@ a {
   }
 }
 
-.uploaded_product__label {
-  font-size: 12px;
-  font-weight: 700;
+.uploaded_product__value h6 {
+  font-size: 18px;
+  padding-top: 0;
   margin-bottom: 0;
-  color: $black;
 }
 
-.uploaded_product__value {
-  font-size: 14px;
+.uploaded_product__value p {
+  font-size: 16px;
+  padding-top: 0;
+  margin-bottom: 0;
 }
 
 .icons-sidebar-wrapper {
@@ -230,8 +232,22 @@ a {
 }
 
 .uploaded-product__main {
-  display: flex;
   width: 100%;
+  min-width: 0;
+}
+
+.img-container {
+  flex: 0 0 130px;     /* largura fixa */
+  width: 130px;
+  height: 180px;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .rating-item__label {
@@ -256,19 +272,6 @@ a {
 .rating-item__icon {
   margin: 0 2px;
   font-size: 14px;
-}
-
-.img-container {
-  width: 100px;
-  height: 120px;
-  overflow: hidden;
-}
-
-.product-image-sm {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 .upload-product {
@@ -413,16 +416,14 @@ hr {
 
 .brand-tabs__nav {
   display: flex;
-  width: 100%;
-  padding: 100px 40px 40px 30px;
-  height: 42px;
-  font-weight: 600;
-  align-content: center;
+  margin: 0;
+  padding: 0;
   gap: 10px;
+  list-style: none;
 }
 
-.brand-tabs__nav .nav-item {
-  flex: 1;
+.brand-tabs__item {
+  list-style: none;
 }
 
 .tabs-header {
@@ -441,12 +442,30 @@ hr {
   }
 }
 
-.nav-link {
-  font-weight: 400;
-  font-size: 16px;
+.product-tabs-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    font-size: 18px;
+    font-weight: 600;
+    color: $black;
+    margin-bottom: 0;
+  }
 }
 
-.nav-link.active {
+.brand-tabs__link {
+  font-weight: 400;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.brand-tabs__link.active {
   color: $dark-green;
 }
 
