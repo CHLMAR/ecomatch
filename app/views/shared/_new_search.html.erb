@@ -6,7 +6,7 @@
         <%= f.input_field :uploaded_image, as: :file, class: "file-input", accept: "image/*", id: "file-placeholder-sb",
         onchange: "this.nextElementSibling.querySelector('.file-placeholder').textContent = this.files[0]?.name || 'Choose a file or drag it here'" %>
         <div class="file-input-display" id="file-input-display-sb">
-          <span class="file-placeholder-sb">Drag and drop or click to upload an image</span>
+          <span class="file-placeholder">Drag and drop or click to upload an image</span>
           <i class="fa-solid fa-file-arrow-up"></i>
         </div>
     </div>

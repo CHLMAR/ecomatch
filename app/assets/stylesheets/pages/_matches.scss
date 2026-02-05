@@ -281,6 +281,41 @@ a {
   }
 }
 
+.rating-item--with-tooltip {
+  position: relative;
+  cursor: help;
+
+  &:hover .rating-tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.rating-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  width: 220px;
+  padding: 12px;
+  margin-top: 8px;
+  background-color: $white;
+  border: 1px solid rgba($gray, 0.2);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+
+  &__text {
+    font-size: 13px;
+    font-weight: 400;
+    color: $black;
+    line-height: 1.4;
+    margin: 0;
+  }
+}
+
 .rating-item {
   display: flex;
   justify-content: space-between;
