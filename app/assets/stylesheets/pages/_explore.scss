@@ -4,13 +4,16 @@
   align-items: flex-start;
 }
 
-.uploaded-product-exp {
+.uploaded-product-sidebar {
   position: sticky;
   top: 0;
   height: 100vh;
   width: 25% !important;
-  background-color: $sand;
+  background-color: $sand !important;
   flex: 0 0 auto;
+  p {
+    margin-top: 20px;
+  }
 }
 
 h1 {
