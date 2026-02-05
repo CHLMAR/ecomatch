@@ -11,12 +11,14 @@
         <% @wishlist_items.each do |wishlist_item| %>
           <% product = wishlist_item.comparison_product %>
           <% brand = product.brand %>
-          <div class="col-md-3 col-sm-6 page-wishlist__col">
-            <%= render 'shared/match_card', product: product,
-                  brand: brand,
-                  search: @search
-            %>
-          </div>
+          <%= turbo_frame_tag "wishlist_card_#{product.id}" do %>
+            <div class="col-md-3 col-sm-6 page-wishlist__col">
+              <%= render 'shared/match_card', product: product,
+                    brand: brand,
+                    search: @search
+              %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     <% else %>

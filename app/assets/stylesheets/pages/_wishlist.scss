@@ -11,8 +11,43 @@
     margin-bottom: 1.5rem;
   }
 
+  .page-wishlist__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    > turbo-frame {
+      flex: 0 0 auto;
+      width: calc(25% - 1.125rem);
+
+      @media (max-width: 991px) {
+        width: calc(33.333% - 1rem);
+      }
+
+      @media (max-width: 767px) {
+        width: calc(50% - 0.75rem);
+      }
+
+      @media (max-width: 575px) {
+        width: 100%;
+      }
+    }
+  }
+
   .page-wishlist__col {
-    margin-bottom: 0;
+    width: 100%;
+
+    @media (max-width: 991px) {
+      width: calc(33.333% - 1rem);
+    }
+
+    @media (max-width: 767px) {
+      width: calc(50% - 0.75rem);
+    }
+
+    @media (max-width: 575px) {
+      width: 100%;
+    }
   }
 
   .page-wishlist__empty-text {
