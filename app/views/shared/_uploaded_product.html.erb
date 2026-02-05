@@ -14,20 +14,9 @@
     <div class="uploaded-product__details">
 
       <div class="uploaded_product__item">
-        <p class="uploaded_product__label">
-        Brand
-        </p>
         <p class="uploaded_product__value">
           <%= @brand_info&.name || @search.clothing_brand || "Unknown" %>
-        </p>
-      </div>
-
-      <div class="uploaded_product__item">
-        <p class="uploaded_product__label">
-          Product type
-        </p>
-        <p class="uploaded_product__value">
-          <%= @search.clothing_colour %> <%= @search.clothing_item %>
+          <h6><%= @search.clothing_colour %> <%= @search.clothing_item %></h6>
         </p>
       </div>
     </div>
