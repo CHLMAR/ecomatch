@@ -1,5 +1,5 @@
 .footer {
-  background: $light-gray;
+  background: #302A24;
   color: $black;
   padding: 40px 50px 20px;
   margin-top: auto;
@@ -26,14 +26,14 @@
     font-size: 2rem;
     font-weight: 700;
     margin: 0;
-    color: $black;
+    color: $off-white;
   }
 
   h3 {
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0 0 15px 0;
-    color: $black;
+    color: $off-white;
   }
 }
 
@@ -57,7 +57,7 @@
   gap: 15px;
 
   a {
-    color: $black;
+    color: $off-white;
     opacity: 0.7;
     text-decoration: none;
     font-size: 1.5rem;
@@ -79,7 +79,7 @@
   }
 
   a {
-    color: $black;
+    color: $off-white;
     opacity: 0.7;
     text-decoration: none;
     transition: opacity 0.2s ease;
@@ -95,9 +95,10 @@
   padding-top: 20px;
   font-size: 0.85rem;
   opacity: 0.6;
+  color: $off-white;
 
   .fa-heart {
-    color: $orange;
+    color: $off-white;
   }
 }
 
