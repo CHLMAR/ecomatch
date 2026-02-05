@@ -91,7 +91,7 @@
       <h3>The Problem</h3>
       <%= image_tag "fast_fashion.png", alt: "Fast fashion problem" %>
       <p>Fast fashion relies on low-cost production that comes at the expense
-        of <strong>fair wages, safe working conditions and animal welfare</strong>.
+        of <strong>fair wages, safe working conditions and animal welfare, and the environment</strong>.
       </p>
     </div>
     <div class="column-item">
@@ -159,11 +159,7 @@
   <div class="top-brands-list">
     <% @top_brands.each do |brand| %>
       <div class="top-brand-item">
-        <% if brand_logo(brand.name) %>
-          <%= image_tag brand_logo(brand.name), alt: brand.name, class: "brand-logo" %>
-        <% else %>
-          <h3><%= brand.name %></h3>
-        <% end %>
+        <%= image_tag brand.logo, alt: brand.name, class: "brand-logo" %>
       </div>
     <% end %>
   </div>

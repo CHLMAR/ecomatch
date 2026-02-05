@@ -14,6 +14,34 @@ puts "User: #{user.email}"
 # Brands
 # =============================================================================
 
+pangaia_brand = Brand.find_or_create_by!(name: "PANGAIA") do |b|
+  b.description = "PANGAIA offers a range of comfort focused clothing from sleepwear to tailored blazers, all made with innovative textiles."
+  b.planet_rating = 5
+  b.people_rating = 5
+  b.animals_rating = 4
+  b.overall_rating = 5
+end
+puts "Brand: #{pangaia_brand.name}"
+
+kings_of_indigo_brand = Brand.find_or_create_by!(name: "Kings of Indigo") do |b|
+  b.description = "Since 2012, Kings of Indigo has curated denim collections."
+  b.planet_rating = 5
+  b.people_rating = 4
+  b.animals_rating = 4
+  b.overall_rating = 5
+end
+puts "Brand: #{kings_of_indigo_brand.name}"
+
+ftc_cashmere_brand = Brand.find_or_create_by!(name: "FTC Cashmere") do |b|
+  b.description = "Founded in 2003, FTC Cashmere is a German family business that has established itself as a premium knitwear specialist. , Founded in 2003, FTC Cashmere is a German family business that has established itself as a premium knitwear specialist."
+  b.planet_rating = 5
+  b.people_rating = 4
+  b.animals_rating = 4
+  b.overall_rating = 5
+end
+puts "Brand: #{ftc_cashmere_brand.name}"
+
+
 zara_brand = Brand.find_or_create_by!(name: "Zara") do |b|
   b.description = "Global fast fashion retailer offering trendy clothing and accessories."
   b.planet_rating = 2
@@ -377,7 +405,10 @@ brand_logos = {
   "Victoria's Secret" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046745/development/brand_logos/victorias-secret.png",
   "YesStyle" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770047356/development/brand_logos/yesstyle.png",
   "Zaful" => "https://cdn.brandfetch.io/idZJj4q2Tv/w/228/h/52/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1768233773601",
-  "Zara" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046258/development/brand_logos/zara.png"
+  "Zara" => "https://res.cloudinary.com/dejcefe2o/image/upload/v1770046258/development/brand_logos/zara.png",
+  "FTC Cashmere" => "https://cdn.brandfetch.io/idA8a7UDPl/w/509/h/430/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1761928735198",
+  "Kings of Indigo" => "https://cdn.brandfetch.io/idAg8NVooI/w/2000/h/800/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1766409608839",
+  "PANGAIA" => "https://cdn.brandfetch.io/idjJT7nv2p/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1765384651077"
 }
 
 brand_logos.each do |name, logo_url|
