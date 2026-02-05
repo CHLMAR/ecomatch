@@ -12,17 +12,16 @@
     </div>
 
     <div class="uploaded-product__details">
-
       <div class="uploaded_product__item">
-        <p class="uploaded_product__value">
-          <%= @brand_info&.name || @search.clothing_brand || "Unknown" %>
-          <h6><%= @search.clothing_colour %> <%= @search.clothing_item %></h6>
-        </p>
+        <h6>Brand</h6>
+        <p><%= @brand_info&.name || @search.clothing_brand || "Unknown" %></p>
+        <h6>Product</h6>
+        <p><%= @search.clothing_colour.titleize %> <%= @search.clothing_item.titleize %></p>
       </div>
     </div>
   </div>
 
-  <div class="uploaded-details">
+  <div class="uploaded-details mt-4">
     <% if @brand_info.present? %>
       <h6>Sustainability score</h6>
       <div class="rating-item">
