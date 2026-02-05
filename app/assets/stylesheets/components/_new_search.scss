@@ -8,10 +8,6 @@
   margin-top: 20px;
 }
 
-.mb-0 {
-  padding-top: 20px;
-}
-
 .search-inputs {
   display: flex;
   flex-direction: column;
@@ -73,7 +69,7 @@
 
 .file-placeholder {
   display: flex;
-  flex-direction: wrap;
+  flex-direction: column;
   color: #888;
   font-size: 1rem;
   max-width: 350px;

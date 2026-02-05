@@ -1,29 +1,36 @@
+<p>Upload an item or paste a link to discover sustainable alternatives</p>
+
 <%= simple_form_for Search.new, url: searches_path, html: { multipart: true, data: { form_loader_target: "form" } } do |f| %>
   <div class="search-inputs">
-      <div class="file-input-wrapper">
+    <div class="file-input-wrapper">
         <%= f.input_field :uploaded_image, as: :file, class: "file-input", accept: "image/*", id: "uploaded_image",
         onchange: "this.nextElementSibling.querySelector('.file-placeholder').textContent = this.files[0]?.name || 'Choose a file or drag it here'" %>
         <div class="file-input-display">
-          <span class="file-placeholder">Drag and drop or click to upload the image of a product to find matches</span>
+          <span class="file-placeholder">Drag and drop or click to upload an image</span>
           <i class="fa-solid fa-file-arrow-up"></i>
         </div>
-      </div>
-    </div>
-    <div class="input-divider">
-      <span>OR</span>
-    </div>
-    <div class="input-card">
-      <label class="input-card-label">
-        <span>Paste the link to the product</span>
-      </label>
-      <div class="input-group">
-        <i class="fa-solid fa-link"></i>
-        <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product" %>
-      </div>
     </div>
   </div>
+
+  <div class="input-divider">
+    <span>OR</span>
+  </div>
+
+  <div class="input-card">
+    <label class="input-card-label">
+      <span>Paste the link to the product</span>
+    </label>
+
+    <div class="input-group">
+      <i class="fa-solid fa-link"></i>
+      <%= f.input_field :uploaded_link, class: "form-control", placeholder: "https://example.com/product" %>
+    </div>
+  </div>
+
+
+
   <div class="mt-4">
     <%= f.submit "Find the perfect match", class: "eco-btn eco-btn--primary" %>
   </div>
-  <div class="inspiration-row mt-2">
+
 <% end %>

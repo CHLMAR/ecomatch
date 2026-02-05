@@ -1,24 +1,32 @@
-.filters-buttons {
-  align-content: baseline;
-  height: fit-content;
+.selectors-group{
+  display:flex;
+  gap:16px;
+  align-items:flex-end;
+  width:100%;
+  flex-wrap:nowrap;
+  min-width:0;
 }
 
-.btn-search .btn-clear {
-  height: 41.09px;
+.selectors-group > div{
+  flex: 1 1 0;
+  min-width: 0;
 }
-
-.btn-clear {
-  padding: 0 12px;
+.filter-field {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .dropdown-rating {
-  width: 120px;
+  flex: 0.6 1 60px;
+  min-width: 0;
 }
 
-.dropdowns-group {
-  flex-grow: 1;
+.first-input-field {
+  flex: 0.6 1 80px;
+  min-width: 0;
 }
 
-.filters {
-  align-content: baseline;
+.dropdown-rating .form-select{
+  width: 100%;
+  min-width: 0;
 }

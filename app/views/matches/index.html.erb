@@ -1,6 +1,7 @@
-<div class="row">
+<div class="container-fluid">
+  <div class="row">
     <%# Sidebar %>
-    <div class="col-lg-3 col-md-4 uploaded-product-sidebar">
+    <div class="col-12 col-lg-3 uploaded-product-sidebar">
       <div class="tabs-header">
         <ul class="nav brand-tabs__nav" role="tablist">
           <li class="nav-item" role="presentation">
@@ -42,80 +43,33 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <%# Filters and results %>
-    <div class="col-lg-9 col-md-8 matches-section">
+    <div class="col-12 col-lg-9 matches-section">
 
-        <div class="results-section">
-          <h2>You've got <%= @comparison_products.count %> matches</h2>
+      <div class="results-section">
+        <h2>You've got <%= @comparison_products.count %> matches</h2>
 
-          <%= turbo_frame_tag "results_frame", data: { turbo_action: "advance" } do %>
-            <div class="results-section__filters">
-              <%= render "shared/product_filters",
-                  form_url: search_matches_path(@search),
-                  search: @search,
-                  clear_url: search_matches_path(@search, clear: true) %>
+        <%= turbo_frame_tag "results_frame", data: { turbo_action: "advance" } do %>
+          <div class="results-section__filters">
+            <%= render "shared/product_filters",
+                form_url: search_matches_path(@search),
+                search: @search,
+                clear_url: search_matches_path(@search, clear: true) %>
+          </div>
+        <% end %>
+
+        <div class="matches-list">
+          <% @comparison_products.each do |product| %>
+            <% brand = product.brand %>
+            <div class="match-item">
+              <%= render "shared/match_card",
+                    search: @search,
+                    product: product,
+                    brand: brand %>
             </div>
           <% end %>
-
-            <div class="matches-list">
-              <% @comparison_products.each do |product| %>
-                <% brand = product.brand %>
-                <div class="match-item">
-                  <%= render "shared/match_card",
-                        search: @search,
-                        product: product,
-                        brand: brand %>
-                </div>
-              <% end %>
-            </div>
-
         </div>
+      </div>
     </div>
   </div>
+</div>
