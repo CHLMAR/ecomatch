@@ -2,7 +2,7 @@
 
 // Remove navbar border on home page
 body:has(.hero-section) .navbar-lewagon {
-  border-bottom: none;
+  box-shadow: none;
 }
 
 .hero-section {
