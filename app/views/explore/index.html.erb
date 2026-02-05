@@ -1,29 +1,80 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-12 matches-section">
-      <%= turbo_frame_tag "results_frame", data: { turbo_action: "advance" } do %>
-      <div class="results-section">
-        <h2>Explore Our Sustainable Collection</h2>
-        <p class="text-muted mb-4">Browse <%= @comparison_products.count %> eco-friendly products</p>
+    <%# Sidebar %>
+    <div class="col-12 col-lg-3 uploaded-product-sidebar">
+      <div class="tabs-header">
+        <ul class="nav brand-tabs__nav" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="nav-btn-sidebar"
+              data-bs-toggle="tab"
+              data-bs-target="#brand-score"
+              type="button"
+              role="tab"
+              aria-selected="true">
+              Your item
+            </button>
+          </li>
 
-        <div class="results-section__filters">
-          <%= render "shared/product_filters",
-              form_url: explore_path,
-              clear_url: explore_path %>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="nav-btn-sidebar"
+              data-bs-toggle="tab"
+              data-bs-target="#about-brand"
+              type="button"
+              role="tab"
+              aria-selected="false">
+              New search
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content brand-tabs__content mt-3" id="content-partials-sidebar">
+        <div class="tab-pane fade show active uploaded-product-partial" id="brand-score" role="tabpanel">
+          <%= render "shared/uploaded_product" %>
+        </div>
+
+        <div class="tab-pane fade new-search-partial" id="about-brand" role="tabpanel" data-controller="form-loader">
+          <%= render "shared/new_search" %>
         </div>
       </div>
+    </div>
 
-      <div class="matches-list">
-        <% @comparison_products.each do |product| %>
-          <% brand = product.brand %>
-          <div class="match-item">
-            <%= render "shared/match_card",
-                  product: product,
-                  brand: brand,
-                  product_path: explore_product_path(product) %>
+
+
+    <%# Filters and results %>
+    <div class="col-12 col-lg-9 matches-section">
+
+      <div class="results-section">
+        <h2>You've got <%= @comparison_products.count %> matches</h2>
+
+        <%= turbo_frame_tag "results_frame", data: { turbo_action: "advance" } do %>
+          <div class="results-section__filters">
+            <%= render "shared/product_filters",
+                form_url: search_matches_path(@search),
+                search: @search,
+                clear_url: search_matches_path(@search, clear: true) %>
           </div>
         <% end %>
+
+        <div class="matches-list">
+            <% @comparison_products.each do |product| %>
+              <% brand = product.brand %>
+              <div class="match-item">
+                <%= render "shared/match_card",
+                      product: product,
+                      brand: brand,
+                      product_path: explore_product_path(product) %>
+              </div>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+
       </div>
-      <% end %>
+    </div>
   </div>
 </div>
