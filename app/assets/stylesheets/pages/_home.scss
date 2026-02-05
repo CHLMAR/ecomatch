@@ -1,5 +1,10 @@
 // Specific CSS for your home-page
 
+// Remove navbar border on home page
+body:has(.hero-section) .navbar-lewagon {
+  border-bottom: none;
+}
+
 .hero-section {
   display: flex;
   min-height: calc(100vh - 80px); // Full viewport height minus navbar
