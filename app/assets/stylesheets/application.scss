@@ -13,8 +13,8 @@
 @import "pages/index";
 @import "pages/matches";
 
-:root {
-  --bs-heading-color: #201f1d;
+h1, h2, h3, h4, h5, h6 {
+  color: $black;
 }
 
 body {

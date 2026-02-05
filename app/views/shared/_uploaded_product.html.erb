@@ -1,0 +1,96 @@
+<div class="uploaded-product">
+  <div class="uploaded-product__main">
+    <div class="img-container">
+      <% item_image_url = @search.item_image.presence&.gsub(/^\[?"?/, '')&.gsub(/"?\]?$/, '') %>
+      <% if item_image_url.present? && item_image_url.start_with?('//') %>
+        <%= image_tag("https:#{item_image_url}", alt: @search.item_name || "Uploaded item", class: "product-image-sm") %>
+      <% elsif item_image_url.present? && item_image_url.start_with?('http') %>
+        <%= image_tag(item_image_url, alt: @search.item_name || "Uploaded item", class: "product-image-sm") %>
+      <% else %>
+        <%= image_tag("placeholder_outfit.png", alt: "Uploaded item", class: "product-image-sm") %>
+      <% end %>
+    </div>
+
+    <div class="uploaded-product__details">
+
+      <div class="uploaded_product__item">
+        <p class="uploaded_product__label">
+        Brand
+        </p>
+        <p class="uploaded_product__value">
+          <%= @brand_info&.name || @search.clothing_brand || "Unknown" %>
+        </p>
+      </div>
+
+      <div class="uploaded_product__item">
+        <p class="uploaded_product__label">
+          Product type
+        </p>
+        <p class="uploaded_product__value">
+          <%= @search.clothing_colour %> <%= @search.clothing_item %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="uploaded-details">
+    <% if @brand_info.present? %>
+      <h6>Sustainability score</h6>
+      <div class="rating-item">
+        <div class="rating-item__label">Overall</div>
+          <div>
+            <% @brand_info.overall_rating.times do %>
+              <i class="fa-solid fa-leaf rating-item__icon rating-icon--green"></i>
+            <% end %>
+            <% (5 - @brand_info.overall_rating).times do %>
+              <i class="fa-solid fa-leaf rating-item__icon rating-icon--gray"></i>
+            <% end %>
+          </div>
+      </div>
+
+      <hr>
+
+      <div class="rating-item">
+        <div class="rating-item__label">People</div>
+          <div class="icons-sidebar-wrapper">
+            <% @brand_info.people_rating.times do %>
+              <i class="fa-solid fa-child rating-item__icon rating-icon--green"></i>
+            <% end %>
+            <% (5 - @brand_info.people_rating).times do %>
+              <i class="fa-solid fa-child rating-item__icon rating-icon--gray"></i>
+            <% end %>
+          </div>
+      </div>
+
+      <hr>
+
+      <div class="rating-item">
+        <div class="rating-item__label">Animals</div>
+          <div>
+            <% @brand_info.animals_rating.times do %>
+              <i class="fa-solid fa-paw rating-icon rating-item__icon rating-icon--green"></i>
+            <% end %>
+            <% (5 - @brand_info.animals_rating).times do %>
+              <i class="fa-solid fa-paw rating-icon rating-icon--gray"></i>
+            <% end %>
+          </div>
+      </div>
+
+      <hr>
+
+      <div class="rating-item">
+        <div class="rating-item__label">Planet</div>
+          <div>
+            <% @brand_info.planet_rating.times do %>
+              <i class="fa-solid fa-earth-americas rating-item__icon rating-icon--green"></i>
+            <% end %>
+            <% (5 - @brand_info.planet_rating).times do %>
+              <i class="fa-solid fa-earth-americas rating-item__icon rating-icon--gray"></i>
+            <% end %>
+          </div>
+      </div>
+    <% else %>
+      <p class="text-muted small">Brand not in database — ratings unavailable.</p>
+    <% end %>
+  </div>
+</div>

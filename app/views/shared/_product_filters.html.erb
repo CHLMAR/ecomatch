@@ -5,43 +5,52 @@
       filter_form_target: "form"
     },
     class: "filters mb-4" do %>
-  <div class="row g-3">
-    <div class="col-md-3 first-input-field">
-      <%= label_tag :clothing_item, "CLOTHING ITEM", class: "form-label" %>
-      <%= select_tag :clothing_item,
-          options_for_select(
-            [["Any", ""]] + ComparisonProduct.valid_clothing_items.map { |item| [item.titleize, item] },
-            params[:clear].present? ? nil : (params[:clothing_item] || local_assigns[:search]&.clothing_item)
-          ),
-          class: "form-select",
-          data: { action: "change->filter-form#submit" } %>
+
+  <div class="all-filters">
+    <div class="selectors-group">
+
+        <div class="col-md-3 first-input-field">
+          <%= label_tag :clothing_item, "CLOTHING ITEM", class: "form-label" %>
+          <%= select_tag :clothing_item,
+              options_for_select(
+                [["Any", ""]] + ComparisonProduct.valid_clothing_items.map { |item| [item.titleize, item] },
+                params[:clear].present? ? nil : (params[:clothing_item] || local_assigns[:search]&.clothing_item)
+              ),
+              class: "form-select",
+              data: { action: "change->filter-form#submit" } %>
+        </div>
+
+        <div class="col-md-3">
+          <%= label_tag :clothing_colour, "COLOUR", class: "form-label" %>
+          <%= text_field_tag :clothing_colour,
+              params[:clear].present? ? nil : (params[:clothing_colour] || local_assigns[:search]&.clothing_colour&.capitalize),
+              class: "form-control",
+              placeholder: "e.g. Blue, Red",
+              data: { action: "input->filter-form#debounceSubmit" } %>
+        </div>
+
+        <div class="col-md-3">
+          <%= label_tag :clothing_material, "MATERIAL", class: "form-label" %>
+          <%= text_field_tag :clothing_material, params[:clothing_material],
+              class: "form-control",
+              placeholder: "e.g. Cotton, Wool",
+              data: { action: "input->filter-form#debounceSubmit" } %>
+        </div>
+
+        <div class="col-md-3 dropdown-rating">
+          <%= label_tag :overall_rating, "MIN RATING", class: "form-label" %>
+          <%= select_tag :overall_rating,
+              options_for_select([["Any", ""], ["1+", 1], ["2+", 2], ["3+", 3], ["4+", 4], ["5", 5]],
+              params[:overall_rating]),
+              class: "form-select",
+              data: { action: "change->filter-form#submit" } %>
+        </div>
+
     </div>
-    <div class="col-md-3 dropdowns-group">
-      <%= label_tag :clothing_colour, "COLOUR", class: "form-label" %>
-      <%= text_field_tag :clothing_colour,
-          params[:clear].present? ? nil : (params[:clothing_colour] || local_assigns[:search]&.clothing_colour&.capitalize),
-          class: "form-control",
-          placeholder: "e.g. Blue, Red",
-          data: { action: "input->filter-form#debounceSubmit" } %>
+
+    <div class="mt-3 filters-buttons">
+      <%= submit_tag "Search", class: "eco-btn eco-btn--primary btn-search" %>
+      <%= link_to "Clear", clear_url, class: "btn-clear", data: { turbo_frame: local_assigns[:turbo_frame] || "_top" } %>
     </div>
-    <div class="col-md-3">
-      <%= label_tag :clothing_material, "MATERIAL", class: "form-label" %>
-      <%= text_field_tag :clothing_material, params[:clothing_material],
-          class: "form-control",
-          placeholder: "e.g. Cotton, Wool",
-          data: { action: "input->filter-form#debounceSubmit" } %>
-    </div>
-    <div class="col-md-3 dropdown-rating">
-      <%= label_tag :overall_rating, "MIN RATING", class: "form-label" %>
-      <%= select_tag :overall_rating,
-          options_for_select([["Any", ""], ["1+", 1], ["2+", 2], ["3+", 3], ["4+", 4], ["5", 5]],
-          params[:overall_rating]),
-          class: "form-select",
-          data: { action: "change->filter-form#submit" } %>
-    </div>
-  </div>
-  <div class="mt-3 filters-buttons">
-    <%= submit_tag "Search", class: "eco-btn eco-btn--primary btn-search" %>
-    <%= link_to "Clear", clear_url, class: "btn-clear", data: { turbo_frame: local_assigns[:turbo_frame] || "_top" } %>
   </div>
 <% end %>

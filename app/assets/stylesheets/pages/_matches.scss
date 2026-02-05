@@ -1,5 +1,16 @@
+.row {
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 .uploaded-product-sidebar {
-  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 25% !important;
+  background-color: $sand;
+  flex: 0 0 auto;
 }
 
 h1 {
@@ -19,22 +30,32 @@ h5 {
   font-weight: bold;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
+
+/* ------- INDEX VIEW ------- */
 // .results-section__filters form .first-input-field:first-of-type {
 //   display: none;
 // }
-
 .matches-section {
+  flex: 0 0 auto;
   padding: 40px 20px;
+  width: 75% !important;
+  min-height: 100vh;
 }
 
 .card-product-lg {
   overflow: hidden;
   margin: 10px 0 52px 0;
   height: 480px;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-card-show {
@@ -143,9 +164,13 @@ a{
 }
 
 .filters {
-  display: flex;
-  justify-content: flex-start;
   gap: 20px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 40px !important;
+}
+
+.filters {
   width: 100%;
   margin-top: 30px;
   margin-bottom: 40px !important;
@@ -160,7 +185,7 @@ a{
 .matches-list {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-between;
   flex-wrap: wrap;
   column-gap: 1.3rem;
   row-gap: 2rem;
@@ -173,7 +198,7 @@ a{
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 40px 30px 40px 40px;
+  padding: 10px 30px 40px 40px;
 
   h4 {
     padding-bottom: 20px;
@@ -185,10 +210,6 @@ a{
     margin-bottom: 0;
     height: fit-content;
   }
-}
-
-.uploaded-product-sidebar {
-  background-color: $sand;
 }
 
 .uploaded_product__label {
@@ -260,40 +281,117 @@ a{
   flex-direction: column;
 }
 
-
 .results-section {
-  padding-left: 14px;
+  min-width: 0;
+  padding: 0 80px;
 }
 
-.card-product-lg .col-4 {
+.card-product-lg {
   object-fit: cover;
 }
 
-// Shared grid: same spacing as Wishlist; less space between cards in one line (horizontal)
-.product-cards-grid {
-  --bs-gutter-x: 0.125rem;
-  --bs-gutter-y: 0.25rem;
+.rating-wrapper {
+  display: flex;
+  flex-direction: row;
+  border-top: solid 1.5px;
+  width: 100%;
+  height: 200px;
+  margin-top: 20px;
 }
 
-.rating-icon--green {
-  color: $green;
+.rating-comparison {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-size: 60px;
+    padding: 0;
+    margin: 0;
+  }
 }
 
-.rating-icon--gray {
-  color: rgba($gray, .5);
+.general-rating__score {
+    height: -webkit-fill-available;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  .fa-leaf {
+    font-size: 28px !important;
+  }
 }
 
-.link-back {
-  color: $green;
-  text-decoration: none;
+.rating-cat__title {
+  color: $black;
+  font-size: 16px;
 }
 
+.rating-cat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 12px;
+  justify-content: space-between;
+  width: 100%;
+  height: 80% !important;
+
+  p {
+    align-items: center;
+    margin-bottom: 0;
+  }
+}
+
+.fa-child {
+  font-size: 22px !important;
+  padding-left: 2px;
+}
+
+.fa-solid {
+  padding-left: 2px;
+}
+.rating-cat__item {
+  padding: 0 16px;
+}
+
+.other-ratings {
+  display: flex;
+  width: 100%;
+  margin-left: 40px;
+  justify-content: space-between;
+  height: 100%;
+  padding: 10px 0;
+}
+
+hr {
+  margin: 0;
+  color: $gray;
+}
+
+.rating-label {
+  align-content: center;
+  align-items: baseline;
+  padding-left: 10px;
+
+  p {
+    margin-bottom: 0 !important;
+  }
+}
+
+
+/* sidebar tabs */
 .tab-content {
   width: 100%;
 }
 
-.brand-tabs__nav .nav-link {
-  padding-left: 0 !important;
+.brand-tabs__nav {
+  padding: 20px 40px;
+  height: 42px;
+  width: 100%;
+  font-weight: 600;
+  align-content: center;
+
 }
 
 .tabs-header {
@@ -321,12 +419,70 @@ a{
   color: $dark-green;
 }
 
-.link-back {
-  padding: 20px 0 12px 0;
+.new-search-partial {
+  padding: 20px 30px 40px 40px;
 }
 
+.input-card-label span {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
 
+.input-group {
+  padding-top: 10px !important;
+}
 
+.file-placeholder {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(#8d4c10c9, .4);
+  line-height: 1.3;
+}
+
+.input#file-upload-button {
+  height: 100%;
+  width: 100%;
+}
+
+.new-search-partial {
+    padding: 10px 30px 40px 40px;
+}
+
+.file-input-wrapper {
+    flex-direction: row;
+    background-color: rgba(rgb(192, 154, 98), .1);
+    border-color: rgba(#8d4c10c9, .2);
+    gap: .4rem;
+    i {
+      font-size: 1.7rem;
+      color: rgba(#8d4c10c9, .4);
+    }
+  }
+
+.file-input-display {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.input-divider {
+  padding-top: 0;
+  margin-bottom: .8rem;
+}
+
+.input-divider span {
+  font-size: 10px;
+  color: rgba($gray, .7);
+}
+
+.input-divider::before,
+.input-divider::after {
+  background-color: rgba($gray, .3);
+}
+
+/* ------- SHOW VIEW ------- */
 .similar-wrapper {
   position: relative;
 }
@@ -373,13 +529,132 @@ a{
   right: -20px;
 }
 
-/* opcional: esconder scrollbar */
+/* optional: hides scrollbar */
 .similar-scroll::-webkit-scrollbar {
   display: none;
 }
 
-.truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* ------- OTHERS ------- */
+
+// My Searches page: search cards
+.search-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Search cards: same fixed size as product cards (250×435) so My Searches matches My Wishlist
+.search-card .card-match {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 250px;
+  height: 435px;
+  min-width: 0;
+}
+
+.search-card .card-image {
+  height: 300px;
+  flex-shrink: 0;
+}
+
+// Shared grid: same spacing as Wishlist; less space between cards in one line (horizontal)
+.product-cards-grid {
+  --bs-gutter-x: 0.125rem;
+  --bs-gutter-y: 0.25rem;
+}
+
+// Only on My Searches: zoom image slightly so any white padding in the uploaded image is cropped (wishlist unchanged)
+.search-card .card-image .card-img {
+  transform: scale(1.12);
+}
+
+.search-card__infos {
+  padding: 12px 12px 16px;
+  margin: 0 12px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: #272727;
+}
+
+.search-card__subtitle {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0 0 12px;
+  color: #666;
+}
+
+.search-card__cta-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.search-card__cta.eco-btn {
+  pointer-events: none;
+}
+
+.rating-icon--green {
+  color: $green;
+}
+
+.rating-icon--gray {
+  color: rgba($gray, .5);
+}
+
+.link-back {
+  color: $green;
+  text-decoration: none;
+}
+
+.link-back {
+  padding: 20px 0 12px 0;
+}
+
+
+
+// My Searches page structure (mirrors .page-wishlist)
+.page-searches {
+  .page-searches__title {
+    margin-bottom: 0.25rem;
+  }
+
+  .page-searches__subtitle {
+    color: $gray;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-searches__col {
+    margin-bottom: 0;
+  }
+
+  .page-searches__empty-text {
+    margin-bottom: 1rem;
+  }
+
+  .page-searches__empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .page-searches__empty-or {
+    color: $gray;
+    font-size: 0.9375rem;
+  }
+}
+
+
+.row {
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start;
 }
