@@ -1,66 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Something Went Wrong | EcoMatch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    body {
+      font-family: "Urbanist", sans-serif;
+      background-color: #F9F8F7;
+      color: #3E3E3E;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .navbar {
+      background-color: #ffffff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    .navbar a {
+      text-decoration: none;
+    }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .navbar img {
+      height: 40px;
+    }
+
+    .logo-text {
+      font-family: "Libre Baskerville", serif;
+      font-size: 1.5rem;
+      color: #6B9474;
+      font-weight: 700;
+    }
+
+    .error-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .error-code {
+      font-family: "Libre Baskerville", serif;
+      font-size: 8rem;
+      font-weight: 700;
+      color: #92B495;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .error-title {
+      font-family: "Libre Baskerville", serif;
+      font-size: 2rem;
+      color: #6B9474;
+      margin-bottom: 1rem;
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      color: #858585;
+      max-width: 500px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .leaf-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-home {
+      display: inline-block;
+      background-color: #6B9474;
+      color: #ffffff;
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-home:hover {
+      background-color: #3a6645;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      background-color: #457952;
+      color: #ffffff;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    .footer a {
+      color: #C5F1C9;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .error-code {
+        font-size: 5rem;
+      }
+
+      .error-title {
+        font-size: 1.5rem;
+      }
+
+      .error-message {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
+<body>
+  <nav class="navbar">
+    <a href="/">
+      <span class="logo-text">EcoMatch</span>
+    </a>
+  </nav>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  <main class="error-container">
+    <div class="error-code">500</div>
+    <h1 class="error-title">Something Went Wrong</h1>
+    <p class="error-message">
+      We're experiencing some technical difficulties. Please try again in a moment.
+    </p>
+    <a href="/" class="btn-home">Back to Home</a>
+    <p class="retry-text">If the problem persists, please try refreshing the page.</p>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 EcoMatch.</p>
+  </footer>
 </body>
 </html>

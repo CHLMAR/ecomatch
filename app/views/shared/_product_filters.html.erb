@@ -10,7 +10,7 @@
     <div class="selectors-group">
 
         <div class="col-md-3 first-input-field">
-          <%= label_tag :clothing_item, "CLOTIHING ITEM", class: "form-label" %>
+          <%= label_tag :clothing_item, "CLOTHING ITEM", class: "form-label" %>
           <%= select_tag :clothing_item,
               options_for_select(
                 [["Any", ""]] + ComparisonProduct.valid_clothing_items.map { |item| [item.titleize, item] },

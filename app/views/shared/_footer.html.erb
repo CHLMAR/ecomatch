@@ -1,12 +1,30 @@
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column footer-brand">
+      <h1>EcoMatch</h1>
+    </div>
+
+    <div class="footer-column footer-social">
+      <h3>Join Our Community</h3>
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-column footer-connect">
+      <h3>Connect</h3>
+      <ul class="footer-nav">
+        <li><%= link_to "About Us", about_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
+      </ul>
+    </div>
   </div>
+
   <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon by EcoMatch Team
   </div>
-</div>
+</footer>
