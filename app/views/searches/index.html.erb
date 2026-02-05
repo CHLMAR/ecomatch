@@ -4,9 +4,9 @@
     <p class="page-searches__subtitle"><%= @searches.size %> searched <%= 'item'.pluralize(@searches.size) %></p>
 
     <% if @searches.any? %>
-      <div class="row page-searches__grid product-cards-grid">
+      <div class="page-searches__grid">
         <% @searches.each do |search| %>
-          <div class="col-md-3 col-sm-6 page-searches__col">
+          <div class="page-searches__col">
             <%= render "shared/search_card", search: search %>
           </div>
         <% end %>
